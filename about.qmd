@@ -19,7 +19,7 @@ about:
 library(distilltools)
 ```
 
-<marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
 
 # Robert W. Walker, Ph. D.

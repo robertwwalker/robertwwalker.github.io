@@ -15,10 +15,10 @@ about:
 
 ---
 
-<marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
 
-# Contact Robert
+# Contact {{< fa brands r-project >}}obert
 
 :::: {.columns}
 ::: {.column width="30%"}

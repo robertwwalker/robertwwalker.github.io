@@ -4,21 +4,21 @@
     "href": "where.html",
     "title": "Where",
     "section": "",
-    "text": "robertwwalker.github.io \n\n\n\n\nContact Robert\n\n\n\nAppointments\nEmail\n\nZoom\nGoogle Scholar\nOffice Hours: 1300 to 1500 Pacific time on Wednesdays"
+    "text": "obertwwalker.github.io \n\n\n\n\nContact obert\n\n\n\nAppointments\nEmail\n\nZoom\nGoogle Scholar\nOffice Hours: 1300 to 1500 Pacific time on Wednesdays"
   },
   {
     "objectID": "posts/Another Post/index.html#imgpalr",
     "href": "posts/Another Post/index.html#imgpalr",
     "title": "Pigeons and Palettes",
     "section": "imgpalr",
-    "text": "imgpalr\nR has a package called imgpalr that will extract colors from an image. If I need to, it is install.packages(\"imgpalr\").\nIn the following code chunk, I will load the package and then I want to point it to the pigeon image that I downloaded. In my case, it is in the same directory as the R Markdown file and is called Pigeon.png.\nInside the command image_pal(), I point it to an image, I specify how many colors [5], what type of color scheme, I want qualitative, and then some characteristics of the colors. The plot will show me the image alongside the palette though it is upside down.\n\n\nShow the code\nlibrary(imgpalr)\nPigeon.colors <- image_pal(\"img/Pigeon.png\", # This will need to be adjusted to the actual file location on your computer.  Mine is in my downloads.\n          n = 5, # How many colors?\n          type = \"qual\", # Type of palette?\n          saturation = c(0.75, 1), \n          brightness = c(0.75, 1), \n          plot = TRUE, # Show the image and the palette?\n          bw = c(0.7, 0.95)\n          )\n\n\n\n\n\nShow the code\nPigeon.colors\n\n\n[1] \"#D5A0F0\" \"#A0B3E5\" \"#FFB3D5\" \"#DFC19D\" \"#F18EE8\"\n\n\nNow I have a palette in the markdown environment called Pigeon.colors."
+    "text": "imgpalr\nR has a package called imgpalr that will extract colors from an image. If I need to, it is install.packages(\"imgpalr\").\nIn the following code chunk, I will load the package and then I want to point it to the pigeon image that I downloaded. In my case, it is in the same directory as the R Markdown file and is called Pigeon.png.\nInside the command image_pal(), I point it to an image, I specify how many colors [5], what type of color scheme, I want qualitative, and then some characteristics of the colors. The plot will show me the image alongside the palette though it is upside down.\n\n\nShow the code\nlibrary(imgpalr)\nPigeon.colors <- image_pal(\"img/Pigeon.png\", # This will need to be adjusted to the actual file location on your computer.  Mine is in my downloads.\n          n = 5, # How many colors?\n          type = \"qual\", # Type of palette?\n          saturation = c(0.75, 1), \n          brightness = c(0.75, 1), \n          plot = TRUE, # Show the image and the palette?\n          bw = c(0.7, 0.95)\n          )\n\n\n\n\n\nShow the code\nPigeon.colors\n\n\n[1] \"#F289E3\" \"#E5DD97\" \"#FFB3D5\" \"#9AB9E9\" \"#D0A0EC\"\n\n\nNow I have a palette in the markdown environment called Pigeon.colors."
   },
   {
     "objectID": "posts/Another Post/index.html#data-to-plot",
     "href": "posts/Another Post/index.html#data-to-plot",
     "title": "Pigeons and Palettes",
     "section": "Data to plot",
-    "text": "Data to plot\nNow I need some data; I want five categories to match my palette. The rest is junk.\n\n\nShow the code\nJunk.data <- data.frame(Stuff=c(\"Hi\",\"Howdy\",\"Hello\",\"Hola\",\"Hallo\"), vals = runif(5, 0.4, 1))\nJunk.data\n\n\n  Stuff      vals\n1    Hi 0.5022881\n2 Howdy 0.9372599\n3 Hello 0.9663400\n4  Hola 0.8390613\n5 Hallo 0.8154636\n\n\nI want to graph it using a barplot equivalent because I have the height of the bars in vals. Let me use the fill aesthetic to fill the bars in by the five discrete things stored as Stuff. The trick to using it is to manually specify the colors and point it to the Pigeon.colors above.\n\n\nShow the code\nlibrary(ggplot2)\nggplot(Junk.data) + aes(x=Stuff, y=vals, fill=Stuff) + geom_col() + scale_fill_manual(values = Pigeon.colors) + hrbrthemes::theme_ipsum_rc()"
+    "text": "Data to plot\nNow I need some data; I want five categories to match my palette. The rest is junk.\n\n\nShow the code\nJunk.data <- data.frame(Stuff=c(\"Hi\",\"Howdy\",\"Hello\",\"Hola\",\"Hallo\"), vals = runif(5, 0.4, 1))\nJunk.data\n\n\n  Stuff      vals\n1    Hi 0.5613446\n2 Howdy 0.6896407\n3 Hello 0.4568750\n4  Hola 0.6247518\n5 Hallo 0.8638390\n\n\nI want to graph it using a barplot equivalent because I have the height of the bars in vals. Let me use the fill aesthetic to fill the bars in by the five discrete things stored as Stuff. The trick to using it is to manually specify the colors and point it to the Pigeon.colors above.\n\n\nShow the code\nlibrary(ggplot2)\nggplot(Junk.data) + aes(x=Stuff, y=vals, fill=Stuff) + geom_col() + scale_fill_manual(values = Pigeon.colors) + hrbrthemes::theme_ipsum_rc()"
   },
   {
     "objectID": "posts/A Data Visualization/index.html",
@@ -32,7 +32,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "robertwwalker.github.io \n\n\n\n\nA link to Robert’s academic website\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPigeons and Palettes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoFacets of Credit Quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "obertwwalker.github.io \n\n\n\n\nA link to Robert’s academic website\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPigeons and Palettes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoFacets of Credit Quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html#links",
