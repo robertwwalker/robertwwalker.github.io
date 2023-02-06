@@ -1,20 +1,50 @@
 project:
   type: website
   output-dir: docs
+  title: "robertwwalker.github.io"
 
 website:
   title: "robertwwalker.github.io"
+  twitter-card: 
+    creator: "@PieRatio"
+  page-navigation: true
   navbar:
+    search: true
+    logo: "AGSMlogo.jpeg"
     right:
-      - about.qmd
+      - text: Home
+        icon: house
+        file: index.qmd
+      - file: about.qmd
+        icon: question
+        text: About
+      - file: where.qmd
+        icon: globe
+        text: Where      
       - icon: github
-        href: https://github.com/
+        href: https://github.com/robertwwalker
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/PieRatio
+
+# This footer was inspired by Andrew Heiss's website
+# I don't much care one way or the other about copyright here
+# But the license requires attribution.
+  page-footer:
+    left: |
+      <span class="faux-block">License: [{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-sa >}} Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</span>      
+    right: |
+      <span class="faux-block">{{< fa brands r-project >}} and [Quarto](https://quarto.org/)</span>
+      <span class="faux-block">[View the source at {{< fa brands github >}} GitHub]({{< var github-url >}})</span>
+
+
 format:
   html:
-    theme: sketchy
+    theme: morph
     css: styles.css
+    email-obfuscation: javascript
+    code-fold: true
+    code-summary: "Show the code"
+
 
 
 

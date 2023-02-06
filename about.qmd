@@ -1,19 +1,39 @@
 ---
-title: "About"
-image: profile.jpg
+title: About
 about:
-  template: jolla
+  template: marquee
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/PieRatio
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/robert-w-walker
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/robertwwalker
 
 ---
 
-About this blog
+
+<marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
+
+
+# Robert W. Walker, Ph. D.
+
+:::: {.columns}
+::: {.column width="40%"}
+![](RWW.jpeg)
+:::
+::: {.column width="10%"}
+
+:::
+::: {.column width="50%"}
+Robert W. Walker is an Associate Professor of Quantitative Methods in the [Atkinson Graduate School of Management](https://willamette.edu/mba/admission/index.html) at [Willamette University](https://willamette.edu/)
+
+He earned a Ph. D. in political science from the University of Rochester in 2005 and has previously held teaching positions at Dartmouth College, Rice University, Texas A&M University, and Washington University in Saint Louis. His current research develops and applies semi-Markov processes to time-series, cross-section data in international relations and international/comparative political economy. He teaches courses in quantitative methods/applied statistics and microeconomic strategy and previously taught four iterations in the U. S. National Science Foundation funded Empirical Implications of Theoretical Models sequence at Washington University in Saint Louis. His work with Curt Signorino and Muhammet Bas was awarded the Miller Prize for the best article in Political Analysis in 2009.
+
+His web presence is [rww.science](https://rww.science) and his github is [https://github.com/robertwwalker](https://github.com/robertwwalker)
+        
+:::
+::::

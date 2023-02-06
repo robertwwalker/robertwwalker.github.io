@@ -1,0 +1,56 @@
+---
+title: Where
+title-block-banner-color: purple
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/PieRatio
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/robert-w-walker
+    - icon: github
+      text: Github
+      href: https://github.com/robertwwalker
+
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
+
+
+# Contact Robert
+
+:::: {.columns}
+::: {.column width="30%"}
+- [Appointments](https://rww.youcanbook.me)
+- <b>Email</b> <SCRIPT LANGUAGE="JavaScript">user = 'rwalker';site = 'willamette.edu';document.write('<a href=\"mailto:' + user + '@' + site + '\">');document.write(user + '@' + site + '</a>');</SCRIPT>
+- [Zoom](https://willametteuniversity.zoom.us/my/robertwalker){target="_blank"}
+- [Google Scholar](https://scholar.google.com/citations?user=FU8pL7sAAAAJ&hl)
+- **Office Hours: 1300 to 1500 Pacific time on Wednesdays**
+:::
+::: {.column width="20%"}
+        
+:::
+::: {.column width="50%"}
+```{r Map, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+content <- paste(sep = "<br/>",
+  "<b>Mudd Hall 401</b>",
+  "315 Winter St. SE",
+  "Salem, OR 97301",
+  "Enter Mudd Building",
+  "Take the 2nd floor Northeast stairs",
+  "Office 401 is two flights up, on Floor 4"
+)
+m <- leaflet() %>% 
+  setView(lng = -123.0339, lat = 44.9362, zoom = 15) %>%
+  addTiles() %>%
+  addPopups(-123.0339, 44.9362, content,
+    options = popupOptions(closeButton = FALSE)
+  )
+m
+```
+
+:::
+::::

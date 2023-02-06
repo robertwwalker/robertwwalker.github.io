@@ -1,19 +1,16 @@
 ---
-title: "robertwwalker.github.io"
+title: Home
 listing:
   contents: posts
   sort: "date desc"
-  type: default
-  categories: true
+  type: grid
+  categories: false
   sort-ui: false
   filter-ui: false
-page-layout: full
-title-block-banner: true
+page-layout: article
+title-block-banner: false 
 ---
 
-# Addition
+<marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
 
-Here I added something.
-
-
-<a href="http://rww.science/" target="_blank">Do you mean a link like this?</a>
+<h2><a href="http://rww.science/" target="_blank">A link to Robert's academic website</a></h2>
