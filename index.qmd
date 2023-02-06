@@ -13,4 +13,4 @@ title-block-banner: false
 
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
-<h2><a href="http://rww.science/" target="_blank">A link to Robert's academic website</a></h2>
+<h2><a href="http://rww.science/" target="_blank">A link to {{< fa brands r-project >}}obert's academic website</a></h2>

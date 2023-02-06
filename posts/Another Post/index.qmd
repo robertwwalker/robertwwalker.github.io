@@ -17,7 +17,7 @@ I want to color something with colors from that pigeon.  First, I have to get th
 
 ## `imgpalr`
 
-R has a package called `imgpalr` that will extract colors from an image.  If I need to, it is `install.packages("imgpalr")`.
+{{< fa brands r-project >}} has a package called `imgpalr` that will extract colors from an image.  If I need to, it is `install.packages("imgpalr")`.
 
 In the following code chunk, I will load the package and then I want to point it to the pigeon image that I downloaded.  In my case, it is in the same directory as the R Markdown file and is called `Pigeon.png`.
 
