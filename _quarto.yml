@@ -4,7 +4,9 @@ project:
   title: "robertwwalker.github.io"
 
 website:
-  title: "robertwwalker.github.io"
+  title: "{{< fa brands r-project >}}obertwwalker.github.io"
+  site-url: "https://robertwwalker.github.io"
+  repo-url: "https://github.com/robertwwalker/robertwwalker.github.io"
   twitter-card: 
     creator: "@PieRatio"
   page-navigation: true

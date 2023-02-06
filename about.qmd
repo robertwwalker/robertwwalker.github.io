@@ -15,6 +15,9 @@ about:
 
 ---
 
+```{r setup, include=FALSE}
+library(distilltools)
+```
 
 <marquee scrollamount="10"><h1><p style="color:purple;">robertwwalker.github.io <br></p></h1></marquee>
 
@@ -37,3 +40,67 @@ His web presence is [rww.science](https://rww.science) and his github is [https:
         
 :::
 ::::
+
+## Links
+
+### Twitter
+
+The #rstats hashtag is the best place to start on Twitter.
+
+`r icon_link(
+  icon = "twitter",
+  text = "#rstats",
+  url = "https://twitter.com/hashtag/rstats"
+)`
+
+### Mastodon
+
+R users are also on Mastodon, an open-source social network that is becoming increasingly popular.^[Danielle Navarro has an [excellent guide](https://blog.djnavarro.net/posts/2022-11-03_what-i-know-about-mastodon/){target="_blank"} for data science folks trying to navigate the fediverse.] The #rstats tag is most active on fosstodon.
+
+`r icon_link(
+  icon = "mastodon",
+  text = "fosstodon",
+  url = "https://fosstodon.org/"
+)`
+
+`r icon_link(
+  icon = "mastodon",
+  text = "mastodon.social",
+  url = "https://mastodon.social/"
+)`
+
+`r icon_link(
+  icon = "mastodon",
+  text = "#rstats",
+  url = "https://fosstodon.org/tags/rstats"
+)`
+
+### Data Science by Design
+
+(h/t) Ella Kaye for informing me of this.
+
+In her words, 
+
+::: {.callout-note}
+Data Science by Design (DSxD) celebrates creativity in data science and developing a more open, ethical, and inclusive future for data work. They run small conferences and an active slack group. They publish anthologies, both in print and online, collections of work by data designers, scientists, and artists, with each issue on a different theme.
+
+Link: [The site I borrowed the description from.](https://ellakaye.co.uk/community.html)
+:::
+
+`r icon_link(
+  icon = "globe",
+  text = "website",
+  url = "http://datasciencebydesign.org"
+)`
+
+`r icon_link(
+  icon = "twitter",
+  text = "Twitter",
+  url = "https://twitter.com/DataScixDesign"
+)`
+
+`r icon_link(
+  icon = "book",
+  text = "book",
+  url = "http://datasciencebydesign.org/book" 
+)`
