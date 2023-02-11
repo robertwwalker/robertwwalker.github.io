@@ -23,9 +23,6 @@ website:
       - file: where.qmd
         icon: globe
         text: Where      
-      - file: links.qmd
-        icon: link
-        text: Links      
       - icon: github
         href: https://github.com/robertwwalker
       - icon: twitter

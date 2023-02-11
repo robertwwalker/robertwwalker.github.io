@@ -2,10 +2,15 @@
 title: geoFacets of Credit Quality
 title-block-banner: false 
 image: "image.png"
+comments:
+   giscus: 
+      repo: robertwwalker/robertwwalker.github.io
 ---
 
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
+
+# A GeoFacet View of Credit Quality
 
 In previous work with Skip Krueger, we conceptualized bond ratings as a multiple rater problem and extracted measure of state level creditworthiness.  I had always had it on my list to do something like this and recently ran across a package called `geofacet` that makes it easy to do.  The end result should parse out state level credit risk and showcase the time series of credit risk for each of the states.
 

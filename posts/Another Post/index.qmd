@@ -2,6 +2,9 @@
 title: Pigeons and Palettes
 title-block-banner: false 
 image: "image.png"
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
 ---
 
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
