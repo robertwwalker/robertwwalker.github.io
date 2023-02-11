@@ -7,6 +7,7 @@ website:
   title: "{{< fa brands r-project >}}obertwwalker.github.io"
   site-url: "https://robertwwalker.github.io"
   repo-url: "https://github.com/robertwwalker/robertwwalker.github.io"
+  favicon: favicon.png
   twitter-card: 
     creator: "@PieRatio"
   page-navigation: true
