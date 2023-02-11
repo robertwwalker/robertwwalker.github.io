@@ -1,6 +1,11 @@
 ---
 title: Links
 toc: true
+toc-title: <br><br><br><br><br><br><br><br><br><br><br><br>Links Contents
+toc-location: right
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
 ---
 
 ```{r setup, include=FALSE}
@@ -10,9 +15,34 @@ library(distilltools)
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
 
-# Links
+## R for Data Science
 
-### Twitter
+From the front page of the second edition website.
+
+::: {.callout-tip}
+This book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it and visualize.
+:::
+
+`r icon_link(
+  icon = "book",
+  text = "R for Data Science (1st Edition)",
+  url = "https://r4ds.had.co.nz/"
+)`
+
+`r icon_link(
+  icon = "book",
+  text = "R for Data Science (2nd Edition)",
+  url = "https://r4ds.hadley.nz/"
+)`
+
+`r icon_link(
+  icon = "twitter",
+  text = "#r4ds",
+  url = "https://twitter.com/hashtag/r4ds"
+)`
+
+
+## Twitter
 
 The #rstats hashtag is the best place to start on Twitter.
 
@@ -22,7 +52,7 @@ The #rstats hashtag is the best place to start on Twitter.
   url = "https://twitter.com/hashtag/rstats"
 )`
 
-### Mastodon
+## Mastodon
 
 R users are also on Mastodon, an open-source social network that is becoming increasingly popular.^[Danielle Navarro has an [excellent guide](https://blog.djnavarro.net/posts/2022-11-03_what-i-know-about-mastodon/){target="_blank"} for data science folks trying to navigate the fediverse.] The #rstats tag is most active on fosstodon.
 
@@ -44,7 +74,7 @@ R users are also on Mastodon, an open-source social network that is becoming inc
   url = "https://fosstodon.org/tags/rstats"
 )`
 
-### Data Science by Design
+## Data Science by Design
 
 (h/t) Ella Kaye for informing me of this.
 

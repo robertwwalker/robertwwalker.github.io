@@ -42,10 +42,31 @@
     "text": "obertwwalker.github.io \n\n\n\n\nContact obert\n\n\n\nAppointments\nEmail\n\nZoom\nGoogle Scholar\nOffice Hours: 1300 to 1500 Pacific time on Wednesdays"
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
+    "objectID": "links.html#r-for-data-science",
+    "href": "links.html#r-for-data-science",
     "title": "Links",
-    "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nLinks\n\nTwitter\nThe #rstats hashtag is the best place to start on Twitter.\n #rstats\n\n\nMastodon\nR users are also on Mastodon, an open-source social network that is becoming increasingly popular.1 The #rstats tag is most active on fosstodon.\n fosstodon\n mastodon.social\n #rstats\n\n\nData Science by Design\n(h/t) Ella Kaye for informing me of this.\nIn her words,\n\n\n\n\n\n\nNote\n\n\n\nData Science by Design (DSxD) celebrates creativity in data science and developing a more open, ethical, and inclusive future for data work. They run small conferences and an active slack group. They publish anthologies, both in print and online, collections of work by data designers, scientists, and artists, with each issue on a different theme.\nLink: The site I borrowed the description from.\n\n\n website\n Twitter\n book\n\n\n\n\n\n\nFootnotes\n\n\nDanielle Navarro has an excellent guide for data science folks trying to navigate the fediverse.↩︎"
+    "section": "R for Data Science",
+    "text": "R for Data Science\nFrom the front page of the second edition website.\n\n\n\n\n\n\nTip\n\n\n\nThis book will teach you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it and visualize.\n\n\n R for Data Science (1st Edition)\n R for Data Science (2nd Edition)\n #r4ds"
+  },
+  {
+    "objectID": "links.html#twitter",
+    "href": "links.html#twitter",
+    "title": "Links",
+    "section": "Twitter",
+    "text": "Twitter\nThe #rstats hashtag is the best place to start on Twitter.\n #rstats"
+  },
+  {
+    "objectID": "links.html#mastodon",
+    "href": "links.html#mastodon",
+    "title": "Links",
+    "section": "Mastodon",
+    "text": "Mastodon\nR users are also on Mastodon, an open-source social network that is becoming increasingly popular.1 The #rstats tag is most active on fosstodon.\n fosstodon\n mastodon.social\n #rstats"
+  },
+  {
+    "objectID": "links.html#data-science-by-design",
+    "href": "links.html#data-science-by-design",
+    "title": "Links",
+    "section": "Data Science by Design",
+    "text": "Data Science by Design\n(h/t) Ella Kaye for informing me of this.\nIn her words,\n\n\n\n\n\n\nNote\n\n\n\nData Science by Design (DSxD) celebrates creativity in data science and developing a more open, ethical, and inclusive future for data work. They run small conferences and an active slack group. They publish anthologies, both in print and online, collections of work by data designers, scientists, and artists, with each issue on a different theme.\nLink: The site I borrowed the description from.\n\n\n website\n Twitter\n book"
   }
 ]
