@@ -1,0 +1,147 @@
+---
+title: Human Rights Protections--Tables
+bibliography: ["bibliography.bib","citations.bib"]
+nocite: |
+     @*
+title-block-banner: false 
+image: "image.png"
+code-fold: true
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+
+# Human Rights Data
+
+Chris Fariss of the University of Michigan has done some very interesting work on human rights protection.  You can find tons of stuff on his work on [his website](http://cfariss.com).  I want to make a table of the data.
+
+## Load the Data and Libraries
+
+```{r}
+library(tidyverse)
+library(magrittr)
+library(DT)
+library(gt)
+library(gtExtras)
+# install with remotes::install_github("jimjam-slam/ggflags")
+library(countrycode)
+library(ggflags) 
+load("data/HumanRightsProtectionScores_v4.01.Rdata")
+HR.Data <- x
+rm(x)
+HR.Data <- HR.Data %>% left_join(., codelist, by= c("COW" = "cown"))
+```
+Let me now put the data into a browseable table.
+
+## A Browsable DataTable
+
+This is a **panel data** structure with two dimensions: countries and years.  As a result, though there are not all that many countries in the world, each country is potentially repeated up to 74 times [1946 to 2019].  The filter boxes at the bottom allow you to select ranges of the quantitative indicators.
+
+```{r}
+HR.Data %<>% 
+  mutate(country.name.en = as.factor(country.name.en))
+HR.Data %>% 
+    arrange(country.name.en, YEAR) %>%
+  select(`Country` = country.name.en, `Year` = YEAR, `Human Rights (mean)` = theta_mean, `Human Rights (std. dev.)` = theta_sd, `Killing (mean)` = killing_estimate_mean, `Killing (median)` = killing_estimate_median) %>%
+  datatable(., filter = "bottom", extensions = 'Buttons', options = list(
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel'), 
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#131F4F', 'color': '#fff'});",
+    "}")
+)) %>%
+  formatRound(., 3:6)
+  
+```
+
+## A Starter Table
+
+```{r}
+HR.Summary <- HR.Data %>% 
+  group_by(country.name.en) %>% 
+  mutate(Obs = n()) %>% 
+  filter(Obs==74) %>% 
+  summarise(Obs = mean(Obs), 
+            Mean = mean(theta_mean, na.rm=TRUE), 
+            SD = sd(theta_mean)
+            )
+HR.Summary %>% mutate(Country = country.name.en) %>%
+  select(-country.name.en) %>% 
+  relocate(Country, .before=Obs) %>% 
+  gt() %>%
+  cols_label(SD = "Std. Dev.")
+```
+
+## Improving the Table
+
+I want to add some things to this.  I want a spanning header for the three bits of actual human rights data that I am using.  I also want a list column of the data to feed to the sparkline function to generate the time series plot.  I found a file of flags on my hard drive that I got from somewhere and I want to deploy them in the table.  I will also round the digits
+
+```{r}
+library(countrycode)
+Flags <- read.csv("data/flags_iso.csv")
+HR.Summary <- HR.Data %>% 
+  group_by(country.name.en) %>% 
+  mutate(Obs = n()) %>% 
+  filter(Obs==74) %>%
+  arrange(YEAR) %>%
+  summarise(Obs = mean(Obs), 
+            Mean = mean(theta_mean, na.rm=TRUE), 
+            SD = sd(theta_mean), 
+            hr_data = list(theta_mean),
+            .groups = "drop")
+CCs <- codelist %>% select(country.name.en, iso3c)
+HR.Summary <- HR.Summary %>% 
+  left_join(., CCs) %>%
+  left_join(., Flags, 
+            by=c("iso3c" = "Alpha.3.code")) %>%
+  select(-iso3c, -Country, -Alpha.2.code) %>%
+  relocate(., URL, .after=country.name.en)
+My.Table <- HR.Summary %>%
+  gt() %>%
+# format the numeric output to 3 digit rounding  
+  fmt_number(columns = c(Mean, SD),
+             decimals = 3) %>%
+# create nice labels for a few ugly variable names
+  cols_label(country.name.en = "Country",
+             SD = "Std. Dev.",
+             hr_data = "Time Series Plot",
+             URL = "Flag") %>%
+# Plot the sparklines from the list column
+  gt_plt_sparkline(hr_data, 
+                   type="ref_median", 
+                   same_limit = TRUE
+                   ) %>%
+# Plot the flags from the included URL's in the data
+  gt_img_rows(URL, img_source = "web", height = 30) %>%
+# use the guardian's table theme
+  gt_theme_guardian() %>% 
+# give hulk coloring to the Mean Human Rights Score
+  gt_hulk_col_numeric(Mean) %>%
+# create a header and subheader
+  tab_header(title="Human Rights Data Summary", subtitle = "Data from Fariss (2020)") %>%
+# create the spanner heading
+  tab_spanner(label = "Human Rights Measures",
+    columns = c(
+      Mean, SD, hr_data)
+    )
+# save the original as an image
+gtsave(My.Table, "Table.png")
+# show the table themed in accordance with the page
+My.Table
+```
+
+![Image of Table](Table.png)
+
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```

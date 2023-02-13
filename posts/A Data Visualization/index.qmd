@@ -1,5 +1,8 @@
 ---
 title: geoFacets of Credit Quality
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 title-block-banner: false 
 image: "image.png"
 comments:
@@ -67,4 +70,9 @@ Res1 %>% ggplot(., aes(x=year, y=Credit.Quality, group=state)) +
 
 
 
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
 
