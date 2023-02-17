@@ -14,6 +14,26 @@ library(distilltools)
 
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
+## Data
+
+- [Our World in Data](https://ourworldindata.org)
+- [Kaggle](https://www.kaggle.com)
+- [#tidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- [Though dated, an amazing resource from kdnuggets](https://www.kdnuggets.com/2017/12/big-data-free-sources.html)
+- [Harvard Dataverse](https://dataverse.harvard.edu)
+- [World Bank Open Data](https://data.worldbank.org)
+- [World Health Organization Open Data](https://www.who.int/gho/database/en/)
+- [Google public data explorer](https://www.google.com/publicdata/directory)
+- [Registry of Open Data on AWS](https://registry.opendata.aws)
+- [fivethirtyeight](https://data.fivethirtyeight.com)
+- [The US Census Bureau](https://www.census.gov/data.html)
+- [data.gov](https://data.gov)
+- [dbpedia](https://www.dbpedia.org)
+- [inside airbnb](http://insideairbnb.com/get-the-data/)
+- [yelp open data](https://www.yelp.com/dataset)
+- [UNICEF data](https://data.unicef.org)
+
+
 
 ## R for Data Science
 
