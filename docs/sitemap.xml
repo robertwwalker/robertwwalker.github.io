@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://robertwwalker.github.io/about.html</loc>
-    <lastmod>2023-02-17T12:47:57.830Z</lastmod>
-  </url>
-  <url>
-    <loc>https://robertwwalker.github.io/index.html</loc>
-    <lastmod>2023-02-17T12:47:58.190Z</lastmod>
-  </url>
-  <url>
-    <loc>https://robertwwalker.github.io/posts/A Data Visualization/index.html</loc>
-    <lastmod>2023-02-17T12:47:59.600Z</lastmod>
+    <loc>https://robertwwalker.github.io/where.html</loc>
+    <lastmod>2023-02-17T19:39:59.897Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/Pigeons-Pallettes/index.html</loc>
-    <lastmod>2023-02-17T12:48:00.580Z</lastmod>
+    <lastmod>2023-02-17T19:40:01.263Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/HumanRightsTable/index.html</loc>
-    <lastmod>2023-02-17T12:48:02.320Z</lastmod>
+    <lastmod>2023-02-17T19:40:02.885Z</lastmod>
   </url>
   <url>
-    <loc>https://robertwwalker.github.io/where.html</loc>
-    <lastmod>2023-02-17T12:48:03.180Z</lastmod>
+    <loc>https://robertwwalker.github.io/posts/A Data Visualization/index.html</loc>
+    <lastmod>2023-02-17T19:40:04.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/index.html</loc>
+    <lastmod>2023-02-17T19:40:04.377Z</lastmod>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/about.html</loc>
+    <lastmod>2023-02-17T19:40:09.127Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/links.html</loc>
-    <lastmod>2023-02-17T12:48:04.560Z</lastmod>
+    <lastmod>2023-02-17T19:40:10.353Z</lastmod>
   </url>
 </urlset>

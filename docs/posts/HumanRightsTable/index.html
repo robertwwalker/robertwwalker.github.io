@@ -269,7 +269,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="load-the-data-and-libraries">Load the Data and Libraries</h2>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
@@ -291,7 +291,7 @@ div.csl-indent {
 <p>This is a <strong>panel data</strong> structure with two dimensions: countries and years. As a result, though there are not all that many countries in the world, each country is potentially repeated up to 74 times [1946 to 2019]. The filter boxes at the bottom allow you to select ranges of the quantitative indicators.</p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>HR.Data <span class="sc">%&lt;&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country.name.en =</span> <span class="fu">as.factor</span>(country.name.en))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>HR.Data <span class="sc">%&gt;%</span> </span>
@@ -318,7 +318,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="a-starter-table">A Starter Table</h2>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>HR.Summary <span class="ot">&lt;-</span> HR.Data <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country.name.en) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Obs =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
@@ -1042,7 +1042,7 @@ div.csl-indent {
 <p>I want to add some things to this. I want a spanning header for the three bits of actual human rights data that I am using. I also want a list column of the data to feed to the sparkline function to generate the time series plot. I found a file of flags on my hard drive that I got from somewhere and I want to deploy them in the table. I will also round the digits</p>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Flags <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/flags_iso.csv"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>HR.Summary <span class="ot">&lt;-</span> HR.Data <span class="sc">%&gt;%</span> </span>
@@ -1961,7 +1961,7 @@ html {
 <h1>References</h1>
 <div class="cell">
 <details>
-<summary>Show the code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>

@@ -2,9 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/A Data Visualization/index.html",
       "/posts/Pigeons-Pallettes/index.html",
-      "/posts/HumanRightsTable/index.html"
+      "/posts/HumanRightsTable/index.html",
+      "/posts/A Data Visualization/index.html"
     ]
   }
 ]

@@ -49,7 +49,7 @@ format:
     css: styles.css
     email-obfuscation: javascript
     code-fold: true
-    code-summary: "Show the code"
+    code-summary: "How's that done?"
 
 
 

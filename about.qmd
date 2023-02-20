@@ -12,11 +12,13 @@ about:
     - icon: github
       text: Github
       href: https://github.com/robertwwalker
-
 ---
 
 ```{r setup, include=FALSE}
 library(distilltools)
+library(tidyverse)
+library(gt)
+library(gtExtras)
 ```
 
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
@@ -38,5 +40,39 @@ He earned a Ph. D. in political science from the University of Rochester in 2005
 
 His web presence is [rww.science](https://rww.science) and his github is [https://github.com/robertwwalker](https://github.com/robertwwalker)
         
+:::
+::::
+
+Robert's Erdos-Bacon Number is 8.
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+Bacon.Table <- data.frame(Film = c("She Came to the Valley", "Married to the Mob", "The Witches of Eastwick", "A Few Good Men"), Source = c("Robert Walker", "Dean Stockwell", "Michelle Pfeiffer", "Jack Nicholson"), FA = rep("arrow-right-long", 4), Target = c("Dean Stockwell", "Michelle Pfeiffer", "Jack Nicholson", "Kevin Bacon"), URL = c("https://upload.wikimedia.org/wikipedia/commons/3/3b/Dean_Stockwell_01_%286940352648%29.jpg","https://upload.wikimedia.org/wikipedia/commons/7/70/Michelle_Pfeiffer_2007.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ec/Jack_Nicholson_2001.jpg","https://upload.wikimedia.org/wikipedia/commons/9/98/Kevin_Bacon_Cannes_2004.jpg"))
+Res.1 <- Bacon.Table %>%
+  gt() %>%
+  gt_fa_column(FA) %>%
+  gt_img_rows(column = URL, img_source="web", height = 100) %>%
+  gt_theme_538() %>%
+  cols_label(FA = "", URL = "")  %>%
+  gt_add_divider(Film)  %>%
+  gtsave(., "Bacon.png", path="img/")
+Erdos.Table <- data.frame(Source = c("Robert Walker", "Itai Sened", "Norman Schofield", "Craig Tovey"), FA = rep("arrow-right-long", 4), Target = c("Itai Sened", "Norman Schofield", "Craig Tovey", "Paul Erdos"))
+Erdos.Table %>%
+    gt() %>%
+  gt_fa_column(FA) %>%
+  gt_theme_538() %>%
+  cols_label(FA = "") %>%
+  gtsave(., "Erdos.png", path="img/")
+```
+
+:::: {.columns}
+::: {.column width="30%"}
+![Erdos Table](img/Erdos.png)
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="60%"}
+![Bacon Table](img/Bacon.png)
 :::
 ::::
