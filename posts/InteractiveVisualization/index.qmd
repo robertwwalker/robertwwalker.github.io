@@ -282,13 +282,6 @@ bscols(widths=c(12,1,11,1,11),
   datatable(shared_bonds2))
 ```
 
-# On Presentations
-
-- I have used `reveal.js` since the beginning of the term.  There is a [slides repository on my github](https://github.com/robertwwalker/CWD-Slides) showing how I have done pretty much all of this.
-
-- The `pptx` functionality is pretty limited as is **PowerPoint**.  But it serves many useful purposes for Microsoft shops and that is very common.
-
-- If you want to know about `beamer` just ask.  I use `$\LaTeX$` for lots of things but that is a whole new [and arguably pretty useless] set of skills unless you need to give highly technical presentations with odd math formatting.
 
 # References
 
