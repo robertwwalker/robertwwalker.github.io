@@ -1,0 +1,299 @@
+---
+title: "Interactive Visualizations"
+author: "Robert W. Walker"
+date: "2023-02-20"
+image: "image.png"
+tags:
+  - R
+  - plot
+  - R Markdown
+  - tidyTuesday
+  - tidyverse
+  - girafe
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+format: 
+   html:
+     code-fold: true
+     code-copy: hover
+     code-block-border-left: true
+     df-print: paged
+     fig-format: retina
+     footnotes-hover: true
+     html-math-method: katex
+     toc: true
+     toc-title: Navigation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+Last updated: `r Sys.time()` 
+
+Timezone: `r Sys.timezone()`
+
+# Stocks and Plotly
+
+## The `plotly` package
+
+[`plotly` as a package has far more it can do.](https://plotly.com/r/)
+
+```{r}
+library(plotly); library(magrittr)
+library(tidyquant)
+# Use tidyquant to get the data
+INTC <- tq_get("INTC")
+# Slice off the most recent 90 days
+INTC.tail.90 <- tail(INTC, 90)
+INTC.tail <- INTC.tail.90
+# Create a counter of days
+INTC.tail$ID <- seq.int(nrow(INTC.tail))
+# Round the prices to 2 digits
+INTC.tail %<>% mutate(close = round(close, digits=2))
+```
+
+Now we want a function to create the dataset for each stage of the animation.  There are a few ways to do this but most involve writing a function to create them.  This example function comes from the plotly documents.
+
+```{r}
+# This is in the example for plotly paths
+# First a supporting function: getLevels takes input x
+getLevels <- function (x) {
+  # if x is a factor
+    if (is.factor(x)) 
+  # grab the levels of x
+        levels(x)
+  # if x is not a factor, sort unique values of x
+    else sort(unique(x))
+}
+# Two inputs, the data and the variable to form the splits along the x-axis
+accumulate_by <- function(dat, var) {
+  # This handles linking variables to their environment
+  var <- lazyeval::f_eval(var, dat)
+  # get the levels of the given variable using the function above
+  lvls <- getLevels(var)
+  # use lapply, tidy would use map to iterate over the levels in `lvls` and column bind the data with frame denotes by lvls[[x]]
+  dats <- lapply(seq_along(lvls), function(x) {
+   cbind(dat[var %in% lvls[seq(1, x)], ], frame = lvls[[x]])
+  })
+  # bind the rows together
+  dplyr::bind_rows(dats)
+}
+# Invoke the function on our ID variable
+INTC.tail <- INTC.tail %>% accumulate_by(~ID)
+# Create a figure of ID and close for each frame value using plotly's version of a line plot: type:scatter-mode:lines
+# The rest is standard plotly
+fig <- INTC.tail %>% plot_ly(
+  x = ~ID, 
+  y = ~close, 
+  frame = ~frame,
+  type = 'scatter', 
+  mode = 'lines', 
+  # This is short for fill to zero on the y-axis
+  fill = 'tozeroy',
+  fillcolor='rgba(73, 26, 201, 0.5)',
+  line = list(color = 'rgb(73, 26, 201)'),
+  text = ~paste("Date: ", date, "<br>Close: $", close), 
+  hoverinfo = 'text'
+)
+# Add the layout; one title and two axes
+# I also mess with the margin to keep the figure from being cut off.
+fig <- fig %>% layout(
+  title ="Intel Stock Closing Price: Last 90 Days",
+  yaxis = list(
+    title = "Close", 
+    range = c(0,50), 
+    zeroline = F,
+    tickprefix = "$"
+  ),
+  xaxis = list(
+    title = "Day", 
+    range = c(0,90), 
+    zeroline = F, 
+    showgrid = F
+  ),
+  margin = list(t=120) # adjust the plot margin to avoid cutting off letters
+) 
+# Animate the figure with 100 frames
+fig <- fig %>% animation_opts(
+  frame = 100, # transition time 100 ms
+  transition = 0, # duration of smooth transition in ms
+  redraw = FALSE # redraw the plot at each transition?
+)
+fig <- fig %>% animation_slider(
+  currentvalue = list(
+    prefix = "Day "
+  )
+)
+fig
+```
+
+### An easier plotly for these data because they are OHLC
+
+[A link to a stand-alone document with all the data.](https://robertwwalker.github.io/dadm-docs/plotly-OHLC/)  
+
+```{r}
+# basic example of ohlc charts
+# custom colors
+i <- list(line = list(color = '#000000')) # black
+d <- list(line = list(color = '#FF0000')) # red
+# Create the figure
+fig.2 <- INTC.tail.90 %>%
+  plot_ly(x = ~date, type="ohlc",
+          open = ~open, close = ~close,
+          high = ~high, low = ~low,
+          increasing = i, decreasing = d)
+fig.2
+```
+
+# some tidyTuesday
+
+The first two examples come from `tidyTuesday` on the Economist's Visualization Errors.  It is really great.  [My complete set of plots appears here.](https://rww.quarto.pub/dadm-faq/posts/economist-errors/)
+
+## Corbyn was a Facebook Engagement Machine
+
+The data are a small table.
+
+```{r}
+library(ggrepel)
+library(tidyverse) # call the tidyverse for %>% and ggplot
+library(ggthemes) # Use the economist theme
+library(ggiraph)
+library(DT)
+corbyn <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-16/corbyn.csv")
+datatable(corbyn)
+```
+
+### `ggiraph` of barplot and lollipop chart
+
+I want to plot this in a barplot that is linked with a lollipop chart.
+
+```{r}
+p1.Int <- ggplot(corbyn, aes(x=reorder(political_group,avg_facebook_likes), data_id=political_group, y=avg_facebook_likes, label=avg_facebook_likes, tooltip = paste0(political_group,"<br>",avg_facebook_likes, sep=""))) + 
+  geom_bar_interactive(stat="identity", fill="#DC241f") + 
+  geom_label(fill="#DC241f", color="#FFFFFF", size=3.5) +
+  labs(x="Associate of the Labour Party", y="Average Facebook Likes") +
+  hrbrthemes::theme_ipsum_rc() +
+  coord_flip()
+p2.Int <- ggplot(corbyn, aes(x=reorder(political_group,avg_facebook_likes), y=avg_facebook_likes, label=avg_facebook_likes, data_id=political_group, tooltip = paste0(political_group,"<br>",avg_facebook_likes, sep=""))) + 
+  geom_segment_interactive(aes(yend=0, xend=political_group), size=2, color="#DC241f") + 
+  geom_point(size=10, color="#DC241f", alpha=0.8) +
+  geom_text(color="#FFFFFF", size=3.5, fontface=2) +
+  labs(x="Associate of the Labour Party", y="Average Facebook Likes") +
+  hrbrthemes::theme_ipsum_rc() +
+  coord_flip()
+library(patchwork)
+GIp1 <- p1.Int / p2.Int
+girafe(ggobj=GIp1)
+```
+
+## Women in Science
+
+I had a simple example for last week.  Now I want to make it nicer.  The data are essentially a table.  Let me show it using `pivot_wider`.
+
+```{r}
+women_research <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-04-16/women_research.csv")
+women_research
+# There's a spelling error I want to fix, select the rows and columns to fix and reassign the value
+women_research[women_research$field=="Women inventores","field"] <- "Women Inventors" 
+# The label for CS/Maths is too long, also
+women_research[women_research$field=="Computer science, maths","field"] <- "CS/Math" 
+# Make it wider
+WIR.Wide <- women_research %>% pivot_wider(., id_cols=country, names_from=field, values_from=percent_women)
+# A datatable
+datatable(WIR.Wide)
+```
+
+### An Interactive plot of Women in Research
+
+```{r}
+library(ggiraph)
+women_research <- women_research %>% group_by(country) %>% mutate(Avg.Women.Percent = mean(percent_women)) %>% ungroup()
+women_research$PercentWomen <- as.character(round(women_research$percent_women, 3))
+p1 <- ggplot(women_research) +
+ aes(x = reorder(country,Avg.Women.Percent), fill = country, weight = percent_women, tooltip = PercentWomen, data_id = country) +
+ geom_bar_interactive() +
+ scale_fill_viridis_d(option = "cividis") +
+ guides(fill=FALSE) +
+ coord_flip() +
+ theme_minimal() + 
+  theme(axis.text.y = element_text(angle = 45, hjust = 1, size=6)) +
+  labs(y = "Percent of Publications/Patents", x = "Country/Group", fill="Country/Grouping", title = "Publication and Invention by Women Around the World", subtitle = "Percent of Publications or Patents by Women", caption = "source: Economist Visualization Errors") +
+ facet_wrap(~field)
+library(patchwork)
+ggp1.changed <- ggplot(women_research) +
+ aes(x = field, y = country, fill = percent_women, , data_id = country, tooltip=percent_women) +
+ geom_tile_interactive(size = 1L) +
+ scale_fill_viridis_c(option="cividis") +
+ labs(x = "Field or Occupation", y = "Country", fill = "% Women") +
+ theme_minimal(base_size = 10)
+ggp1.changed <- ggp1.changed + theme(plot.background = element_rect(colour = "whitesmoke"))
+comb1 <- p1 / ggp1.changed
+girafe(code = print(comb1))
+```
+
+
+## A Brief Crosstalk
+
+Getting this to work wasn't hard.  Getting it to style properly in interaction with the bootstrap frame was a pain.  I finally just went with a blank column in two places to make sure that names don't get cut off.
+
+```{r}
+library(htmltools)
+library(crosstalk)
+library(DT)
+library(d3scatter)
+# Load the data
+Bonds <- read.csv(url("https://github.com/robertwwalker/DADMStuff/raw/master/BondFunds.csv"), row.names=1)
+# Turn characters into factors
+Bonds <- Bonds %>% mutate(Fees = as.factor(Fees), Risk = as.factor(Risk), Type = as.factor(Type))
+# Create shared data object
+shared_bonds <- SharedData$new(Bonds)
+# Generate the bootsrap columns as three rows, page is 12 wide
+bscols(widths=c(12,12,12),
+  # A d3 visualization
+  d3scatter(shared_bonds, ~Expense.Ratio, ~Return.2009, ~Risk),
+  # The filter checkboxes
+  list(filter_checkbox("Fees", "Fees", shared_bonds, ~Fees, inline=TRUE),
+       filter_checkbox("Type", "Type", shared_bonds, ~Type, inline=TRUE),
+       filter_checkbox("Fees", "Risk", shared_bonds, ~Risk, inline=TRUE)),
+  # The datatable
+  datatable(shared_bonds))
+```
+
+Without the bootstrap formatting of the webpage, it works much better.
+
+![image](./image.png)
+
+### The Fix for the cutoff parts
+
+The trick to getting this to display properly was a blank column with `width=1`.
+
+```{r}
+shared_bonds2 <- SharedData$new(Bonds)
+# This was adjusted from above
+bscols(widths=c(12,1,11,1,11),
+  d3scatter(shared_bonds2, ~Expense.Ratio, ~Return.2009, ~Risk),
+  "",  # First blank column
+  list(filter_checkbox("Fees", "Fees", shared_bonds2, ~Fees, inline=TRUE),
+       filter_checkbox("Type", "Type", shared_bonds2, ~Type, inline=TRUE),
+       filter_checkbox("Fees", "Risk", shared_bonds2, ~Risk, inline=TRUE)),
+  "", # Second blank column
+  datatable(shared_bonds2))
+```
+
+# On Presentations
+
+- I have used `reveal.js` since the beginning of the term.  There is a [slides repository on my github](https://github.com/robertwwalker/CWD-Slides) showing how I have done pretty much all of this.
+
+- The `pptx` functionality is pretty limited as is **PowerPoint**.  But it serves many useful purposes for Microsoft shops and that is very common.
+
+- If you want to know about `beamer` just ask.  I use `$\LaTeX$` for lots of things but that is a whole new [and arguably pretty useless] set of skills unless you need to give highly technical presentations with odd math formatting.
+
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
+
+
