@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Robert W. Walker">
+<meta name="dcterms.date" content="2023-02-26">
 
-<title>obertwwalker.github.io - geoFacets of Credit Quality</title>
+<title>obertwwalker.github.io - Parameterizing Markdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,18 +146,21 @@ div.csl-indent {
   }
 }</script>
 
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 <link rel="stylesheet" href="../../styles.css">
-<meta name="twitter:title" content="obertwwalker.github.io - geoFacets of Credit Quality">
-<meta name="twitter:description" content="In previous work with Skip Krueger, we conceptualized bond ratings as a multiple rater problem and extracted measure of state level creditworthiness.">
-<meta name="twitter:image" content="https://robertwwalker.github.io/posts/A Data Visualization/image.png">
+<meta name="twitter:title" content="obertwwalker.github.io - Parameterizing Markdown">
+<meta name="twitter:description" content="Last updated: 2023-02-26 21:46:26">
+<meta name="twitter:image" content="https://robertwwalker.github.io/posts/parameterized-markdown/image.png">
 <meta name="twitter:creator" content="@PieRatio">
-<meta name="twitter:image-height" content="960">
-<meta name="twitter:image-width" content="1344">
+<meta name="twitter:image-height" content="1022">
+<meta name="twitter:image-width" content="1648">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -211,29 +216,53 @@ div.csl-indent {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Parameterizing Markdown</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert W. Walker </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 26, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Navigation</h2>
+   
+  <ul>
+  <li><a href="#iframe-and-pages" id="toc-iframe-and-pages" class="nav-link active" data-scroll-target="#iframe-and-pages"><code>iframe</code> and pages</a></li>
+  <li><a href="#iframe-and-slides" id="toc-iframe-and-slides" class="nav-link" data-scroll-target="#iframe-and-slides"><code>iframe</code> and slides</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">geoFacets of Credit Quality</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
 
 <marquee scrollamount="10">
 <h1>
@@ -242,71 +271,26 @@ div.csl-indent {
 </p>
 </h1>
 <p></p></marquee><p></p>
-<section id="a-geofacet-view-of-credit-quality" class="level1">
-<h1>A GeoFacet View of Credit Quality</h1>
-<p>In previous work with Skip Krueger, we conceptualized bond ratings as a multiple rater problem and extracted measure of state level creditworthiness. I had always had it on my list to do something like this and recently ran across a package called <code>geofacet</code> that makes it easy to do. The end result should parse out state level credit risk and showcase the time series of credit risk for each of the states.</p>
-<p>So here goes.</p>
-<div class="cell">
-<details>
-<summary>How’s that done?</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geofacet)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Pew.Data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="fu">url</span>(<span class="st">"https://github.com/robertwwalker/academic-mymod/raw/master/data/Pew/modeledforprediction.dta"</span>))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/robertwwalker/academic-mymod/raw/master/data/Pew/Scaled-BR-Pew.RData"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>state.ratings <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">state_name=</span>Pew.Data<span class="sc">$</span>state, <span class="at">statefips=</span>Pew.Data<span class="sc">$</span>statefips, <span class="at">year=</span>Pew.Data<span class="sc">$</span>fyear, BR.Data)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>state.ratings.long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">gather</span>(state.ratings, sampleno, value, <span class="sc">-</span>statefips, <span class="sc">-</span>year, <span class="sc">-</span>state_name)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>state.SE <span class="ot">&lt;-</span> state.ratings.long <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(state_name,year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Credit.Quality=</span><span class="fu">mean</span>(value), <span class="at">t1=</span><span class="fu">quantile</span>(value, <span class="at">probs=</span><span class="fl">0.025</span>), <span class="at">t2=</span><span class="fu">quantile</span>(value, <span class="at">probs=</span><span class="fl">0.975</span>))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fips <span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">state_name =</span> <span class="fu">c</span>(<span class="st">"Alabama"</span>,<span class="st">"Alaska"</span>,<span class="st">"Arizona"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Arkansas"</span>,<span class="st">"California"</span>,<span class="st">"Colorado"</span>,<span class="st">"Connecticut"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Delaware"</span>,<span class="st">"Florida"</span>,<span class="st">"Georgia"</span>,<span class="st">"Hawaii"</span>,<span class="st">"Idaho"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Illinois"</span>,<span class="st">"Indiana"</span>,<span class="st">"Iowa"</span>,<span class="st">"Kansas"</span>,<span class="st">"Kentucky"</span>,<span class="st">"Louisiana"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Maine"</span>,<span class="st">"Maryland"</span>,<span class="st">"Massachusetts"</span>,<span class="st">"Michigan"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Minnesota"</span>,<span class="st">"Mississippi"</span>,<span class="st">"Missouri"</span>,<span class="st">"Montana"</span>,<span class="st">"Nebraska"</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Nevada"</span>,<span class="st">"New Hampshire"</span>,<span class="st">"New Jersey"</span>,<span class="st">"New Mexico"</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="st">"New York"</span>,<span class="st">"North Carolina"</span>,<span class="st">"North Dakota"</span>,<span class="st">"Ohio"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Oklahoma"</span>,<span class="st">"Oregon"</span>,<span class="st">"Pennsylvania"</span>,<span class="st">"Rhode Island"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">"South Carolina"</span>,<span class="st">"South Dakota"</span>,<span class="st">"Tennessee"</span>,<span class="st">"Texas"</span>,<span class="st">"Utah"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Vermont"</span>,<span class="st">"Virginia"</span>,<span class="st">"Washington"</span>,<span class="st">"West Virginia"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Wisconsin"</span>,<span class="st">"Wyoming"</span>,<span class="st">"American Samoa"</span>,<span class="st">"Guam"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Northern Mariana Islands"</span>,<span class="st">"Puerto Rico"</span>,<span class="st">"Virgin Islands"</span>),</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="at">state =</span> <span class="fu">c</span>(<span class="st">"AL"</span>,<span class="st">"AK"</span>,<span class="st">"AZ"</span>,<span class="st">"AR"</span>,<span class="st">"CA"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="st">"CO"</span>,<span class="st">"CT"</span>,<span class="st">"DE"</span>,<span class="st">"FL"</span>,<span class="st">"GA"</span>,<span class="st">"HI"</span>,<span class="st">"ID"</span>,<span class="st">"IL"</span>,<span class="st">"IN"</span>,<span class="st">"IA"</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                <span class="st">"KS"</span>,<span class="st">"KY"</span>,<span class="st">"LA"</span>,<span class="st">"ME"</span>,<span class="st">"MD"</span>,<span class="st">"MA"</span>,<span class="st">"MI"</span>,<span class="st">"MN"</span>,<span class="st">"MS"</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                <span class="st">"MO"</span>,<span class="st">"MT"</span>,<span class="st">"NE"</span>,<span class="st">"NV"</span>,<span class="st">"NH"</span>,<span class="st">"NJ"</span>,<span class="st">"NM"</span>,<span class="st">"NY"</span>,<span class="st">"NC"</span>,<span class="st">"ND"</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                <span class="st">"OH"</span>,<span class="st">"OK"</span>,<span class="st">"OR"</span>,<span class="st">"PA"</span>,<span class="st">"RI"</span>,<span class="st">"SC"</span>,<span class="st">"SD"</span>,<span class="st">"TN"</span>,<span class="st">"TX"</span>,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                <span class="st">"UT"</span>,<span class="st">"VT"</span>,<span class="st">"VA"</span>,<span class="st">"WA"</span>,<span class="st">"WV"</span>,<span class="st">"WI"</span>,<span class="st">"WY"</span>,<span class="st">"AS"</span>,<span class="st">"GU"</span>,<span class="st">"MP"</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                <span class="st">"PR"</span>,<span class="st">"VI"</span>),</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="at">fips =</span> <span class="fu">c</span>(<span class="st">"01"</span>,<span class="st">"02"</span>,<span class="st">"04"</span>,<span class="st">"05"</span>,<span class="st">"06"</span>,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>         <span class="st">"08"</span>,<span class="st">"09"</span>,<span class="st">"10"</span>,<span class="st">"12"</span>,<span class="st">"13"</span>,<span class="st">"15"</span>,<span class="st">"16"</span>,<span class="st">"17"</span>,<span class="st">"18"</span>,<span class="st">"19"</span>,</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>         <span class="st">"20"</span>,<span class="st">"21"</span>,<span class="st">"22"</span>,<span class="st">"23"</span>,<span class="st">"24"</span>,<span class="st">"25"</span>,<span class="st">"26"</span>,<span class="st">"27"</span>,<span class="st">"28"</span>,</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>         <span class="st">"29"</span>,<span class="st">"30"</span>,<span class="st">"31"</span>,<span class="st">"32"</span>,<span class="st">"33"</span>,<span class="st">"34"</span>,<span class="st">"35"</span>,<span class="st">"36"</span>,<span class="st">"37"</span>,<span class="st">"38"</span>,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>         <span class="st">"39"</span>,<span class="st">"40"</span>,<span class="st">"41"</span>,<span class="st">"42"</span>,<span class="st">"44"</span>,<span class="st">"45"</span>,<span class="st">"46"</span>,<span class="st">"47"</span>,<span class="st">"48"</span>,</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>         <span class="st">"49"</span>,<span class="st">"50"</span>,<span class="st">"51"</span>,<span class="st">"53"</span>,<span class="st">"54"</span>,<span class="st">"55"</span>,<span class="st">"56"</span>,<span class="st">"60"</span>,<span class="st">"66"</span>,<span class="st">"69"</span>,</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>         <span class="st">"72"</span>,<span class="st">"78"</span>))  </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Res1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(state.SE, fips, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"state_name"</span> <span class="ot">=</span> <span class="st">"state_name"</span>))</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Res1 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>Credit.Quality, <span class="at">group=</span>state)) <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>t1, <span class="at">ymax=</span>t2, <span class="at">colour=</span>state, <span class="at">fill=</span>state), <span class="at">alpha=</span><span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour=</span>state)) <span class="sc">+</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>, <span class="at">fill=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_geo</span>(<span class="sc">~</span> state) <span class="sc">+</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">4</span>, <span class="at">angle=</span><span class="dv">45</span>), <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">6</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Credit Quality in the US States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p>Last updated: 2023-02-26 21:46:26</p>
+<p>Timezone: America/Los_Angeles</p>
+<section id="iframe-and-pages" class="level2">
+<h2 class="anchored" data-anchor-id="iframe-and-pages"><code>iframe</code> and pages</h2>
+<p><a href="https://robertwwalker.github.io/ReportTQ/index.html">I built a little proof of concept on equities.</a> You can also see it here.</p>
+<iframe src="https://robertwwalker.github.io/ReportTQ/index.html" width="680" height="600" allowfullscreen="">
+</iframe>
+</section>
+<section id="iframe-and-slides" class="level2">
+<h2 class="anchored" data-anchor-id="iframe-and-slides"><code>iframe</code> and slides</h2>
+<p>I built a little proof of concept for slides. You can see it here.</p>
+<iframe src="https://robertwwalker.github.io/CWD-Slides/week-6/index.html" width="680" height="600" allowfullscreen="">
+</iframe>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
 <div class="cell">
 <details>
 <summary>How’s that done?</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -315,11 +299,59 @@ div.csl-indent {
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-R-geofacet" class="csl-entry" role="doc-biblioentry">
-Hafen, Ryan. 2020. <em>Geofacet: Ggplot2 Faceting Utilities for Geographical Data</em>. <a href="https://github.com/hafen/geofacet">https://github.com/hafen/geofacet</a>.
+<div id="ref-R-ggthemes" class="csl-entry" role="doc-biblioentry">
+Arnold, Jeffrey B. 2021. <em>Ggthemes: Extra Themes, Scales and Geoms for Ggplot2</em>. <a href="https://github.com/jrnold/ggthemes">https://github.com/jrnold/ggthemes</a>.
+</div>
+<div id="ref-R-magrittr" class="csl-entry" role="doc-biblioentry">
+Bache, Stefan Milton, and Hadley Wickham. 2022. <em>Magrittr: A Forward-Pipe Operator for r</em>. <a href="https://CRAN.R-project.org/package=magrittr">https://CRAN.R-project.org/package=magrittr</a>.
+</div>
+<div id="ref-R-d3scatter" class="csl-entry" role="doc-biblioentry">
+Cheng, Joe. 2023. <em>D3scatter: Demo of D3 Scatter Plot; Testbed for Crosstalk Library</em>.
+</div>
+<div id="ref-R-crosstalk" class="csl-entry" role="doc-biblioentry">
+Cheng, Joe, and Carson Sievert. 2021. <em>Crosstalk: Inter-Widget Interactivity for HTML Widgets</em>. <a href="https://rstudio.github.io/crosstalk/">https://rstudio.github.io/crosstalk/</a>.
+</div>
+<div id="ref-R-htmltools" class="csl-entry" role="doc-biblioentry">
+Cheng, Joe, Carson Sievert, Barret Schloerke, Winston Chang, Yihui Xie, and Jeff Allen. 2022. <em>Htmltools: Tools for HTML</em>. <a href="https://CRAN.R-project.org/package=htmltools">https://CRAN.R-project.org/package=htmltools</a>.
+</div>
+<div id="ref-R-tidyquant" class="csl-entry" role="doc-biblioentry">
+Dancho, Matt, and Davis Vaughan. 2022. <em>Tidyquant: Tidy Quantitative Financial Analysis</em>. <a href="https://github.com/business-science/tidyquant">https://github.com/business-science/tidyquant</a>.
+</div>
+<div id="ref-R-ggiraph" class="csl-entry" role="doc-biblioentry">
+Gohel, David, and Panagiotis Skintzos. 2023. <em>Ggiraph: Make Ggplot2 Graphics Interactive</em>. <a href="https://davidgohel.github.io/ggiraph/">https://davidgohel.github.io/ggiraph/</a>.
+</div>
+<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
 </div>
 <div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
 Müller, Kirill, and Hadley Wickham. 2022. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-R-patchwork" class="csl-entry" role="doc-biblioentry">
+Pedersen, Thomas Lin. 2022. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+</div>
+<div id="ref-R-PerformanceAnalytics" class="csl-entry" role="doc-biblioentry">
+Peterson, Brian G., and Peter Carl. 2020. <em>PerformanceAnalytics: Econometric Tools for Performance and Risk Analysis</em>. <a href="https://github.com/braverock/PerformanceAnalytics">https://github.com/braverock/PerformanceAnalytics</a>.
+</div>
+<div id="ref-R-quantmod" class="csl-entry" role="doc-biblioentry">
+Ryan, Jeffrey A., and Joshua M. Ulrich. 2022a. <em>Quantmod: Quantitative Financial Modelling Framework</em>. <a href="https://CRAN.R-project.org/package=quantmod">https://CRAN.R-project.org/package=quantmod</a>.
+</div>
+<div id="ref-R-xts" class="csl-entry" role="doc-biblioentry">
+———. 2022b. <em>Xts: eXtensible Time Series</em>. <a href="https://github.com/joshuaulrich/xts">https://github.com/joshuaulrich/xts</a>.
+</div>
+<div id="ref-plotly2020" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+</div>
+<div id="ref-R-plotly" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2022. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>.
+</div>
+<div id="ref-R-ggrepel" class="csl-entry" role="doc-biblioentry">
+Slowikowski, Kamil. 2023. <em>Ggrepel: Automatically Position Non-Overlapping Text Labels with Ggplot2</em>. <a href="https://github.com/slowkow/ggrepel">https://github.com/slowkow/ggrepel</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+<div id="ref-R-TTR" class="csl-entry" role="doc-biblioentry">
+Ulrich, Joshua. 2021. <em>TTR: Technical Trading Rules</em>. <a href="https://github.com/joshuaulrich/TTR">https://github.com/joshuaulrich/TTR</a>.
 </div>
 <div id="ref-ggplot22016" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
@@ -337,7 +369,7 @@ Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Spr
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
@@ -346,13 +378,19 @@ Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaugh
 Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
 </div>
 <div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2022. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
-</div>
-<div id="ref-R-haven" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Evan Miller, and Danny Smith. 2022. <em>Haven: Import and Export SPSS, Stata and SAS Files</em>. <a href="https://CRAN.R-project.org/package=haven">https://CRAN.R-project.org/package=haven</a>.
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
 </div>
 <div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+<div id="ref-R-DT" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Joe Cheng, and Xianying Tan. 2023. <em>DT: A Wrapper of the JavaScript Library DataTables</em>. <a href="https://github.com/rstudio/DT">https://github.com/rstudio/DT</a>.
+</div>
+<div id="ref-zoo2005" class="csl-entry" role="doc-biblioentry">
+Zeileis, Achim, and Gabor Grothendieck. 2005. <span>“Zoo: S3 Infrastructure for Regular and Irregular Time Series.”</span> <em>Journal of Statistical Software</em> 14 (6): 1–27. <a href="https://doi.org/10.18637/jss.v014.i06">https://doi.org/10.18637/jss.v014.i06</a>.
+</div>
+<div id="ref-R-zoo" class="csl-entry" role="doc-biblioentry">
+Zeileis, Achim, Gabor Grothendieck, and Jeffrey A. Ryan. 2022. <em>Zoo: S3 Infrastructure for Regular and Irregular Time Series (z’s Ordered Observations)</em>. <a href="https://zoo.R-Forge.R-project.org/">https://zoo.R-Forge.R-project.org/</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

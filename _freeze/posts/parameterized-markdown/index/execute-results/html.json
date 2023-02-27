@@ -1,0 +1,18 @@
+{
+  "hash": "24ca0880c6157b91b94df87a0277b1ff",
+  "result": {
+    "markdown": "---\ntitle: \"Parameterizing Markdown\"\nauthor: \"Robert W. Walker\"\ndate: \"2023-02-26\"\nimage: \"image.png\"\ntags:\n  - R\n  - plot\n  - R Markdown\n  - tidyTuesday\n  - tidyverse\n  - girafe\nbibliography: \"bibliography.bib\"\nnocite: |\n     @*\nformat: \n   html:\n     code-fold: true\n     code-copy: hover\n     code-block-border-left: true\n     df-print: paged\n     fig-format: retina\n     footnotes-hover: true\n     html-math-method: katex\n     toc: true\n     toc-title: Navigation\n     comments:\n        giscus: \n          repo: robertwwalker/robertwwalker.github.io\n---\n\n\n<marquee scrollamount=\"10\"><h1><p style=\"color:purple;\">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>\n\n\n\n\n\nLast updated: 2023-02-26 21:46:26 \n\nTimezone: America/Los_Angeles\n\n## `iframe` and pages\n\n[I built a little proof of concept on equities.](https://robertwwalker.github.io/ReportTQ/index.html)  You can also see it here.\n\n<iframe src=\"https://robertwwalker.github.io/ReportTQ/index.html\" width=\"680\" height=\"600\" allowfullscreen></iframe>\n\n## `iframe` and slides\n\nI built a little proof of concept for slides.  You can see it here.\n\n<iframe src=\"https://robertwwalker.github.io/CWD-Slides/week-6/index.html\" width=\"680\" height=\"600\" allowfullscreen></iframe>\n\n# References\n\n\n::: {.cell}\n\n```{.r .cell-code}\nknitr::write_bib(names(sessionInfo()$otherPkgs), file=\"bibliography.bib\")\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

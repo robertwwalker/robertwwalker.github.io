@@ -21,6 +21,27 @@
     "text": "Data to plot\nNow I need some data; I want five categories to match my palette. The rest is junk.\n\n\nHow’s that done?\nJunk.data <- data.frame(Stuff=c(\"Hi\",\"Howdy\",\"Hello\",\"Hola\",\"Hallo\"), vals = runif(5, 0.4, 1))\nJunk.data\n\n\n  Stuff      vals\n1    Hi 0.5307422\n2 Howdy 0.8800492\n3 Hello 0.5918145\n4  Hola 0.5992039\n5 Hallo 0.6614542\n\n\nI want to graph it using a barplot equivalent because I have the height of the bars in vals. Let me use the fill aesthetic to fill the bars in by the five discrete things stored as Stuff. The trick to using it is to manually specify the colors and point it to the Pigeon.colors above.\n\n\nHow’s that done?\nlibrary(ggplot2)\nggplot(Junk.data) + aes(x=Stuff, y=vals, fill=Stuff) + geom_col() + scale_fill_manual(values = Pigeon.colors) + hrbrthemes::theme_ipsum_rc()"
   },
   {
+    "objectID": "posts/parameterized-markdown/index.html",
+    "href": "posts/parameterized-markdown/index.html",
+    "title": "Parameterizing Markdown",
+    "section": "",
+    "text": "Last updated: 2023-02-26 21:46:26\nTimezone: America/Los_Angeles"
+  },
+  {
+    "objectID": "posts/parameterized-markdown/index.html#iframe-and-pages",
+    "href": "posts/parameterized-markdown/index.html#iframe-and-pages",
+    "title": "Parameterizing Markdown",
+    "section": "iframe and pages",
+    "text": "iframe and pages\nI built a little proof of concept on equities. You can also see it here."
+  },
+  {
+    "objectID": "posts/parameterized-markdown/index.html#iframe-and-slides",
+    "href": "posts/parameterized-markdown/index.html#iframe-and-slides",
+    "title": "Parameterizing Markdown",
+    "section": "iframe and slides",
+    "text": "iframe and slides\nI built a little proof of concept for slides. You can see it here."
+  },
+  {
     "objectID": "posts/HumanRightsTable/index.html#load-the-data-and-libraries",
     "href": "posts/HumanRightsTable/index.html#load-the-data-and-libraries",
     "title": "Human Rights Protections–Tables",
@@ -95,7 +116,7 @@
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nA link to obert’s academic website\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPigeons and Palettes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHuman Rights Protections–Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoFacets of Credit Quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Visualizations\n\n\n\n\n\n\nRobert W. Walker\n\n\nFeb 20, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "obertwwalker.github.io \n\n\n\n\nA link to obert’s academic website\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPigeons and Palettes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHuman Rights Protections–Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoFacets of Credit Quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParameterizing Markdown\n\n\n\n\n\n\nRobert W. Walker\n\n\nFeb 26, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Visualizations\n\n\n\n\n\n\nRobert W. Walker\n\n\nFeb 20, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
