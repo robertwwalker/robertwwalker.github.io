@@ -1,0 +1,22 @@
+---
+title: Links
+toc: true
+toc-title: <br><br><br><br><br><br><br><br><br><br><br><br>Links Contents
+toc-location: right
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+```{r setup, include=FALSE}
+library(distilltools)
+```
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+# Courses and their Links
+
+- [Communicating with Data Slides](slides-CWD.html)
+- [Website for Commmunicating with Data](https://robertwwalker.github.io/CommunicatingWithData/)
+- [Data Analysis, Modelling, Decision-Making](slides-DADM.html)
+                

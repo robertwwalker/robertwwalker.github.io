@@ -27,6 +27,13 @@ website:
       - file: links.qmd
         icon: link
         text: Links      
+      - text: Slides
+        icon: mortarboard-fill
+        menu:
+            - text: DADM
+              href: slides-DADM.qmd
+            - text: CWD
+              href: slides-CWD.qmd
       - icon: github
         href: https://github.com/robertwwalker
       - icon: twitter

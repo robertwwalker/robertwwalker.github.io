@@ -1,0 +1,23 @@
+---
+title: "Slides: Communicating with Data"
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/PieRatio
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/robert-w-walker
+    - icon: github
+      text: Github
+      href: https://github.com/robertwwalker
+
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+
+Slides for Communicating with Data
+
+<iframe src="https://robertwwalker.github.io/CWD-Slides/" title="Slides for Communicating with Data" width="800" height="600"></iframe>
