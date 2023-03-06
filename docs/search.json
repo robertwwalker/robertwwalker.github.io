@@ -4,7 +4,7 @@
     "href": "posts/Docker-Shiny/index.html",
     "title": "Docker and Shiny",
     "section": "",
-    "text": "Last updated: 2023-03-04 16:35:22\nTimezone: America/Los_Angeles"
+    "text": "Last updated: 2023-03-06 14:26:23\nTimezone: America/Los_Angeles"
   },
   {
     "objectID": "posts/Docker-Shiny/index.html#iframe-and-pages",
@@ -257,5 +257,12 @@
     "title": "Links",
     "section": "",
     "text": "obertwwalker.github.io \n\n\n\n\nCourses and their Links\n\nCommunicating with Data Slides\nWebsite for Commmunicating with Data\nData Analysis, Modelling, Decision-Making"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#another-example",
+    "href": "posts/Docker-Shiny/index.html#another-example",
+    "title": "Docker and Shiny",
+    "section": "Another Example",
+    "text": "Another Example"
   }
 ]
