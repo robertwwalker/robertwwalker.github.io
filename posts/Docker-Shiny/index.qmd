@@ -234,6 +234,9 @@ Next we wander off to cloud.google.com and enable containers for use in `Cloud R
 
 <iframe src="https://shinytick-geiwez4tia-uc.a.run.app" width="680" height="600" allowfullscreen></iframe>
 
+## One that Uses .Rmd FlexDashboard
+
+In progress...
 
 
 # References
