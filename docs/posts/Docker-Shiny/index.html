@@ -152,7 +152,7 @@ div.csl-indent {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="obertwwalker.github.io - Docker and Shiny">
-<meta name="twitter:description" content="Last updated: 2023-03-06 15:08:51">
+<meta name="twitter:description" content="Last updated: 2023-03-08 08:50:33">
 <meta name="twitter:image" content="https://robertwwalker.github.io/posts/Docker-Shiny/image.png">
 <meta name="twitter:creator" content="@PieRatio">
 <meta name="twitter:image-height" content="476">
@@ -269,9 +269,7 @@ div.csl-indent {
     <h2 id="toc-title">Navigation</h2>
    
   <ul>
-  <li><a href="#iframe-and-pages" id="toc-iframe-and-pages" class="nav-link active" data-scroll-target="#iframe-and-pages"><code>iframe</code> and pages</a></li>
-  <li><a href="#iframe-and-slides" id="toc-iframe-and-slides" class="nav-link" data-scroll-target="#iframe-and-slides"><code>iframe</code> and slides</a></li>
-  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker</a></li>
+  <li><a href="#docker" id="toc-docker" class="nav-link active" data-scroll-target="#docker">Docker</a></li>
   <li><a href="#why-not-just-host-your-own" id="toc-why-not-just-host-your-own" class="nav-link" data-scroll-target="#why-not-just-host-your-own">Why not just host your own?</a></li>
   <li><a href="#building-a-docker-image" id="toc-building-a-docker-image" class="nav-link" data-scroll-target="#building-a-docker-image">Building a docker image</a>
   <ul class="collapse">
@@ -303,20 +301,10 @@ div.csl-indent {
 </p>
 </h1>
 <p></p></marquee><p></p>
-<p>Last updated: 2023-03-06 15:08:51</p>
+<p>Last updated: 2023-03-08 08:50:33</p>
 <p>Timezone: America/Los_Angeles</p>
-<section id="iframe-and-pages" class="level2">
-<h2 class="anchored" data-anchor-id="iframe-and-pages"><code>iframe</code> and pages</h2>
-<p><a href="https://robertwwalker.github.io/ReportTQ/index.html">I built a little proof of concept on equities.</a> You can also see it here.</p>
-<iframe src="https://robertwwalker.github.io/ReportTQ/index.html" width="680" height="600" allowfullscreen="">
-</iframe>
-</section>
-<section id="iframe-and-slides" class="level2">
-<h2 class="anchored" data-anchor-id="iframe-and-slides"><code>iframe</code> and slides</h2>
-<p>I built a little proof of concept for slides. You can see it here.</p>
-<iframe src="https://robertwwalker.github.io/CWD-Slides/week-6/index.html" width="680" height="600" allowfullscreen="">
-</iframe>
-</section>
+<p>When it comes to shiny applications, hosting is a perennial concern. The free alternative <code>shinyapps.io</code> works great but limits the number of user applications that can be deployed. One can operate a server and serve the shiny applications for one’s self. To be honest, this solution is probably superior but is also costly insofar as system administration consumes time. There is an in between that is worth exploring.</p>
+<p>We could link to the apps and deploy them in the cloud. The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications. I want to explore this alternative in what follows.</p>
 <section id="docker" class="level1">
 <h1>Docker</h1>
 <p><code>docker</code> is a tool for setting up a working environment that can house a shiny server. <a href="https://colinfay.me/docker-r-reproducibility/">Colin Fay has a nice post introducing docker</a>. <a href="https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf">There is also a very nice article on <code>rocker</code> by Eddelbuettel and Boettiger.</a></p>

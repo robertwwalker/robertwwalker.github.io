@@ -37,17 +37,9 @@ Last updated: `r Sys.time()`
 
 Timezone: `r Sys.timezone()`
 
-## `iframe` and pages
+When it comes to shiny applications, hosting is a perennial concern.  The free alternative `shinyapps.io` works great but limits the number of user applications that can be deployed.  One can operate a server and serve the shiny applications for one's self.  To be honest, this solution is probably superior but is also costly insofar as system administration consumes time.  There is an in between that is worth exploring.
 
-[I built a little proof of concept on equities.](https://robertwwalker.github.io/ReportTQ/index.html)  You can also see it here.
-
-<iframe src="https://robertwwalker.github.io/ReportTQ/index.html" width="680" height="600" allowfullscreen></iframe>
-
-## `iframe` and slides
-
-I built a little proof of concept for slides.  You can see it here.
-
-<iframe src="https://robertwwalker.github.io/CWD-Slides/week-6/index.html" width="680" height="600" allowfullscreen></iframe>
+We could link to the apps and deploy them in the cloud.  The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications.  I want to explore this alternative in what follows.
 
 # Docker
 
