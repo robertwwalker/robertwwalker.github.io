@@ -1,0 +1,30 @@
+---
+title: "Courses: Communicating With Data"
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/PieRatio
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/robert-w-walker
+    - icon: github
+      text: Github
+      href: https://github.com/robertwwalker
+
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+## Communicating With Data
+
+Communicating with Data is a cross-listed course in the graduate school of Management and the Data Science program.  In the course, we explore communication tools, e.g. tables and interactive tables, figures and interactive figures, shiny apps, websites, parameterized markdown, and, quite generically, the provision of tools for end users of data science tooling for insights.
+
+- [There is a course website.](https://robertwwalker.github.io/CommunicatingWithData/){target="blank"}
+
+<iframe src="https://robertwwalker.github.io/CommunicatingWithData/" title="CWD Website" width="800" height="600"></iframe>
+
+- [The slides for Spring 2023](https://robertwwalker.github.io/CWD-Slides/){target="blank"}
+
+<iframe src="https://robertwwalker.github.io/CWD-Slides/" title="Slides for CWD" width="800" height="600"></iframe>

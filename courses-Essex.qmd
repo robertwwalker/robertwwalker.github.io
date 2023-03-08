@@ -1,0 +1,25 @@
+---
+title: "Courses: Panel Data at Essex"
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/PieRatio
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/robert-w-walker
+    - icon: github
+      text: Github
+      href: https://github.com/robertwwalker
+
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+## Panel Data at Essex
+
+- [There is a course website.](https://essssda22-3k.netlify.app){target="blank"}
+
+<iframe src="https://essssda22-3k.netlify.app/" title="ESSSSDA Website" width="800" height="600"></iframe>
+

@@ -27,6 +27,17 @@ website:
       - file: links.qmd
         icon: link
         text: Links      
+      - text: Courses
+        icon: mortarboard-fill
+        menu:
+            - text: Data Analysis, Modelling, and Decision-Making
+              href: courses-DADM.qmd
+            - text: Communicating With Data
+              href: courses-CWD.qmd
+            - text: Choice and Forecasting
+              href: courses-CAF.qmd
+            - text: Panel Data
+              href: courses-Essex.qmd
       - text: Slides
         icon: mortarboard-fill
         menu:
