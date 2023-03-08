@@ -1,80 +1,10 @@
 [
   {
-    "objectID": "posts/Docker-Shiny/index.html",
-    "href": "posts/Docker-Shiny/index.html",
-    "title": "Docker and Shiny",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Last updated: 2023-03-08 08:50:33\nTimezone: America/Los_Angeles\nWhen it comes to shiny applications, hosting is a perennial concern. The free alternative shinyapps.io works great but limits the number of user applications that can be deployed. One can operate a server and serve the shiny applications for one’s self. To be honest, this solution is probably superior but is also costly insofar as system administration consumes time. There is an in between that is worth exploring.\nWe could link to the apps and deploy them in the cloud. The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications. I want to explore this alternative in what follows."
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#iframe-and-pages",
-    "href": "posts/Docker-Shiny/index.html#iframe-and-pages",
-    "title": "Docker and Shiny",
-    "section": "iframe and pages",
-    "text": "iframe and pages\nI built a little proof of concept on equities. You can also see it here."
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#iframe-and-slides",
-    "href": "posts/Docker-Shiny/index.html#iframe-and-slides",
-    "title": "Docker and Shiny",
-    "section": "iframe and slides",
-    "text": "iframe and slides\nI built a little proof of concept for slides. You can see it here."
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#shiny-server.conf",
-    "href": "posts/Docker-Shiny/index.html#shiny-server.conf",
-    "title": "Docker and Shiny",
-    "section": "shiny-server.conf",
-    "text": "shiny-server.conf\nI created a shiny-server.conf file to configure the shiny server inside the container. The contents of the file are below.\n# Define the user we should use when spawning R Shiny processes\nrun_as shiny;\n# Define a top-level server which will listen on a port\nserver {\n  # Instruct this server to listen on port 3838.\n  listen 3838;\n# Define the location available at the base URL\n  location / {\n# Run this location in 'site_dir' mode, which hosts the entire directory\n    # tree at '/srv/shiny-server'\n    site_dir /srv/shiny-server;\n    \n    # Define where we should put the log files for this location\n    log_dir /var/log/shiny-server;\n    \n    # Should we list the contents of a (non-Shiny-App) directory when the user \n    # visits the corresponding URL?\n    directory_index on;\n  }\n}"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#shiny-server.sh",
-    "href": "posts/Docker-Shiny/index.html#shiny-server.sh",
-    "title": "Docker and Shiny",
-    "section": "shiny-server.sh",
-    "text": "shiny-server.sh\nThis file invokes the shiny server.\n#!/bin/sh\n# Make sure the directory for individual app logs exists\nmkdir -p /var/log/shiny-server\nchown shiny.shiny /var/log/shiny-server\nexec shiny-server >> /var/log/shiny-server.log 2>&1"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#dockerfile",
-    "href": "posts/Docker-Shiny/index.html#dockerfile",
-    "title": "Docker and Shiny",
-    "section": "Dockerfile",
-    "text": "Dockerfile\nThe dockerfile needs instructions for building R and being able to execute the necessary components. Here is the Dockerfile.\n# get shiny server plus tidyverse packages image\nFROM rocker/shiny-verse:latest\n# system libraries of general use\nRUN apt-get update && apt-get install -y \\\n    sudo \\\n    pandoc \\\n    pandoc-citeproc \\\n    libcurl4-gnutls-dev \\\n    libcairo2-dev \\\n    libxt-dev \\\n    libssl-dev \\\n    libssh2-1-dev\n# install R packages required \n# (change it depending on the packages you need)\nRUN R -e \"install.packages(c('shinydashboard','DT','hrbrthemes','lubridate'), repos='http://cran.rstudio.com/')\"\n# Copy configuration files into the Docker image\nCOPY shiny-server.conf  /etc/shiny-server/shiny-server.conf\nCOPY /app /srv/shiny-server/\nRUN rm /srv/shiny-server/index.html\n# Make the ShinyApp available at port 3838\nEXPOSE 3838\n# Copy further configuration files into the Docker image\nCOPY shiny-server.sh /usr/bin/shiny-server.sh\nRUN [\"chmod\", \"+x\", \"/usr/bin/shiny-server.sh\"]\nCMD [\"/usr/bin/shiny-server.sh\"]"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#app.r",
-    "href": "posts/Docker-Shiny/index.html#app.r",
-    "title": "Docker and Shiny",
-    "section": "app.R",
-    "text": "app.R\nThe last thing that I require is a functional app. In this case, my app is three panels applied to archigos and an .rda version of the data exists in the container. Here is the total file.\n#\n# This is a Shiny web application. You can run the application by clicking\n# the 'Run App' button above.\n#\n# Find out more about building applications with Shiny here:\n#\n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinydashboard)\nlibrary(tidyverse) \nlibrary(magrittr)\nlibrary(utf8)\nlibrary(shiny)\nlibrary(DT)\nlibrary(lubridate)\nlibrary(hrbrthemes)\n# load the data\nload(\"data/archigos.rda\")\n# create the set of countries\nCountry.Select <- Archigos %$% table(idacr) %>% data.frame() %>% mutate(Country = idacr) %>% select(Country)\n# plot for durations\nPlot.Durations <- function(data, state) {\n  data %>% ggplot(., aes(x=tenureY)) + geom_histogram() + theme_ipsum_rc() + labs(x=\"Durations\", title=paste0(\"Durations: \",state))\n}\n# plot for chronology\nPlot.Chronology <- function(data, state) {\n  data %>% arrange(eindate) %>% \n    ggplot(., aes(x=fct_reorder(leader, eindate), color=leader)) + geom_errorbar(aes(ymin=eindate, ymax=eoutdate)) + coord_flip() + labs(x=\"\", title=paste0(\"Leader Chronology: \",state)) + theme_ipsum_rc() + scale_color_viridis_d(option = \"E\") + guides(color=FALSE)\n}\n\nheader <- dashboardHeader(title = \"Archigos\")\nsidebar <-  dashboardSidebar(\n  sidebarMenu(selectInput(inputId = \"Country\", label=\"Country:\", choices = Country.Select$Country, selected=\"AFG\"))\n)\nbody <- dashboardBody(\n  tabsetPanel(\n    tabItem(tabName = \"dashb1\",\n            title=\"Chronology\",\n            # Boxes need to be put in a row (or column)\n            fluidRow(box(plotOutput(\"plotDur\"), width=12))\n    ),\n    tabItem(tabName = \"dashb2\",\n            title=\"Durations\",\n            fluidRow(box(plotOutput(\"plotChr\"), width=12))\n    )),\n  fluidRow(DTOutput(\"plotDT\"))\n)\nui <- dashboardPage(skin = \"purple\", header, sidebar, body)\n\nserver <- function(input, output) {\n  dataset <- reactive({\n    Archigos %>% \n      filter(idacr==input$Country) %>% \n      arrange(desc(eoutdate))\n  })\n  output$plotDT <- renderDT({  dataset()}, options = list(scrollX = TRUE) \n  )\n  output$plotDur <- renderPlot({\n    Plot.Chronology(dataset(), input$country)\n  })\n  output$plotChr <- renderPlot({\n    Plot.Durations(dataset(), input$country)\n  })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#building-the-docker-container",
-    "href": "posts/Docker-Shiny/index.html#building-the-docker-container",
-    "title": "Docker and Shiny",
-    "section": "Building the docker container",
-    "text": "Building the docker container\nAt the terminal, here I need to build the docker image.\nsudo docker build image -t pieratio/archigos"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#pushing-to-a-docker-hub",
-    "href": "posts/Docker-Shiny/index.html#pushing-to-a-docker-hub",
-    "title": "Docker and Shiny",
-    "section": "Pushing to a docker hub",
-    "text": "Pushing to a docker hub\nThe first one is to go to docker hub. I have an account that has a single container currently there called archigos."
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#google-cloud-services",
-    "href": "posts/Docker-Shiny/index.html#google-cloud-services",
-    "title": "Docker and Shiny",
-    "section": "Google cloud services",
-    "text": "Google cloud services\nNext we wander off to cloud.google.com and enable containers for use in Cloud Run. I then set up the project called archigos attached to port 3838 and set it to run. Now I have a running shiny app in the cloud on google to tie to this post!"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#the-app",
-    "href": "posts/Docker-Shiny/index.html#the-app",
-    "title": "Docker and Shiny",
-    "section": "The app",
-    "text": "The app"
+    "text": "obertwwalker.github.io \n\n\n\n\nRobert W. Walker, Ph. D.\n\n\n\n\n\nRobert W. Walker is an Associate Professor of Quantitative Methods in the Atkinson Graduate School of Management at Willamette University\nHe earned a Ph. D. in political science from the University of Rochester in 2005 and has previously held teaching positions at Dartmouth College, Rice University, Texas A&M University, and Washington University in Saint Louis. His current research develops and applies semi-Markov processes to time-series, cross-section data in international relations and international/comparative political economy. He teaches courses in quantitative methods/applied statistics and microeconomic strategy and previously taught four iterations in the U. S. National Science Foundation funded Empirical Implications of Theoretical Models sequence at Washington University in Saint Louis. His work with Curt Signorino and Muhammet Bas was awarded the Miller Prize for the best article in Political Analysis in 2009.\nHis web presence is rww.science and his github is https://github.com/robertwwalker\n\n\nRobert’s Erdos-Bacon Number is 8.\n\n\n\n\n\n\n\nErdos Table\n\n\n\n\n\n\n\nBacon Table"
   },
   {
     "objectID": "index.html",
@@ -82,13 +12,6 @@
     "title": "",
     "section": "",
     "text": "obertwwalker.github.io \n\n\n\n\nA link to obert’s academic website\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoFacets of Credit Quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHuman Rights Protections–Tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPigeons and Palettes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDocker and Shiny\n\n\n\n\n\n\nRobert W. Walker\n\n\nMar 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParameterizing Markdown\n\n\n\n\n\n\nRobert W. Walker\n\n\nFeb 26, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Visualizations\n\n\n\n\n\n\nRobert W. Walker\n\n\nFeb 20, 2023\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nRobert W. Walker, Ph. D.\n\n\n\n\n\nRobert W. Walker is an Associate Professor of Quantitative Methods in the Atkinson Graduate School of Management at Willamette University\nHe earned a Ph. D. in political science from the University of Rochester in 2005 and has previously held teaching positions at Dartmouth College, Rice University, Texas A&M University, and Washington University in Saint Louis. His current research develops and applies semi-Markov processes to time-series, cross-section data in international relations and international/comparative political economy. He teaches courses in quantitative methods/applied statistics and microeconomic strategy and previously taught four iterations in the U. S. National Science Foundation funded Empirical Implications of Theoretical Models sequence at Washington University in Saint Louis. His work with Curt Signorino and Muhammet Bas was awarded the Miller Prize for the best article in Political Analysis in 2009.\nHis web presence is rww.science and his github is https://github.com/robertwwalker\n\n\nRobert’s Erdos-Bacon Number is 8.\n\n\n\n\n\n\n\nErdos Table\n\n\n\n\n\n\n\nBacon Table"
   },
   {
     "objectID": "links.html#data",
@@ -231,6 +154,83 @@
     "text": "iframe and slides\nI built a little proof of concept for slides. You can see it here."
   },
   {
+    "objectID": "posts/Docker-Shiny/index.html",
+    "href": "posts/Docker-Shiny/index.html",
+    "title": "Docker and Shiny",
+    "section": "",
+    "text": "Last updated: 2023-03-08 08:50:33\nTimezone: America/Los_Angeles\nWhen it comes to shiny applications, hosting is a perennial concern. The free alternative shinyapps.io works great but limits the number of user applications that can be deployed. One can operate a server and serve the shiny applications for one’s self. To be honest, this solution is probably superior but is also costly insofar as system administration consumes time. There is an in between that is worth exploring.\nWe could link to the apps and deploy them in the cloud. The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications. I want to explore this alternative in what follows."
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#shiny-server.conf",
+    "href": "posts/Docker-Shiny/index.html#shiny-server.conf",
+    "title": "Docker and Shiny",
+    "section": "shiny-server.conf",
+    "text": "shiny-server.conf\nI created a shiny-server.conf file to configure the shiny server inside the container. The contents of the file are below.\n# Define the user we should use when spawning R Shiny processes\nrun_as shiny;\n# Define a top-level server which will listen on a port\nserver {\n  # Instruct this server to listen on port 3838.\n  listen 3838;\n# Define the location available at the base URL\n  location / {\n# Run this location in 'site_dir' mode, which hosts the entire directory\n    # tree at '/srv/shiny-server'\n    site_dir /srv/shiny-server;\n    \n    # Define where we should put the log files for this location\n    log_dir /var/log/shiny-server;\n    \n    # Should we list the contents of a (non-Shiny-App) directory when the user \n    # visits the corresponding URL?\n    directory_index on;\n  }\n}"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#shiny-server.sh",
+    "href": "posts/Docker-Shiny/index.html#shiny-server.sh",
+    "title": "Docker and Shiny",
+    "section": "shiny-server.sh",
+    "text": "shiny-server.sh\nThis file invokes the shiny server.\n#!/bin/sh\n# Make sure the directory for individual app logs exists\nmkdir -p /var/log/shiny-server\nchown shiny.shiny /var/log/shiny-server\nexec shiny-server >> /var/log/shiny-server.log 2>&1"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#dockerfile",
+    "href": "posts/Docker-Shiny/index.html#dockerfile",
+    "title": "Docker and Shiny",
+    "section": "Dockerfile",
+    "text": "Dockerfile\nThe dockerfile needs instructions for building R and being able to execute the necessary components. Here is the Dockerfile.\n# get shiny server plus tidyverse packages image\nFROM rocker/shiny-verse:latest\n# system libraries of general use\nRUN apt-get update && apt-get install -y \\\n    sudo \\\n    pandoc \\\n    pandoc-citeproc \\\n    libcurl4-gnutls-dev \\\n    libcairo2-dev \\\n    libxt-dev \\\n    libssl-dev \\\n    libssh2-1-dev\n# install R packages required \n# (change it depending on the packages you need)\nRUN R -e \"install.packages(c('shinydashboard','DT','hrbrthemes','lubridate'), repos='http://cran.rstudio.com/')\"\n# Copy configuration files into the Docker image\nCOPY shiny-server.conf  /etc/shiny-server/shiny-server.conf\nCOPY /app /srv/shiny-server/\nRUN rm /srv/shiny-server/index.html\n# Make the ShinyApp available at port 3838\nEXPOSE 3838\n# Copy further configuration files into the Docker image\nCOPY shiny-server.sh /usr/bin/shiny-server.sh\nRUN [\"chmod\", \"+x\", \"/usr/bin/shiny-server.sh\"]\nCMD [\"/usr/bin/shiny-server.sh\"]"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#app.r",
+    "href": "posts/Docker-Shiny/index.html#app.r",
+    "title": "Docker and Shiny",
+    "section": "app.R",
+    "text": "app.R\nThe last thing that I require is a functional app. In this case, my app is three panels applied to archigos and an .rda version of the data exists in the container. Here is the total file.\n#\n# This is a Shiny web application. You can run the application by clicking\n# the 'Run App' button above.\n#\n# Find out more about building applications with Shiny here:\n#\n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinydashboard)\nlibrary(tidyverse) \nlibrary(magrittr)\nlibrary(utf8)\nlibrary(shiny)\nlibrary(DT)\nlibrary(lubridate)\nlibrary(hrbrthemes)\n# load the data\nload(\"data/archigos.rda\")\n# create the set of countries\nCountry.Select <- Archigos %$% table(idacr) %>% data.frame() %>% mutate(Country = idacr) %>% select(Country)\n# plot for durations\nPlot.Durations <- function(data, state) {\n  data %>% ggplot(., aes(x=tenureY)) + geom_histogram() + theme_ipsum_rc() + labs(x=\"Durations\", title=paste0(\"Durations: \",state))\n}\n# plot for chronology\nPlot.Chronology <- function(data, state) {\n  data %>% arrange(eindate) %>% \n    ggplot(., aes(x=fct_reorder(leader, eindate), color=leader)) + geom_errorbar(aes(ymin=eindate, ymax=eoutdate)) + coord_flip() + labs(x=\"\", title=paste0(\"Leader Chronology: \",state)) + theme_ipsum_rc() + scale_color_viridis_d(option = \"E\") + guides(color=FALSE)\n}\n\nheader <- dashboardHeader(title = \"Archigos\")\nsidebar <-  dashboardSidebar(\n  sidebarMenu(selectInput(inputId = \"Country\", label=\"Country:\", choices = Country.Select$Country, selected=\"AFG\"))\n)\nbody <- dashboardBody(\n  tabsetPanel(\n    tabItem(tabName = \"dashb1\",\n            title=\"Chronology\",\n            # Boxes need to be put in a row (or column)\n            fluidRow(box(plotOutput(\"plotDur\"), width=12))\n    ),\n    tabItem(tabName = \"dashb2\",\n            title=\"Durations\",\n            fluidRow(box(plotOutput(\"plotChr\"), width=12))\n    )),\n  fluidRow(DTOutput(\"plotDT\"))\n)\nui <- dashboardPage(skin = \"purple\", header, sidebar, body)\n\nserver <- function(input, output) {\n  dataset <- reactive({\n    Archigos %>% \n      filter(idacr==input$Country) %>% \n      arrange(desc(eoutdate))\n  })\n  output$plotDT <- renderDT({  dataset()}, options = list(scrollX = TRUE) \n  )\n  output$plotDur <- renderPlot({\n    Plot.Chronology(dataset(), input$country)\n  })\n  output$plotChr <- renderPlot({\n    Plot.Durations(dataset(), input$country)\n  })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#building-the-docker-container",
+    "href": "posts/Docker-Shiny/index.html#building-the-docker-container",
+    "title": "Docker and Shiny",
+    "section": "Building the docker container",
+    "text": "Building the docker container\nAt the terminal, here I need to build the docker image.\nsudo docker build image -t pieratio/archigos"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#pushing-to-a-docker-hub",
+    "href": "posts/Docker-Shiny/index.html#pushing-to-a-docker-hub",
+    "title": "Docker and Shiny",
+    "section": "Pushing to a docker hub",
+    "text": "Pushing to a docker hub\nThe first one is to go to docker hub. I have an account that has a single container currently there called archigos."
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#google-cloud-services",
+    "href": "posts/Docker-Shiny/index.html#google-cloud-services",
+    "title": "Docker and Shiny",
+    "section": "Google cloud services",
+    "text": "Google cloud services\nNext we wander off to cloud.google.com and enable containers for use in Cloud Run. I then set up the project called archigos attached to port 3838 and set it to run. Now I have a running shiny app in the cloud on google to tie to this post!"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#the-app",
+    "href": "posts/Docker-Shiny/index.html#the-app",
+    "title": "Docker and Shiny",
+    "section": "The app",
+    "text": "The app"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#another-example",
+    "href": "posts/Docker-Shiny/index.html#another-example",
+    "title": "Docker and Shiny",
+    "section": "Another Example",
+    "text": "Another Example"
+  },
+  {
+    "objectID": "posts/Docker-Shiny/index.html#one-that-uses-.rmd-flexdashboard",
+    "href": "posts/Docker-Shiny/index.html#one-that-uses-.rmd-flexdashboard",
+    "title": "Docker and Shiny",
+    "section": "One that Uses .Rmd FlexDashboard",
+    "text": "One that Uses .Rmd FlexDashboard\nIn progress…"
+  },
+  {
     "objectID": "where.html",
     "href": "where.html",
     "title": "Where",
@@ -259,32 +259,11 @@
     "text": "obertwwalker.github.io \n\n\n\n\nCourses and their Links\n\nCommunicating with Data Slides\nWebsite for Commmunicating with Data\nData Analysis, Modelling, Decision-Making"
   },
   {
-    "objectID": "posts/Docker-Shiny/index.html#another-example",
-    "href": "posts/Docker-Shiny/index.html#another-example",
-    "title": "Docker and Shiny",
-    "section": "Another Example",
-    "text": "Another Example"
-  },
-  {
-    "objectID": "posts/Docker-Shiny/index.html#one-that-uses-.rmd-flexdashboard",
-    "href": "posts/Docker-Shiny/index.html#one-that-uses-.rmd-flexdashboard",
-    "title": "Docker and Shiny",
-    "section": "One that Uses .Rmd FlexDashboard",
-    "text": "One that Uses .Rmd FlexDashboard\nIn progress…"
-  },
-  {
     "objectID": "courses-DADM.html",
     "href": "courses-DADM.html",
     "title": "Courses: Data Analysis, Modeling, and Decision-Making",
     "section": "",
     "text": "obertwwalker.github.io \n\n\n\nDADM 622/5103 is the core/required statistics and data course in the Atkinson Graduate School of Management. While most of the materials are available via the learning management system, I am increasingly migrating to something I have more control over because learning management systems change.\n\nThere is a set of occasionally and frequently asked questions for this course.\n\n\n\n\nThe slides for Spring 2023"
-  },
-  {
-    "objectID": "courses-DADM.html#communicating-with-data",
-    "href": "courses-DADM.html#communicating-with-data",
-    "title": "Courses: Communicating With Data",
-    "section": "Communicating With Data",
-    "text": "Communicating With Data\nCommunicating with Data is a cross-listed course in the graduate school of Management and the Data Science program. In the course, we explore communication tools, e.g. tables and interactive tables, figures and interactive figures, shiny apps, websites, parameterized markdown, and, quite generically, the provision of tools for end users of data science tooling for insights.\n\nThere is a course website.\n\n\n\n\nThe slides for Spring 2023"
   },
   {
     "objectID": "courses-CWD.html#communicating-with-data",

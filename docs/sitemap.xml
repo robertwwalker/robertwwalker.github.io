@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://robertwwalker.github.io/posts/Docker-Shiny/index.html</loc>
-    <lastmod>2023-03-08T16:50:35.420Z</lastmod>
+    <loc>https://robertwwalker.github.io/about.html</loc>
+    <lastmod>2023-03-08T20:25:36.870Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/index.html</loc>
-    <lastmod>2023-03-08T16:50:36.060Z</lastmod>
-  </url>
-  <url>
-    <loc>https://robertwwalker.github.io/about.html</loc>
-    <lastmod>2023-03-05T00:35:26.740Z</lastmod>
+    <lastmod>2023-03-08T20:25:37.310Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/links.html</loc>
-    <lastmod>2023-03-05T00:35:27.530Z</lastmod>
+    <lastmod>2023-03-08T20:25:39.010Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/A Data Visualization/index.html</loc>
-    <lastmod>2023-03-05T00:35:28.540Z</lastmod>
+    <lastmod>2023-03-08T20:25:40.190Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/HumanRightsTable/index.html</loc>
-    <lastmod>2023-03-05T00:35:30.110Z</lastmod>
+    <lastmod>2023-03-08T20:25:41.720Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/InteractiveVisualization/index.html</loc>
-    <lastmod>2023-03-05T00:35:31.110Z</lastmod>
+    <lastmod>2023-03-08T20:25:42.890Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/Pigeons-Pallettes/index.html</loc>
-    <lastmod>2023-03-05T00:35:32.420Z</lastmod>
+    <lastmod>2023-03-08T20:25:44.210Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/parameterized-markdown/index.html</loc>
-    <lastmod>2023-03-05T00:35:33.630Z</lastmod>
+    <lastmod>2023-03-08T20:25:45.520Z</lastmod>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/posts/Docker-Shiny/index.html</loc>
+    <lastmod>2023-03-08T20:25:46.570Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/where.html</loc>
-    <lastmod>2023-03-05T00:35:34.210Z</lastmod>
+    <lastmod>2023-03-08T20:25:47.780Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/slides-CWD.html</loc>
-    <lastmod>2023-03-05T00:35:34.520Z</lastmod>
+    <lastmod>2023-03-08T20:25:48.080Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/slides-DADM.html</loc>
-    <lastmod>2023-03-05T00:35:34.850Z</lastmod>
+    <lastmod>2023-03-08T20:25:48.390Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/slides.html</loc>
-    <lastmod>2023-03-05T00:35:35.620Z</lastmod>
+    <lastmod>2023-03-08T20:25:49.690Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/courses-DADM.html</loc>
-    <lastmod>2023-03-08T19:52:57.150Z</lastmod>
+    <lastmod>2023-03-08T20:25:50.010Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/courses-CWD.html</loc>
-    <lastmod>2023-03-08T19:52:57.780Z</lastmod>
+    <lastmod>2023-03-08T20:25:50.330Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/courses-Essex.html</loc>
-    <lastmod>2023-03-08T19:55:39.230Z</lastmod>
+    <lastmod>2023-03-08T20:25:50.630Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/courses-CAF.html</loc>
-    <lastmod>2023-03-08T19:58:29.350Z</lastmod>
+    <lastmod>2023-03-08T20:25:50.930Z</lastmod>
   </url>
 </urlset>
