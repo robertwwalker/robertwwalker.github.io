@@ -18,7 +18,7 @@ about:
 <marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
 
 
-
+## Models of Choice and Forecasting
 
 - [There is a website for the course.](https://robertwwalker.github.io/ChoiceAndForecasting/){target="blank"}
 
