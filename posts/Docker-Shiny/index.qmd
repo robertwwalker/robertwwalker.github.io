@@ -228,7 +228,10 @@ Next we wander off to cloud.google.com and enable containers for use in `Cloud R
 
 ## One that Uses .Rmd FlexDashboard
 
-In progress...
+Deploying this container is tricky because of the overall size of the project.  I have to limit the number of instances and kick up the amount of usable RAM to make it work.  The margins of this page do not render this super well.  [It is better seen at the host site for that repository](https://github.com/robertwwalker/ShinyD-C19/).
+
+<iframe src="https://shinyc19-geiwez4tia-uc.a.run.app" width="900" height="800"></iframe>
+
 
 
 # References

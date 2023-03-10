@@ -158,7 +158,7 @@
     "href": "posts/Docker-Shiny/index.html",
     "title": "Docker and Shiny",
     "section": "",
-    "text": "Last updated: 2023-03-08 12:29:49\nTimezone: America/Los_Angeles\nWhen it comes to shiny applications, hosting is a perennial concern. The free alternative shinyapps.io works great but limits the number of user applications that can be deployed. One can operate a server and serve the shiny applications for one’s self. To be honest, this solution is probably superior but is also costly insofar as system administration consumes time. There is an in between that is worth exploring.\nWe could link to the apps and deploy them in the cloud. The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications. I want to explore this alternative in what follows."
+    "text": "Last updated: 2023-03-10 05:58:08\nTimezone: America/Los_Angeles\nWhen it comes to shiny applications, hosting is a perennial concern. The free alternative shinyapps.io works great but limits the number of user applications that can be deployed. One can operate a server and serve the shiny applications for one’s self. To be honest, this solution is probably superior but is also costly insofar as system administration consumes time. There is an in between that is worth exploring.\nWe could link to the apps and deploy them in the cloud. The most common methods for accomplishing this particular task involve Docker containers and using Docker to run the shiny applications. I want to explore this alternative in what follows."
   },
   {
     "objectID": "posts/Docker-Shiny/index.html#shiny-server.conf",
@@ -228,7 +228,7 @@
     "href": "posts/Docker-Shiny/index.html#one-that-uses-.rmd-flexdashboard",
     "title": "Docker and Shiny",
     "section": "One that Uses .Rmd FlexDashboard",
-    "text": "One that Uses .Rmd FlexDashboard\nIn progress…"
+    "text": "One that Uses .Rmd FlexDashboard\nDeploying this container is tricky because of the overall size of the project. I have to limit the number of instances and kick up the amount of usable RAM to make it work. The margins of this page do not render this super well. It is better seen at the host site for that repository."
   },
   {
     "objectID": "where.html",
