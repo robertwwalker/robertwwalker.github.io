@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -155,7 +155,7 @@ div.csl-indent {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -202,19 +202,19 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="../../courses-DADM.html">
+    <a class="dropdown-item" href="../../courses/courses-DADM.html">
  <span class="dropdown-text">Data Analysis, Modelling, and Decision-Making</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../courses-CWD.html">
+    <a class="dropdown-item" href="../../courses/courses-CWD.html">
  <span class="dropdown-text">Communicating With Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../courses-CAF.html">
+    <a class="dropdown-item" href="../../courses/courses-CAF.html">
  <span class="dropdown-text">Choice and Forecasting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../courses-Essex.html">
+    <a class="dropdown-item" href="../../courses/courses-Essex.html">
  <span class="dropdown-text">Panel Data</span></a>
   </li>  
     </ul>
@@ -227,12 +227,20 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../../slides-DADM.html">
+    <a class="dropdown-item" href="../../slides/slides-DADM.html">
  <span class="dropdown-text">DADM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../slides-CWD.html">
+    <a class="dropdown-item" href="../../slides/slides-CWD.html">
  <span class="dropdown-text">CWD</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-Essex.html">
+ <span class="dropdown-text">Essex</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-CMF.html">
+ <span class="dropdown-text">CMF</span></a>
   </li>  
     </ul>
   </li>
@@ -256,9 +264,11 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -284,7 +294,7 @@ div.csl-indent {
 </p>
 </h1>
 <p></p></marquee><p></p>
-<section id="a-geofacet-view-of-credit-quality" class="level1">
+<section id="a-geofacet-view-of-credit-quality" class="level1 page-columns page-full">
 <h1>A GeoFacet View of Credit Quality</h1>
 <p>In previous work with Skip Krueger, we conceptualized bond ratings as a multiple rater problem and extracted measure of state level creditworthiness. I had always had it on my list to do something like this and recently ran across a package called <code>geofacet</code> that makes it easy to do. The end result should parse out state level credit risk and showcase the time series of credit risk for each of the states.</p>
 <p>So here goes.</p>
@@ -330,25 +340,82 @@ div.csl-indent {
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>         <span class="st">"49"</span>,<span class="st">"50"</span>,<span class="st">"51"</span>,<span class="st">"53"</span>,<span class="st">"54"</span>,<span class="st">"55"</span>,<span class="st">"56"</span>,<span class="st">"60"</span>,<span class="st">"66"</span>,<span class="st">"69"</span>,</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>         <span class="st">"72"</span>,<span class="st">"78"</span>))  </span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Res1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(state.SE, fips, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"state_name"</span> <span class="ot">=</span> <span class="st">"state_name"</span>))</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Res1 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>Credit.Quality, <span class="at">group=</span>state)) <span class="sc">+</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Plot1 <span class="ot">&lt;-</span> Res1 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>Credit.Quality, <span class="at">group=</span>state)) <span class="sc">+</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>t1, <span class="at">ymax=</span>t2, <span class="at">colour=</span>state, <span class="at">fill=</span>state), <span class="at">alpha=</span><span class="fl">0.1</span>) <span class="sc">+</span> </span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour=</span>state)) <span class="sc">+</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>, <span class="at">fill=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_geo</span>(<span class="sc">~</span> state) <span class="sc">+</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">4</span>, <span class="at">angle=</span><span class="dv">45</span>), <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">6</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Credit Quality in the US States"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">4</span>, <span class="at">angle=</span><span class="dv">45</span>), <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">6</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Credit Quality in the US States"</span>)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Plot1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<section id="not-long-ago-i-learned" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="not-long-ago-i-learned">Not Long Ago I Learned</h2>
+<p>One thing that I quite liked about RMarkdown was column figures in the Tufte document templates. Those features are native to quarto, to a large extent. All we need do is add the following bit to code chunks.</p>
+<pre><code>#| column: margin</code></pre>
+<div class="cell page-columns page-full">
+<details>
+<summary>How’s that done?</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Plot1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<div id="fig-map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-map-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Credit quality in US States</figcaption><p></p>
+</figure>
+</div>
+</div></div></div>
+<p>Same with tables.</p>
+<div class="cell page-columns page-full">
+<details>
+<summary>How’s that done?</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Res1[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">state_name</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Credit.Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">1994</td>
+<td style="text-align: right;">-0.3564650</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">1995</td>
+<td style="text-align: right;">-0.3576466</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">-0.3559865</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</section>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
 <div class="cell">
 <details>
 <summary>How’s that done?</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 

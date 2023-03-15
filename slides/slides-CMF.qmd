@@ -1,0 +1,19 @@
+---
+title: Models of Choice and Forecasting Slides
+toc: true
+toc-title: <br><br><br><br><br><br><br><br><br><br><br><br>Models of Choice and Forecasting Slides Contents
+toc-location: right
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+```{r setup, include=FALSE}
+library(distilltools)
+```
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+# Slides
+
+- [Models of Choice and Forecasting Slides](slides-CMF.html)

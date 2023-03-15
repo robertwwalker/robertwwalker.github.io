@@ -1,0 +1,19 @@
+---
+title: Panel Data Slides
+toc: true
+toc-title: <br><br><br><br><br><br><br><br><br><br><br><br>Panel Data Contents
+toc-location: right
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+```{r setup, include=FALSE}
+library(distilltools)
+```
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+# Slides
+
+- [Panel Data Slides](slides-CMF.html)

@@ -59,16 +59,39 @@ fips = c("01","02","04","05","06",
          "49","50","51","53","54","55","56","60","66","69",
          "72","78"))  
 Res1 <- left_join(state.SE, fips, by=c("state_name" = "state_name"))
-Res1 %>% ggplot(., aes(x=year, y=Credit.Quality, group=state)) +
+Plot1 <- Res1 %>% ggplot(., aes(x=year, y=Credit.Quality, group=state)) +
   geom_pointrange(aes(ymin=t1, ymax=t2, colour=state, fill=state), alpha=0.1) + 
   geom_line(aes(colour=state)) +
   guides(color="none", fill="none") +
   facet_geo(~ state) +
   theme_minimal() + 
   theme(axis.text.x = element_text(size=4, angle=45), axis.text.y = element_text(size=6)) + labs(title="Credit Quality in the US States")
+Plot1
 ```
 
+## Not Long Ago I Learned
 
+One thing that I quite liked about RMarkdown was column figures in the Tufte document templates.  Those features are native to quarto, to a large extent.  All we need do is add the following bit to code chunks.
+
+```
+#| column: margin
+```
+
+```{r}
+#| label: fig-map
+#| fig-cap: "Credit quality in US States"
+#| column: margin
+Plot1
+```
+
+Same with tables.
+
+```{r}
+#| column: margin
+knitr::kable(
+  Res1[1:3, 1:3]
+)
+```
 
 # References
 

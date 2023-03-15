@@ -31,20 +31,24 @@ website:
         icon: mortarboard-fill
         menu:
             - text: Data Analysis, Modelling, and Decision-Making
-              href: courses-DADM.qmd
+              href: courses/courses-DADM.qmd
             - text: Communicating With Data
-              href: courses-CWD.qmd
+              href: courses/courses-CWD.qmd
             - text: Choice and Forecasting
-              href: courses-CAF.qmd
+              href: courses/courses-CAF.qmd
             - text: Panel Data
-              href: courses-Essex.qmd
+              href: courses/courses-Essex.qmd
       - text: Slides
         icon: mortarboard-fill
         menu:
             - text: DADM
-              href: slides-DADM.qmd
+              href: slides/slides-DADM.qmd
             - text: CWD
-              href: slides-CWD.qmd
+              href: slides/slides-CWD.qmd
+            - text: Essex
+              href: slides/slides-Essex.qmd
+            - text: CMF
+              href: slides/slides-CMF.qmd
       - icon: github
         href: https://github.com/robertwwalker
       - icon: twitter
