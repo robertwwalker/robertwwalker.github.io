@@ -1,5 +1,6 @@
 ---
 title: Pigeons and Palettes
+date: 2023-01-03
 bibliography: "bibliography.bib"
 nocite: |
      @*

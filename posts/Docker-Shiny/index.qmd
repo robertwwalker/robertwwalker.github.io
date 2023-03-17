@@ -11,17 +11,9 @@ tags:
 bibliography: "bibliography.bib"
 nocite: |
      @*
+title-block-banner: false 
 format: 
    html:
-     code-fold: true
-     code-copy: hover
-     code-block-border-left: true
-     df-print: paged
-     fig-format: retina
-     footnotes-hover: true
-     html-math-method: katex
-     toc: true
-     toc-title: Navigation
      comments:
         giscus: 
           repo: robertwwalker/robertwwalker.github.io

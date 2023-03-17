@@ -1,0 +1,153 @@
+---
+title: "A Shiny on Corruption Data"
+author: "Robert W. Walker"
+date: "2023-03-17"
+image: "image.png"
+tags:
+  - R
+  - docker
+  - shiny
+  - TransparencyIntl
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+title-block-banner: false 
+format: 
+   html:
+     comments:
+        giscus: 
+          repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, fig.retina = 3)
+```
+
+Last updated: `r Sys.time()` 
+
+Timezone: `r Sys.timezone()`
+
+## Transparency Data
+
+Transparency International provides a wealth of interesting data; I want to work with their [Corruption Perceptions Index](https://www.transparency.org/en/cpi/2022).  The data can be obtained in an Excel spreadsheet.  Here's a brief shot of the file.  The main object of interest, throughout, is the `cpi_score` -- the corruption perception index.
+
+![Excel file](img/Screen Shot 2023-03-16 at 11.28.48 PM.png)
+
+These data have a first two rows that will need to be skipped and the names are terrible but we can use janitor's `clean_names` to take care of that.  The other thing to notice is three sheets.  The second sheet will need some tidying and the third sheet is not all that interesting, to me.  Let's import the first one.
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(DT)
+CPI22 <- readxl::read_excel(path="data/CPI2022_GlobalResultsTrends.xlsx", sheet=1, skip=2) %>% clean_names()
+datatable(CPI22)
+```
+
+We also have the time series data.  Let's first import them.
+
+```{r}
+CPI.Time <- readxl::read_excel(path="data/CPI2022_GlobalResultsTrends.xlsx", sheet=2, skip=2) %>% clean_names()
+datatable(CPI.Time)
+```
+
+These data require some tidying with pivot_longer; we will want to grab a `cpi_score`, `rank`, `sources`, and `standard_error` for each year that we have data.  It is worth noting that the ranks only go back to 2017.  There are harder and easier ways to do this.  I wrote a quick function to take two inputs and then pivot each of the four series separately.
+
+```{r}
+cleaner <- function(data, string) {
+  # Start with the data
+  data %>%
+  # Use the iso3 as ID and keep everything that starts with string
+    select(iso3, starts_with(string)) %>%
+    # pivot those variables except iso3
+  pivot_longer(.,
+                    cols=-iso3,
+               # names_prefix needs to remove string_
+                    names_prefix = paste0(string,"_",sep=""),
+               # make what's left of the names the year -- it will be a four digit year
+                    names_to = "year",
+              # make the values named string
+                    values_to=string)
+}
+CPI.TS.Tidy <- cleaner(CPI.Time,"cpi_score")
+Sources.TS.Tidy <- cleaner(CPI.Time,"sources")
+StdErr.TS.Tidy <- cleaner(CPI.Time,"standard_error")
+Rank.TS.Tidy <- cleaner(CPI.Time, "rank")
+```
+
+Now I can join them back together.
+
+```{r}
+Panel <- left_join(CPI.TS.Tidy, Sources.TS.Tidy) %>% left_join(., StdErr.TS.Tidy) %>% left_join(Rank.TS.Tidy) %>% mutate(year = as.integer(year))
+rm(CPI.TS.Tidy, Sources.TS.Tidy, StdErr.TS.Tidy, Rank.TS.Tidy)
+```
+
+The third sheet is a set of statistically significant changes that I do not so much care about.
+
+## A Summary
+
+```{r}
+library(skimr)
+Panel %>% skim()
+```
+
+## A Map
+
+```{r}
+library("rnaturalearth")
+library("rnaturalearthdata")
+world <- ne_countries(scale = "medium", returnclass = "sf")
+# create world map using ggplot() function
+ggplot(world) +
+    geom_sf(fill="pink", color="black", size=0.1, alpha=0.2) +
+    theme_void() +
+  labs(title="A Starting Point")
+```
+
+## Join the Map and the Data
+
+The `sf` package has special merge methods that I will deploy to combine the two bits of data.
+
+```{r}
+Map.Data <- merge(world, Panel, by.x="iso_a3", by.y= "iso3")
+```
+
+Now to draw a map.
+
+```{r}
+# create world map using ggplot() function
+Map.Data <- Map.Data %>% mutate(tooltip = paste0(sovereignt,"<br>",year,"<br>CPI: ",cpi_score, sep=""))
+Map.Res <- Map.Data %>% 
+  dplyr::filter(year==2022L) %>% 
+  ggplot(.) +
+    geom_sf(aes(fill=cpi_score, text=tooltip), size=0.1, alpha=0.8) +
+  scale_fill_viridis_c() +
+    theme_void() +
+  labs(title="Perceived Corruption around the World in 2022",
+       caption="Data from Transparency International",
+       fill = "CPI") + theme(legend.position="bottom")
+Map.Res
+```
+
+```{r}
+library(plotly)
+ggplotly(Map.Res, tooltip = "text")
+```
+
+This is enough to wrap as a page for a shiny app.  The year selector and the two maps.
+
+## A Second Page
+
+I want a second page that will only display the 2022 results in `CPI22`.  There are tons of measures there, many with a lot of missing data, but those are only for one year.  The selector here is going to be the series to plot.
+
+
+
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
+
+

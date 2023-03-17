@@ -13,21 +13,16 @@ tags:
 bibliography: "bibliography.bib"
 nocite: |
      @*
+title-block-banner: false 
 format: 
    html:
-     code-fold: true
-     code-copy: hover
      code-block-border-left: true
-     df-print: paged
-     fig-format: retina
-     footnotes-hover: true
-     html-math-method: katex
-     toc: true
-     toc-title: Navigation
 ---
 
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, fig.retina = 3)
 ```
 
 Last updated: `r Sys.time()` 
