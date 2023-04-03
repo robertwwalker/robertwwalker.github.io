@@ -33,7 +33,7 @@ Inside the command `image_pal()`, I point it to an image, I specify how many col
 ```{r}
 library(imgpalr)
 Pigeon.colors <- image_pal("img/Pigeon.png", # This will need to be adjusted to the actual file location on your computer.  Mine is in my downloads.
-          n = 5, # How many colors?
+          n = 20, # How many colors?
           type = "qual", # Type of palette?
           saturation = c(0.75, 1), 
           brightness = c(0.75, 1), 
