@@ -216,13 +216,13 @@ Next we wander off to cloud.google.com and enable containers for use in `Cloud R
 
 ## Another Example
 
-<iframe src="https://shinytick-geiwez4tia-uc.a.run.app" width="680" height="600" allowfullscreen></iframe>
+<iframe src="https://tickerenterdocker-geiwez4tia-uw.a.run.app" width="680" height="600" allowfullscreen></iframe>
 
 ## One that Uses .Rmd FlexDashboard
 
 Deploying this container is tricky because of the overall size of the project.  I have to limit the number of instances and kick up the amount of usable RAM to make it work.  The margins of this page do not render this super well.  [It is better seen at the host site for that repository](https://github.com/robertwwalker/ShinyD-C19/).
 
-<iframe src="https://shinyc19-geiwez4tia-uc.a.run.app" width="900" height="800"></iframe>
+<iframe src="https://rwalkerwu.shinyapps.io/COVID19/" width="900" height="800"></iframe>
 
 
 
