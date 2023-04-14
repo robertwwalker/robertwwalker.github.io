@@ -401,7 +401,7 @@ shinyApp(ui = ui, server = server)
 ```
 
 ```{=html}
-<iframe width="800" height="800" src="https://transparencyintl-geiwez4tia-wn.a.run.app" title="The Shiny App"></iframe>
+<iframe width="1000" height="800" src="https://transparencyintl-geiwez4tia-wn.a.run.app" title="The Shiny App"></iframe>
 ```
 
 [A Link to the App](https://transparencyintl-geiwez4tia-wn.a.run.app)
