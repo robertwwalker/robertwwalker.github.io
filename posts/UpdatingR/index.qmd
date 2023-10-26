@@ -99,5 +99,21 @@ This is painstaking; past me was unkind to present me in not doing this before. 
 After filling in the `loc` column in `remainder`, I can `walk` it with `walk(remainder$loc, ~devtools::install_github(.x))`.
 
 
-
+```
+remainder$loc["dsbox"] <- "tidyverse/dsbox"
+remainder$loc["distilltools"] <- "EllaKaye/distilltools"
+remainder$loc["emo"] <- "hadley/emo"
+remainder$loc["emoGG"] <- "dill/emoGG"
+remainder$loc["equatiomatic"] <- "datalorax/equatiomatic"
+remainder$loc["flexpivot"] <- "dreamRs/flexpivot"
+remainder$loc["frailtypack"] <- "socale/frailtypack"
+remainder$loc["ggflags"] <- "jimjam-slam/ggflags"
+remainder$loc["gradethis"] <- "rstudio/gradethis"
+remainder$loc["LogisticDx"] <- "dardisco/LogisticDx"
+remainder$loc["maptools"] <- ""
+remainder$loc["ResampleProps"] <- "robertwwalker/ResampleProps"
+remainder$loc["rgeos"] <- ""
+remainder$loc["rgdal"] <- ""
+remainder$loc["sankeytreeR"] <- "timelyportfolio/sankeytree"
+```
 
