@@ -300,7 +300,8 @@ purrr::walk(I1$InstPack, ~install.packages(.x))</code></pre>
 <section id="an-anti-join" class="level2">
 <h2 class="anchored" data-anchor-id="an-anti-join">8. An anti-join</h2>
 <p><code>dplyr</code> has an anti-join function that is one of a few ways to find the packages that did not install.</p>
-<pre><code>dplyr::anti_join(I1, I2)</code></pre>
+<pre><code>remainder &lt;- dplyr::anti_join(I1, I2)
+remainder</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Fails.png" class="img-fluid figure-img"></p>
@@ -320,6 +321,7 @@ purrr::walk(I1$InstPack, ~install.packages(.x))</code></pre>
 </div>
 <pre><code>remainder["d3scatter","loc"] &lt;- "jcheng5/d3scatter"</code></pre>
 <p>This is painstaking; past me was unkind to present me in not doing this before. But as long as I save it, or the code in this blog post, then I can recover it all.</p>
+<p>After filling in the <code>loc</code> column in <code>remainder</code>, I can <code>walk</code> it with <code>walk(remainder$loc, ~devtools::install_github(.x))</code>.</p>
 
 
 </section>

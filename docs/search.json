@@ -396,7 +396,7 @@
     "href": "posts/UpdatingR/index.html#an-anti-join",
     "title": "Updating R and R Packages",
     "section": "8. An anti-join",
-    "text": "8. An anti-join\ndplyr has an anti-join function that is one of a few ways to find the packages that did not install.\ndplyr::anti_join(I1, I2)\n\n\n\nFailed Installs\n\n\nNow I know what to go searching for on github because that is where the missing packages come from."
+    "text": "8. An anti-join\ndplyr has an anti-join function that is one of a few ways to find the packages that did not install.\nremainder &lt;- dplyr::anti_join(I1, I2)\nremainder\n\n\n\nFailed Installs\n\n\nNow I know what to go searching for on github because that is where the missing packages come from."
   },
   {
     "objectID": "posts/UpdatingR/index.html#the-set-of-installed-packages",
@@ -410,6 +410,6 @@
     "href": "posts/UpdatingR/index.html#a-postscript",
     "title": "Updating R and R Packages",
     "section": "9. A postscript",
-    "text": "9. A postscript\nNow I can get smart about this part also. In the process of searching for these, it became useful to go ahead and create an amendable collection of locations for these. For example, d3scatter.\n\n\n\nd3scatter\n\n\nremainder[\"d3scatter\",\"loc\"] &lt;- \"jcheng5/d3scatter\"\nThis is painstaking; past me was unkind to present me in not doing this before. But as long as I save it, or the code in this blog post, then I can recover it all."
+    "text": "9. A postscript\nNow I can get smart about this part also. In the process of searching for these, it became useful to go ahead and create an amendable collection of locations for these. For example, d3scatter.\n\n\n\nd3scatter\n\n\nremainder[\"d3scatter\",\"loc\"] &lt;- \"jcheng5/d3scatter\"\nThis is painstaking; past me was unkind to present me in not doing this before. But as long as I save it, or the code in this blog post, then I can recover it all.\nAfter filling in the loc column in remainder, I can walk it with walk(remainder$loc, ~devtools::install_github(.x))."
   }
 ]

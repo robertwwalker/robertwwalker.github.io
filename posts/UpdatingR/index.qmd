@@ -76,7 +76,8 @@ I2 <- data.frame(InstPack = installed.packages()[,1])
 `dplyr` has an anti-join function that is one of a few ways to find the packages that did not install.  
 
 ```
-dplyr::anti_join(I1, I2)
+remainder <- dplyr::anti_join(I1, I2)
+remainder
 ```
 
 ![Failed Installs](Fails.png)
@@ -94,6 +95,8 @@ remainder["d3scatter","loc"] <- "jcheng5/d3scatter"
 ```
 
 This is painstaking; past me was unkind to present me in not doing this before.  But as long as I save it, or the code in this blog post, then I can recover it all.
+
+After filling in the `loc` column in `remainder`, I can `walk` it with `walk(remainder$loc, ~devtools::install_github(.x))`.
 
 
 
