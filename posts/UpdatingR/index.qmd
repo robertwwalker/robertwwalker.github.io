@@ -1,0 +1,100 @@
+---
+title: Updating R and R Packages
+date: 2023-10-23
+title-block-banner: false 
+image: "image.png"
+code-fold: true
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+
+# Updating R
+
+I find updating R to be unnecessarily time-consuming.  Much of this is my fault; I do not make good choices about packages and their management.  Nevertheless, in my never ending pursuit of engineering solutions to my bad choices, I decided to document a fairly easy workflow for updating and getting a nearly identical updated system.  Here are the steps.
+
+## 1. What packages have I installed?
+
+I will define an R object `I1` [a data.frame with a single character variable `InstPack`]
+
+```{r}
+I1 <- data.frame(InstPack = installed.packages()[,1])
+```
+
+## 2. Save that set of packages
+
+From here, I need to save this in an accessible location.
+
+```
+save(I1, file="InstalledPackagesNov2023.RData")
+```
+
+## 3. Go to CRAN and update R
+
+Go to [CRAN](https://cran.r-project.org/) and follow the relevant choices to the required option.  Download the file and install it.
+
+## 4. Start the new R
+
+Click on it.  Or open RStudio.
+
+## 5. Load the set of installed packages
+
+```
+load("InstalledPackagesNov2023.RData")
+```
+
+## 6. Install the set of packages
+
+the `purrr::walk`function is very handy.
+
+```
+install.packages("purrr")
+purrr::walk(I1$InstPack, ~install.packages(.x))
+```
+
+This will take a while as R attempts to go through and, one by one, install them.
+
+Once this is complete, I need two more things.
+
+## 7. The set of installed packages 
+
+In this case, let me create the set of installed packages on this new installation in `I2`.
+
+```
+I2 <- data.frame(InstPack = installed.packages()[,1])
+```
+
+## 8. An anti-join
+
+`dplyr` has an anti-join function that is one of a few ways to find the packages that did not install.  
+
+```
+dplyr::anti_join(I1, I2)
+```
+
+![Failed Installs](Fails.png)
+
+Now I know what to go searching for on github because that is where the missing packages come from.
+
+## 9. A postscript
+
+Now I can get smart about this part also.  In the process of searching for these, it became useful to go ahead and create an amendable collection of locations for these.  For example, `d3scatter`.
+
+![d3scatter](d3scatter.png)
+
+```
+remainder["d3scatter","loc"] <- "jcheng5/d3scatter"
+```
+
+This is painstaking; past me was unkind to present me in not doing this before.  But as long as I save it, or the code in this blog post, then I can recover it all.
+
+
+
+

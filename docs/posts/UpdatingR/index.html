@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2023-10-23">
 
-<title>obertwwalker.github.io - Courses: Choice and Forecasting</title>
+<title>obertwwalker.github.io - Updating R and R Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,10 +99,14 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta name="twitter:title" content="obertwwalker.github.io - Courses: Choice and Forecasting">
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="obertwwalker.github.io - Updating R and R Packages">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://robertwwalker.github.io/posts/UpdatingR/image.png">
 <meta name="twitter:creator" content="@PieRatio">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="481">
+<meta name="twitter:image-width" content="414">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -76,10 +116,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../AGSMlogo.jpeg" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../AGSMlogo.jpeg" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io</span>
     </a>
   </div>
@@ -90,22 +130,22 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target=""><i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html" rel="" target=""><i class="bi bi-house" role="img">
 </i> 
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target=""><i class="bi bi-question" role="img">
+    <a class="nav-link" href="../../about.html" rel="" target=""><i class="bi bi-question" role="img">
 </i> 
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../where.html" rel="" target=""><i class="bi bi-globe" role="img">
+    <a class="nav-link" href="../../where.html" rel="" target=""><i class="bi bi-globe" role="img">
 </i> 
  <span class="menu-text">Where</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../links.html" rel="" target=""><i class="bi bi-link" role="img">
+    <a class="nav-link" href="../../links.html" rel="" target=""><i class="bi bi-link" role="img">
 </i> 
  <span class="menu-text">Links</span></a>
   </li>  
@@ -117,19 +157,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="../courses/courses-DADM.html" rel="" target="">
+    <a class="dropdown-item" href="../../courses/courses-DADM.html" rel="" target="">
  <span class="dropdown-text">Data Analysis, Modelling, and Decision-Making</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../courses/courses-CWD.html" rel="" target="">
+    <a class="dropdown-item" href="../../courses/courses-CWD.html" rel="" target="">
  <span class="dropdown-text">Communicating With Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../courses/courses-CAF.html" rel="" target="">
+    <a class="dropdown-item" href="../../courses/courses-CAF.html" rel="" target="">
  <span class="dropdown-text">Choice and Forecasting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../courses/courses-Essex.html" rel="" target="">
+    <a class="dropdown-item" href="../../courses/courses-Essex.html" rel="" target="">
  <span class="dropdown-text">Panel Data</span></a>
   </li>  
     </ul>
@@ -142,19 +182,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../slides/slides-DADM.html" rel="" target="">
+    <a class="dropdown-item" href="../../slides/slides-DADM.html" rel="" target="">
  <span class="dropdown-text">DADM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/slides-CWD.html" rel="" target="">
+    <a class="dropdown-item" href="../../slides/slides-CWD.html" rel="" target="">
  <span class="dropdown-text">CWD</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/slides-Essex.html" rel="" target="">
+    <a class="dropdown-item" href="../../slides/slides-Essex.html" rel="" target="">
  <span class="dropdown-text">Essex</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/slides-CMF.html" rel="" target="">
+    <a class="dropdown-item" href="../../slides/slides-CMF.html" rel="" target="">
  <span class="dropdown-text">CMF</span></a>
   </li>  
     </ul>
@@ -182,17 +222,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-marquee">
-  <div class="about-image-container">
-  </div>
-  <div class="about-contents">
-    <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Courses: Choice and Forecasting</h1>
+<h1 class="title">Updating R and R Packages</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2023</p>
+    </div>
   </div>
-</header> <main class="content" id="quarto-document-content">
+  
+    
+  </div>
+  
+
+</header>
+
 <marquee scrollamount="10">
 <h1>
 <p style="color:purple;">
@@ -200,35 +254,78 @@ ul.task-list li input[type="checkbox"] {
 </p>
 </h1>
 <p></p></marquee><p></p>
-<section id="models-of-choice-and-forecasting" class="level2">
-<h2 data-anchor-id="models-of-choice-and-forecasting">Models of Choice and Forecasting</h2>
-<ul>
-<li><a href="https://robertwwalker.github.io/ChoiceAndForecasting/" target="blank">There is a website for the course.</a></li>
-</ul>
-<iframe src="https://robertwwalker.github.io/ChoiceAndForecasting/" title="Choice and Forecasting" width="800" height="600">
-</iframe>
+<section id="updating-r" class="level1">
+<h1>Updating R</h1>
+<p>I find updating R to be unnecessarily time-consuming. Much of this is my fault; I do not make good choices about packages and their management. Nevertheless, in my never ending pursuit of engineering solutions to my bad choices, I decided to document a fairly easy workflow for updating and getting a nearly identical updated system. Here are the steps.</p>
+<section id="what-packages-have-i-installed" class="level2">
+<h2 class="anchored" data-anchor-id="what-packages-have-i-installed">1. What packages have I installed?</h2>
+<p>I will define an R object <code>I1</code> [a data.frame with a single character variable <code>InstPack</code>]</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>I1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">InstPack =</span> <span class="fu">installed.packages</span>()[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="save-that-set-of-packages" class="level2">
+<h2 class="anchored" data-anchor-id="save-that-set-of-packages">2. Save that set of packages</h2>
+<p>From here, I need to save this in an accessible location.</p>
+<pre><code>save(I1, file="InstalledPackagesNov2023.RData")</code></pre>
+</section>
+<section id="go-to-cran-and-update-r" class="level2">
+<h2 class="anchored" data-anchor-id="go-to-cran-and-update-r">3. Go to CRAN and update R</h2>
+<p>Go to <a href="https://cran.r-project.org/">CRAN</a> and follow the relevant choices to the required option. Download the file and install it.</p>
+</section>
+<section id="start-the-new-r" class="level2">
+<h2 class="anchored" data-anchor-id="start-the-new-r">4. Start the new R</h2>
+<p>Click on it. Or open RStudio.</p>
+</section>
+<section id="load-the-set-of-installed-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-set-of-installed-packages">5. Load the set of installed packages</h2>
+<pre><code>load("InstalledPackagesNov2023.RData")</code></pre>
+</section>
+<section id="install-the-set-of-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-set-of-packages">6. Install the set of packages</h2>
+<p>the <code>purrr::walk</code>function is very handy.</p>
+<pre><code>install.packages("purrr")
+purrr::walk(I1$InstPack, ~install.packages(.x))</code></pre>
+<p>This will take a while as R attempts to go through and, one by one, install them.</p>
+<p>Once this is complete, I need two more things.</p>
+</section>
+<section id="the-set-of-installed-packages" class="level2">
+<h2 class="anchored" data-anchor-id="the-set-of-installed-packages">7. The set of installed packages</h2>
+<p>In this case, let me create the set of installed packages on this new installation in <code>I2</code>.</p>
+<pre><code>I2 &lt;- data.frame(InstPack = installed.packages()[,1])</code></pre>
+</section>
+<section id="an-anti-join" class="level2">
+<h2 class="anchored" data-anchor-id="an-anti-join">8. An anti-join</h2>
+<p><code>dplyr</code> has an anti-join function that is one of a few ways to find the packages that did not install.</p>
+<pre><code>dplyr::anti_join(I1, I2)</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Fails.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Failed Installs</figcaption>
+</figure>
+</div>
+<p>Now I know what to go searching for on github because that is where the missing packages come from.</p>
+</section>
+<section id="a-postscript" class="level2">
+<h2 class="anchored" data-anchor-id="a-postscript">9. A postscript</h2>
+<p>Now I can get smart about this part also. In the process of searching for these, it became useful to go ahead and create an amendable collection of locations for these. For example, <code>d3scatter</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="d3scatter.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">d3scatter</figcaption>
+</figure>
+</div>
+<pre><code>remainder["d3scatter","loc"] &lt;- "jcheng5/d3scatter"</code></pre>
+<p>This is painstaking; past me was unkind to present me in not doing this before. But as long as I save it, or the code in this blog post, then I can recover it all.</p>
 
 
 </section>
-</main> 
-    <div class="about-footer"><div class="about-links">
-  <a href="https://twitter.com/PieRatio" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/robert-w-walker" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/robertwwalker" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
-  </div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -249,6 +346,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -454,6 +558,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://giscus.app/client.js" data-repo="robertwwalker/robertwwalker.github.io" data-repo-id="R_kgDOI3tndg" data-category="General" data-category-id="DIC_kwDOI3tnds4CUImk" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 <footer class="footer">

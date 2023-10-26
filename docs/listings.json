@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/UpdatingR/index.html",
       "/posts/Transparency-Shiny/index.html",
       "/posts/Docker-Shiny/index.html",
       "/posts/parameterized-markdown/index.html",
