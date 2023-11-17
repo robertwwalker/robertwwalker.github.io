@@ -71,7 +71,7 @@ will need a line [without quotes or whatever]
 GITHUB_PAT=YourPAT
 ```
 
-Next time R starts, this linkage to Github is known.
+Next time R starts, this linkage to Github is known.  Or should be.
 
 ```{r}
 knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
