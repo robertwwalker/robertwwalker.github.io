@@ -1,0 +1,80 @@
+---
+title: "Connecting RStudio and Github"
+author: "Robert W. Walker"
+date: "2023-11-12"
+image: "image.png"
+tags:
+  - R
+  - plot
+  - R Markdown
+  - tidyTuesday
+  - tidyverse
+  - girafe
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+title-block-banner: false 
+format: 
+   html:
+     comments:
+        giscus: 
+          repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+Last updated: `r Sys.time()` 
+
+Timezone: `r Sys.timezone()`
+
+## Connecting RStudio and Github
+
+There are a number of useful references for doing this.  I merely document this here for my own reference as the process of updating OS's and moving drives has necessitated that I do this a few times over the last few days.  Here are the steps.
+
+The key thing is a personal access token (PAT).  You can use keys and such, though this way is the easiest.  We will generate the PAT via Github and then make the system aware of it.  Here is the process; the first step can be done in either of two ways.  Before starting, there are two packages we may need.  We also need to have git installed and RStudio needs to know our Github account in the abstract.
+
+```
+# install the necessary packages
+install.packages(c("usethis","credentials"))
+# Let our R session know about our github account
+usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
+```
+
+1. Generate the PAT using 
+   + either ```usethis::create_github_token()```
+
+   + or *on the Github website, Settings > Developer Settings > Personal Access Tokens* and clicking `Generate new token`
+    
+    ![Github PAT](img/GPAT.png)
+    
+In either case, this will create a token that can allow RStudio and Github to communicate.  In either case, a collection of letters and numbers will emerge and it should be copied to the clipboard.
+
+2. We now need to make RStudio aware of the token.
+
+```
+credentials::set_github_pat("YourPAT")
+```
+
+To make future R sessions aware of the token, we need to make it a part of our environment. 
+
+```
+usethis::edit_r_environ()
+```
+
+will need a line [without quotes or whatever]
+
+```
+GITHUB_PAT=YourPAT
+```
+
+Next time R starts, this linkage to Github is known.
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
+
+

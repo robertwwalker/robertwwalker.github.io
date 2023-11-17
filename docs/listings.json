@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Rstudio-Github/index.html",
       "/posts/UpdatingR/index.html",
       "/posts/Transparency-Shiny/index.html",
       "/posts/Docker-Shiny/index.html",

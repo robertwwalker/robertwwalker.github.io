@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://robertwwalker.github.io/where.html</loc>
-    <lastmod>2023-04-25T02:02:32.590Z</lastmod>
+    <lastmod>2023-11-17T19:49:17.125Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/posts/Pigeons-Pallettes/index.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://robertwwalker.github.io/index.html</loc>
-    <lastmod>2023-10-26T16:45:25.480Z</lastmod>
+    <lastmod>2023-11-17T20:06:52.096Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/slides/slides-CMF.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://robertwwalker.github.io/about.html</loc>
-    <lastmod>2023-10-26T15:42:54.270Z</lastmod>
+    <lastmod>2023-11-17T20:06:42.640Z</lastmod>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/courses/courses-CWD.html</loc>
@@ -79,5 +79,9 @@
   <url>
     <loc>https://robertwwalker.github.io/posts/UpdatingR/index.html</loc>
     <lastmod>2023-10-26T16:45:27.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/posts/Rstudio-Github/index.html</loc>
+    <lastmod>2023-11-17T20:06:58.788Z</lastmod>
   </url>
 </urlset>
