@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-10-27">
+
+<title>obertwwalker.github.io - shinylive</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="obertwwalker.github.io - shinylive">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://robertwwalker.github.io/posts/shinylive/image.png">
+<meta name="twitter:creator" content="@PieRatio">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../AGSMlogo.jpeg" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target=""><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target=""><i class="bi bi-question" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../where.html" rel="" target=""><i class="bi bi-globe" role="img">
+</i> 
+ <span class="menu-text">Where</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../links.html" rel="" target=""><i class="bi bi-link" role="img">
+</i> 
+ <span class="menu-text">Links</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-courses" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ <span class="menu-text">Courses</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-courses">    
+        <li>
+    <a class="dropdown-item" href="../../courses/courses-DADM.html" rel="" target="">
+ <span class="dropdown-text">Data Analysis, Modelling, and Decision-Making</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../courses/courses-CWD.html" rel="" target="">
+ <span class="dropdown-text">Communicating With Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../courses/courses-CAF.html" rel="" target="">
+ <span class="dropdown-text">Choice and Forecasting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../courses/courses-Essex.html" rel="" target="">
+ <span class="dropdown-text">Panel Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-DADM.html" rel="" target="">
+ <span class="dropdown-text">DADM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-CWD.html" rel="" target="">
+ <span class="dropdown-text">CWD</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-Essex.html" rel="" target="">
+ <span class="dropdown-text">Essex</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/slides-CMF.html" rel="" target="">
+ <span class="dropdown-text">CMF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertwwalker" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/PieRatio" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">shinylive</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 27, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<marquee scrollamount="10">
+<h1>
+<p style="color:purple;">
+<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
+</p>
+</h1>
+<p></p></marquee><p></p>
+<section id="shinylive-finally." class="level1">
+<h1>shinylive, finally….</h1>
+<p>In his talk at <code>rstudio::conf</code>, Joe Cheng discussed the arrival of <code>shinylive</code> for <code>R</code>. Coming almost a year after the python deployment, it is really nice to think about teaching it and not having to teach computer science but it would have to reliably work for that dream to become reality. So I decided to try it out.</p>
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">tldr;</h2>
+<p>Take an app and try to build it into shinylive. It works.</p>
+</section>
+<section id="what-is-involved" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-involved">What is involved?</h2>
+<p>Here is my app. I do not know where it originally came from – the data that is – but it is very simple.</p>
+<pre><code>library(shiny)
+data(AirPassengers)
+
+# UI ----
+ui &lt;- fluidPage(
+  
+  # App title ----
+  titlePanel("Forecasting via the Browser"),
+  sidebarLayout(
+    
+    sidebarPanel(width = 3,
+                 selectInput(inputId = "model",
+                             label = "Select Model",
+                             choices = c("Linear Regression", "ARIMA", "Holt-Winters"),
+                             selected = "Linear Regression"),
+                 # Linear Regression model arguments
+                 conditionalPanel(condition = "input.model == 'Linear Regression'",
+                                  checkboxGroupInput(inputId = "lm_args", 
+                                                     label = "Select Regression Features:", 
+                                                     choices = list("Trend" = 1, 
+                                                                    "Seasonality" = 2),
+                                                     selected = 1)),
+                 # ARIMA model arguments
+                 conditionalPanel(condition = "input.model == 'ARIMA'",
+                                  h5("Order Parameters"),
+                                  sliderInput(inputId = "p",
+                                              label = "p:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0),
+                                  sliderInput(inputId = "d",
+                                              label = "d:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0),
+                                  sliderInput(inputId = "q",
+                                              label = "q:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0),
+                                  h5("Seasonal Parameters:"),
+                                  sliderInput(inputId = "P",
+                                              label = "P:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0),
+                                  sliderInput(inputId = "D",
+                                              label = "D:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0),
+                                  sliderInput(inputId = "Q",
+                                              label = "Q:",
+                                              min = 0,
+                                              max = 5,
+                                              value = 0)
+                 ),
+                 # Holt Winters model arguments
+                 conditionalPanel(condition = "input.model == 'Holt-Winters'",
+                                  checkboxGroupInput(inputId = "hw_args", 
+                                                     label = "Select Holt-Winters Parameters:", 
+                                                     choices = list("Beta" = 2, 
+                                                                    "Gamma" = 3),
+                                                     selected = c(1, 2, 3)),
+                                  selectInput(inputId = "hw_seasonal",
+                                              label = "Select Seasonal Type:",
+                                              choices = c("Additive", "Multiplicative"),
+                                              selected = "Additive")),
+                 
+                 checkboxInput(inputId = "log", 
+                               label = "Log Transformation",
+                               value = FALSE),
+                 sliderInput(inputId = "h",
+                             label = "Forecasting Horizon:",
+                             min = 1,
+                             max = 60,
+                             value = 24)
+                 #   actionButton(inputId = "update",
+                 #                 label = "Update!")
+                 
+    ),
+    
+    # Main panel for displaying outputs ----
+    mainPanel(width = 9,
+              # Forecast Plot ----
+              plotOutput(outputId = "fc_plot",
+                         height = "400px")
+              
+    )
+  )
+)
+
+# Define server logic required to draw a histogram ----
+server &lt;- function(input, output) {
+  # Load the dataset a reactive object
+  d &lt;- reactiveValues(df = data.frame(input = as.numeric(AirPassengers), 
+                                      index = seq.Date(from = as.Date("1949-01-01"),
+                                                       by = "month",
+                                                       length.out = length(AirPassengers))),
+                      air = AirPassengers)
+  
+  # Log transformation 
+  observeEvent(input$log,{
+    if(input$log){
+      d$df &lt;- data.frame(input = log(as.numeric(AirPassengers)), 
+                         index = seq.Date(from = as.Date("1949-01-01"),
+                                          by = "month",
+                                          length.out = length(AirPassengers)))
+      
+      d$air &lt;- log(AirPassengers)
+    } else {
+      d$df &lt;- data.frame(input = as.numeric(AirPassengers), 
+                         index = seq.Date(from = as.Date("1949-01-01"),
+                                          by = "month",
+                                          length.out = length(AirPassengers)))
+      
+      d$air &lt;- AirPassengers
+    }
+  })
+  
+  # The forecasting models execute under the plot render
+  output$fc_plot &lt;- renderPlot({
+    
+    # if adding a prediction intervals level argument set over here
+    pi &lt;- 0.95
+    
+    # Holt-Winters model
+    if(input$model == "Holt-Winters"){
+      a &lt;- b &lt;- c &lt;- NULL
+      
+      if(!"2" %in% input$hw_args){
+        b &lt;- FALSE
+      }
+      
+      if(!"3" %in% input$hw_args){
+        c &lt;- FALSE
+      }
+      
+      md &lt;- HoltWinters(d$air, 
+                        seasonal = ifelse(input$hw_seasonal == "Additive", "additive", "multiplicative"),
+                        beta = b,
+                        gamma = c
+      )
+      fc &lt;- predict(md, n.ahead = input$h, prediction.interval = TRUE) |&gt;
+        as.data.frame()
+      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
+                           by = "month",
+                           length.out = input$h)
+      # ARIMA model
+    } else if(input$model == "ARIMA"){
+      
+      md &lt;- arima(d$air,
+                  order = c(input$p, input$d, input$q),
+                  seasonal = list(order = c(input$P, input$D, input$Q))
+      )
+      fc &lt;- predict(md, n.ahead = input$h, prediction.interval = TRUE) |&gt;
+        as.data.frame() 
+      names(fc) &lt;- c("fit", "se")
+      
+      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
+                           by = "month",
+                           length.out = input$h)
+      
+      fc$upr &lt;- fc$fit + 1.96 * fc$se
+      fc$lwr &lt;- fc$fit - 1.96 * fc$se
+      # Linear Regression model
+    } else if(input$model == "Linear Regression"){
+      
+      d_lm &lt;- d$df
+      
+      d_fc &lt;- data.frame(index = seq.Date(from = as.Date("1961-01-01"),
+                                          by = "month",
+                                          length.out = input$h))
+      
+      if("1" %in% input$lm_args){
+        d_lm$trend &lt;- 1:nrow(d_lm)
+        d_fc$trend &lt;- (max(d_lm$trend) + 1):(max(d_lm$trend) + input$h)
+      }
+      
+      if("2" %in% input$lm_args){
+        d_lm$season &lt;- as.factor(months((d_lm$index)))
+        d_fc$season &lt;- factor(months((d_fc$index)), levels = levels(d_lm$season))
+      }
+      
+      md &lt;- lm(input ~ ., data = d_lm[, - which(names(d_lm) == "index")])
+      
+      fc &lt;- predict(md, n.ahead = input$h, interval = "prediction",
+                    level = pi, newdata = d_fc) |&gt;
+        as.data.frame() 
+      
+      
+      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
+                           by = "month",
+                           length.out = input$h)
+      
+    }
+    
+    # Setting the plot
+    at_x &lt;- pretty(seq.Date(from = min(d$df$index),
+                            to = max(fc$index),
+                            by = "month"))
+    
+    at_y &lt;- c(pretty(c(d$df$input, fc$upr)), 1200)
+    
+    plot(x = d$df$index, y = d$df$input,
+         col = "#1f77b4",
+         type = "l",
+         frame.plot = FALSE,
+         axes = FALSE,
+         panel.first = abline(h = at_y, col = "grey80"),
+         main = "AirPassengers Forecast",
+         xlim = c(min(d$df$index), max(fc$index)),
+         ylim = c(min(c(min(d$df$input), min(fc$lwr))), max(c(max(fc$upr), max(d$df$input)))),
+         xlab = paste("Model:", input$model, sep = " "),
+         ylab = "Num. of Passengers (in Thousands)")
+    mtext(side =1, text = format(at_x, format = "%Y-%M"), at = at_x,
+          col = "grey20", line = 1, cex = 0.8)
+    
+    mtext(side =2, text = format(at_y, scientific = FALSE), at = at_y,
+          col = "grey20", line = 1, cex = 0.8)
+    lines(x = fc$index, y = fc$fit, col = '#1f77b4', lty = 2, lwd = 2)
+    lines(x = fc$index, y = fc$upr, col = 'blue', lty = 2, lwd = 2)
+    lines(x = fc$index, y = fc$lwr, col = 'blue', lty = 2, lwd = 2)
+    
+  })
+  
+}
+
+# Create Shiny app ----
+shinyApp(ui = ui, server = server)</code></pre>
+<p>The first step is to start a new shiny project. For this one, I will use <code>renv</code> as the documents suggest this to be useful. The <code>New project</code> dialog can be used to accomplish nearly all of this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Screenshot 2023-11-17 at 1.26.47 PM.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Screenshot</figcaption>
+</figure>
+</div>
+<p>Ok. Now there is a shiny app in a directory to use. Now let’s try the shinylive package.</p>
+<pre><code>install.packages("shinylive")</code></pre>
+<p>In theory, there is not that much to it so long as the app works with <code>webR</code>. So let’s compile it up and see what happens. There is an <code>app.R</code> file in <code>myapp</code> and that becomes the <code>docs</code> directory when transformed by shiny live.</p>
+<pre><code>shinylive::export(appdir = "myapp", outputdir = "docs")</code></pre>
+<p>If it works, the <code>docs</code> directory has a <a href="docs/index.html">forecasting app</a>.</p>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-R-plumber" class="csl-entry" role="listitem">
+Schloerke, Barret, and Jeff Allen. 2022. <em>Plumber: An API Generator for r</em>. <a href="https://www.rplumber.io">https://www.rplumber.io</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="robertwwalker/robertwwalker.github.io" data-repo-id="R_kgDOI3tndg" data-category="General" data-category-id="DIC_kwDOI3tnds4CUImk" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><span class="faux-block">License: <a href="https://creativecommons.org/licenses/by-sa/4.0/"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-sa" aria-label="creative-commons-sa"></i> Creative Commons CC BY-SA 4.0</a></span><br>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"><span class="faux-block"><i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a></span> <span class="faux-block"><a href="https://github.com/robertwwalker/dadm-faq">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></span></div>
+  </div>
+</footer>
+
+
+
+</body></html>
