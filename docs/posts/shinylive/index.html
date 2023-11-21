@@ -520,9 +520,9 @@ shinyApp(ui = ui, server = server)</code></pre>
 </div>
 <p>Ok. Now there is a shiny app in a directory to use. Now let’s try the shinylive package.</p>
 <pre><code>install.packages("shinylive")</code></pre>
-<p>In theory, there is not that much to it so long as the app works with <code>webR</code>. So let’s compile it up and see what happens. There is an <code>app.R</code> file in <code>myapp</code> and that becomes the <code>docs</code> directory when transformed by shiny live.</p>
+<p>In theory, there is not that much to it so long as the app works with <code>webR</code>. So let’s compile it up and see what happens. There is an <code>app.R</code> file in <code>myapp</code> and that becomes the <code>docs</code> directory when transformed by shiny live. This all exists in a repository called <code>SLT2</code> that can be found <a href="https://github.com/robertwwalker/SLT2/">here</a>. At first, I wanted to put it as a subdirectory here but could not quite get it all to render properly. With the separate repo, building the app in <code>docs</code> means that github pages can render it.</p>
 <pre><code>shinylive::export(appdir = "myapp", outputdir = "docs")</code></pre>
-<p>If it works, the <code>docs</code> directory has a <a href="docs/index.html">forecasting app</a>.</p>
+<p>If it works, the <code>docs</code> directory of that repository has a <a href="https://robertwwalker.github.io/SLT2/index.html">forecasting app</a>.</p>
 </section>
 </section>
 <section id="references" class="level1">

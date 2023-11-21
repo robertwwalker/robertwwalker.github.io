@@ -274,13 +274,13 @@ Ok.  Now there is a shiny app in a directory to use.  Now let's try the shinyliv
 install.packages("shinylive")
 ```
 
-In theory, there is not that much to it so long as the app works with `webR`.  So let's compile it up and see what happens.  There is an `app.R` file in `myapp` and that becomes the `docs` directory when transformed by shiny live.
+In theory, there is not that much to it so long as the app works with `webR`.  So let's compile it up and see what happens.  There is an `app.R` file in `myapp` and that becomes the `docs` directory when transformed by shiny live.  This all exists in a repository called `SLT2` that can be found [here](https://github.com/robertwwalker/SLT2/).  At first, I wanted to put it as a subdirectory here but could not quite get it all to render properly.  With the separate repo, building the app in `docs` means that github pages can render it.
 
 ```
 shinylive::export(appdir = "myapp", outputdir = "docs")
 ```
 
-If it works, the `docs` directory has a [forecasting app](docs/index.html).
+If it works, the `docs` directory of that repository has a [forecasting app](https://robertwwalker.github.io/SLT2/index.html).
 
 # References
 
