@@ -281,14 +281,16 @@ div.csl-indent {
 <section id="what-is-involved" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-involved">What is involved?</h2>
 <p>Here is my app. I do not know where it originally came from – the data that is – but it is very simple.</p>
-<pre><code>library(shiny)
-data(AirPassengers)
+<pre><code># Forecasting Google ----
+# It supports 3 stats forecasting models - Linear Regression, ARIMA, and Holt-Winters
 
+library(shiny)
+GOOG &lt;- [data downloaded via tq_get in tidyquant and turned into a daily ts object, check the repo for the actual data]
 # UI ----
 ui &lt;- fluidPage(
   
   # App title ----
-  titlePanel("Forecasting via the Browser"),
+  titlePanel("Forecasting Sandbox"),
   sidebarLayout(
     
     sidebarPanel(width = 3,
@@ -376,28 +378,28 @@ ui &lt;- fluidPage(
 # Define server logic required to draw a histogram ----
 server &lt;- function(input, output) {
   # Load the dataset a reactive object
-  d &lt;- reactiveValues(df = data.frame(input = as.numeric(AirPassengers), 
-                                      index = seq.Date(from = as.Date("1949-01-01"),
-                                                       by = "month",
-                                                       length.out = length(AirPassengers))),
-                      air = AirPassengers)
+  d &lt;- reactiveValues(df = data.frame(input = as.numeric(GOOG), 
+                                      index = seq.Date(from= as.Date("2016-05-19"),
+                                                       by = "day",
+                                                       length.out = length(GOOG))),
+                      air = GOOG)
   
   # Log transformation 
   observeEvent(input$log,{
     if(input$log){
-      d$df &lt;- data.frame(input = log(as.numeric(AirPassengers)), 
-                         index = seq.Date(from = as.Date("1949-01-01"),
-                                          by = "month",
-                                          length.out = length(AirPassengers)))
+      d$df &lt;- data.frame(input = log(as.numeric(GOOG)), 
+                         index = seq.Date(from = as.Date("2016-05-19"),
+                                          by = "day",
+                                          length.out = length(GOOG)))
       
-      d$air &lt;- log(AirPassengers)
+      d$air &lt;- log(GOOG)
     } else {
-      d$df &lt;- data.frame(input = as.numeric(AirPassengers), 
-                         index = seq.Date(from = as.Date("1949-01-01"),
-                                          by = "month",
-                                          length.out = length(AirPassengers)))
+      d$df &lt;- data.frame(input = as.numeric(GOOG), 
+                         index = seq.Date(from = as.Date("2016-05-19"),
+                                          by = "day",
+                                          length.out = length(GOOG)))
       
-      d$air &lt;- AirPassengers
+      d$air &lt;- GOOG
     }
   })
   
@@ -426,8 +428,8 @@ server &lt;- function(input, output) {
       )
       fc &lt;- predict(md, n.ahead = input$h, prediction.interval = TRUE) |&gt;
         as.data.frame()
-      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index &lt;- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       # ARIMA model
     } else if(input$model == "ARIMA"){
@@ -440,8 +442,8 @@ server &lt;- function(input, output) {
         as.data.frame() 
       names(fc) &lt;- c("fit", "se")
       
-      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index &lt;- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       
       fc$upr &lt;- fc$fit + 1.96 * fc$se
@@ -451,8 +453,8 @@ server &lt;- function(input, output) {
       
       d_lm &lt;- d$df
       
-      d_fc &lt;- data.frame(index = seq.Date(from = as.Date("1961-01-01"),
-                                          by = "month",
+      d_fc &lt;- data.frame(index = seq.Date(from = as.Date(Sys.Date()),
+                                          by = "day",
                                           length.out = input$h))
       
       if("1" %in% input$lm_args){
@@ -472,8 +474,8 @@ server &lt;- function(input, output) {
         as.data.frame() 
       
       
-      fc$index &lt;- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index &lt;- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       
     }
@@ -481,9 +483,9 @@ server &lt;- function(input, output) {
     # Setting the plot
     at_x &lt;- pretty(seq.Date(from = min(d$df$index),
                             to = max(fc$index),
-                            by = "month"))
+                            by = "day"))
     
-    at_y &lt;- c(pretty(c(d$df$input, fc$upr)), 1200)
+    at_y &lt;- c(pretty(c(d$df$input, fc$upr)), 60)
     
     plot(x = d$df$index, y = d$df$input,
          col = "#1f77b4",
@@ -491,11 +493,11 @@ server &lt;- function(input, output) {
          frame.plot = FALSE,
          axes = FALSE,
          panel.first = abline(h = at_y, col = "grey80"),
-         main = "AirPassengers Forecast",
+         main = "GOOG Forecast",
          xlim = c(min(d$df$index), max(fc$index)),
          ylim = c(min(c(min(d$df$input), min(fc$lwr))), max(c(max(fc$upr), max(d$df$input)))),
          xlab = paste("Model:", input$model, sep = " "),
-         ylab = "Num. of Passengers (in Thousands)")
+         ylab = "GOOG Price")
     mtext(side =1, text = format(at_x, format = "%Y-%M"), at = at_x,
           col = "grey20", line = 1, cex = 0.8)
     

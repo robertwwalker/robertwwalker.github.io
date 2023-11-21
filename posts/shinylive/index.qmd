@@ -32,14 +32,16 @@ Take an app and try to build it into shinylive.  It works.
 Here is my app.  I do not know where it originally came from -- the data that is -- but it is very simple.
 
 ```
-library(shiny)
-data(AirPassengers)
+# Forecasting Google ----
+# It supports 3 stats forecasting models - Linear Regression, ARIMA, and Holt-Winters
 
+library(shiny)
+GOOG <- [data downloaded via tq_get in tidyquant and turned into a daily ts object, check the repo for the actual data]
 # UI ----
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("Forecasting via the Browser"),
+  titlePanel("Forecasting Sandbox"),
   sidebarLayout(
     
     sidebarPanel(width = 3,
@@ -127,28 +129,28 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram ----
 server <- function(input, output) {
   # Load the dataset a reactive object
-  d <- reactiveValues(df = data.frame(input = as.numeric(AirPassengers), 
-                                      index = seq.Date(from = as.Date("1949-01-01"),
-                                                       by = "month",
-                                                       length.out = length(AirPassengers))),
-                      air = AirPassengers)
+  d <- reactiveValues(df = data.frame(input = as.numeric(GOOG), 
+                                      index = seq.Date(from= as.Date("2016-05-19"),
+                                                       by = "day",
+                                                       length.out = length(GOOG))),
+                      air = GOOG)
   
   # Log transformation 
   observeEvent(input$log,{
     if(input$log){
-      d$df <- data.frame(input = log(as.numeric(AirPassengers)), 
-                         index = seq.Date(from = as.Date("1949-01-01"),
-                                          by = "month",
-                                          length.out = length(AirPassengers)))
+      d$df <- data.frame(input = log(as.numeric(GOOG)), 
+                         index = seq.Date(from = as.Date("2016-05-19"),
+                                          by = "day",
+                                          length.out = length(GOOG)))
       
-      d$air <- log(AirPassengers)
+      d$air <- log(GOOG)
     } else {
-      d$df <- data.frame(input = as.numeric(AirPassengers), 
-                         index = seq.Date(from = as.Date("1949-01-01"),
-                                          by = "month",
-                                          length.out = length(AirPassengers)))
+      d$df <- data.frame(input = as.numeric(GOOG), 
+                         index = seq.Date(from = as.Date("2016-05-19"),
+                                          by = "day",
+                                          length.out = length(GOOG)))
       
-      d$air <- AirPassengers
+      d$air <- GOOG
     }
   })
   
@@ -177,8 +179,8 @@ server <- function(input, output) {
       )
       fc <- predict(md, n.ahead = input$h, prediction.interval = TRUE) |>
         as.data.frame()
-      fc$index <- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index <- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       # ARIMA model
     } else if(input$model == "ARIMA"){
@@ -191,8 +193,8 @@ server <- function(input, output) {
         as.data.frame() 
       names(fc) <- c("fit", "se")
       
-      fc$index <- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index <- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       
       fc$upr <- fc$fit + 1.96 * fc$se
@@ -202,8 +204,8 @@ server <- function(input, output) {
       
       d_lm <- d$df
       
-      d_fc <- data.frame(index = seq.Date(from = as.Date("1961-01-01"),
-                                          by = "month",
+      d_fc <- data.frame(index = seq.Date(from = as.Date(Sys.Date()),
+                                          by = "day",
                                           length.out = input$h))
       
       if("1" %in% input$lm_args){
@@ -223,8 +225,8 @@ server <- function(input, output) {
         as.data.frame() 
       
       
-      fc$index <- seq.Date(from = as.Date("1961-01-01"),
-                           by = "month",
+      fc$index <- seq.Date(from = as.Date(Sys.Date()),
+                           by = "day",
                            length.out = input$h)
       
     }
@@ -232,9 +234,9 @@ server <- function(input, output) {
     # Setting the plot
     at_x <- pretty(seq.Date(from = min(d$df$index),
                             to = max(fc$index),
-                            by = "month"))
+                            by = "day"))
     
-    at_y <- c(pretty(c(d$df$input, fc$upr)), 1200)
+    at_y <- c(pretty(c(d$df$input, fc$upr)), 60)
     
     plot(x = d$df$index, y = d$df$input,
          col = "#1f77b4",
@@ -242,11 +244,11 @@ server <- function(input, output) {
          frame.plot = FALSE,
          axes = FALSE,
          panel.first = abline(h = at_y, col = "grey80"),
-         main = "AirPassengers Forecast",
+         main = "GOOG Forecast",
          xlim = c(min(d$df$index), max(fc$index)),
          ylim = c(min(c(min(d$df$input), min(fc$lwr))), max(c(max(fc$upr), max(d$df$input)))),
          xlab = paste("Model:", input$model, sep = " "),
-         ylab = "Num. of Passengers (in Thousands)")
+         ylab = "GOOG Price")
     mtext(side =1, text = format(at_x, format = "%Y-%M"), at = at_x,
           col = "grey20", line = 1, cex = 0.8)
     
