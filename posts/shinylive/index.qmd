@@ -282,7 +282,9 @@ In theory, there is not that much to it so long as the app works with `webR`.  S
 shinylive::export(appdir = "myapp", outputdir = "docs")
 ```
 
-If it works, the `docs` directory of that repository has a [forecasting app](https://robertwwalker.github.io/SLT2/index.html).
+![Screenshot](img/Screenshot 2023-11-20 at 8.51.11 PM.png)
+
+If it works, the `docs` directory of that repository has a [forecasting app](https://robertwwalker.github.io/SLT2/index.html).  I serve it using github pages.
 
 # References
 
