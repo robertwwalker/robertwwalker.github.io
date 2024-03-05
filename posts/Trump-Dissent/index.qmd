@@ -31,6 +31,8 @@ Timezone: `r Sys.timezone()`
 
 Colorado's Secretary of State deemed Donald J. Trump ineligible for the ballot in Colorado as a result of the insurrection on January 6.  The ultimate decision was described as unanimous though there may be something else going on.  Rumors are circulating that there was some dissent though it did not make it into the final version.  To have a look, I grabbed the opinion as issued.  You can find it [here](https://www.supremecourt.gov/opinions/23pdf/23-719_19m2.pdf).
 
+## Some packages and setup
+
 First, I will need three packages.  `stringr` for string detection, `pdftools` for importing the pdf and the `tidyverse` by habit.
 
 ```{r, message=FALSE, results='hide'}
@@ -39,24 +41,46 @@ library(pdftools)
 library(stringr)
 ```
 
+## Import the file and look for `dissent`
+
 Let's import the file and then just see if the stem "dissent" exists.
 
 ```{r}
 Opinion <- pdf_data("./data/23-719_19m2.pdf")
 table(str_detect(unlist(Opinion), "dissent"))
 ```
+
 Three times.  Now let's find them.
 
 ```{r}
 str_locate_all(Opinion, "dissent")
 ```
 
-So they appear in the third, fifteenth, and twentieth sections.  Three is still the decision and twenty is the last item.  So let's start with the 15th section and render the complete text that it contains.
+So they appear in the third, fifteenth, and twentieth sections.  Three is still the decision and twenty is the last item.  
+
+## Section 15
+
+So let's start with the 15th section and render the complete text that it contains.
 
 ```{r, results='asis'}
 cat(Opinion[[15]][["text"]], sep=" ")
 ```
-So apparently, someone was talked into a change.
+
+So apparently, someone was talked into a change.  The other two sections reflect citations to dissents in the opinion.
+
+## Section 3
+
+```{r, results='asis'}
+cat(Opinion[[3]][["text"]], sep=" ")
+```
+
+
+## Section 20
+
+```{r, results='asis'}
+cat(Opinion[[20]][["text"]], sep=" ")
+```
+
 
 # References
 
