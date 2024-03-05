@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.290">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -113,8 +113,7 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -296,7 +295,7 @@ usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")</c
 <li><p>either <code>usethis::create_github_token()</code></p></li>
 <li><p>or <em>on the Github website, Settings &gt; Developer Settings &gt; Personal Access Tokens</em> and clicking <code>Generate new token</code></p></li>
 </ul>
-<img src="img/GPAT.png" class="img-fluid" alt="Github PAT"></li>
+<img src="img/GPAT.png" class="quarto-discovered-preview-image img-fluid" alt="Github PAT"></li>
 </ol>
 <p>In either case, this will create a token that can allow RStudio and Github to communicate. In either case, a collection of letters and numbers will emerge and it should be copied to the clipboard.</p>
 <ol start="2" type="1">
@@ -310,7 +309,7 @@ usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")</c
 <p>Next time R starts, this linkage to Github is known. Or should be.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>How’s that done?</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>

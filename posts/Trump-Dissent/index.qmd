@@ -1,0 +1,67 @@
+---
+title: "A Dissent in the Trump 14th Amendment Case?"
+author: "Robert W. Walker"
+date: "2024-03-04"
+image: "image.png"
+tags:
+  - R
+  - pdftools
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+title-block-banner: false 
+format: 
+   html:
+     comments:
+        giscus: 
+          repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, fig.retina = 3)
+```
+
+Last updated: `r Sys.time()` 
+
+Timezone: `r Sys.timezone()`
+
+## The Trump Case
+
+Colorado's Secretary of State deemed Donald J. Trump ineligible for the ballot in Colorado as a result of the insurrection on January 6.  The ultimate decision was described as unanimous though there may be something else going on.  Rumors are circulating that there was some dissent though it did not make it into the final version.  To have a look, I grabbed the opinion as issued.  You can find it [here](https://www.supremecourt.gov/opinions/23pdf/23-719_19m2.pdf).
+
+First, I will need three packages.  `stringr` for string detection, `pdftools` for importing the pdf and the `tidyverse` by habit.
+
+```{r, message=FALSE, results='hide'}
+library(tidyverse)
+library(pdftools)
+library(stringr)
+```
+
+Let's import the file and then just see if the stem "dissent" exists.
+
+```{r}
+Opinion <- pdf_data("./data/23-719_19m2.pdf")
+table(str_detect(unlist(Opinion), "dissent"))
+```
+Three times.  Now let's find them.
+
+```{r}
+str_locate_all(Opinion, "dissent")
+```
+
+So they appear in the third, fifteenth, and twentieth sections.  Three is still the decision and twenty is the last item.  So let's start with the 15th section and render the complete text that it contains.
+
+```{r, results='asis'}
+cat(Opinion[[15]][["text"]], sep=" ")
+```
+So apparently, someone was talked into a change.
+
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
+
+
