@@ -20,6 +20,10 @@ about:
 
 DADM 622/5103 is the core/required statistics and data course in the Atkinson Graduate School of Management.  While most of the materials are available via the learning management system, I am increasingly migrating to something I have more control over because learning management systems change.  
 
+- [The Fall 2025 Professionals in Salem website](https://robertwwalker.github.io/DADM-SLE2025/){target="blank"}
+
+- [The Fall 2025 Professionals in Portland website](https://robertwwalker.github.io/DADM-P25/){target="blank"}
+
 - There is [a set of occasionally and frequently asked questions for this course.](https://robertwwalker.github.io/DADM-FAQ/){target="blank"}
 
 <iframe src="https://robertwwalker.github.io/DADM-FAQ/" title="O/FAQ for DADM" width="800" height="600"></iframe>
