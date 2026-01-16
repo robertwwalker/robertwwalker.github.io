@@ -35,17 +35,17 @@ about:
 ```{r Map, echo=FALSE, message=FALSE, warning=FALSE}
 library(leaflet)
 content <- paste(sep = "<br/>",
-  "<b>Mudd Hall 401</b>",
-  "315 Winter St. SE",
+  "<b>Kaneko 208</b>",
+  "1314 Mill St SE",
   "Salem, OR 97301",
-  "Enter Mudd Building",
-  "Take the 2nd floor Northeast stairs",
-  "Office 401 is two flights up, on Floor 4"
+  "Enter Kaneko Building",
+  "2nd floor; East end of the hall",
+  "Office 208"
 )
 m <- leaflet() %>% 
-  setView(lng = -123.0339, lat = 44.9362, zoom = 15) %>%
+  setView(lng = -123.026479, lat = 44.933186, zoom = 15) %>%
   addTiles() %>%
-  addPopups(-123.0339, 44.9362, content,
+  addPopups(-123.026479, 44.9332, content,
     options = popupOptions(closeButton = FALSE)
   )
 m
