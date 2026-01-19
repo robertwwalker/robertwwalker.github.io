@@ -12,7 +12,7 @@ comments:
 library(distilltools)
 ```
 
-<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project  title="R">}}obertwwalker.github.io <br></p></h1></marquee>
 
 ## Data
 
