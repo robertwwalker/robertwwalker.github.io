@@ -1,0 +1,25 @@
+---
+title: "Courses: BUS 1301 -- Managing with Data, Analytics, and Artificial Intelligence"
+about:
+  template: marquee
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/PieRatio
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/robert-w-walker
+    - icon: github
+      text: Github
+      href: https://github.com/robertwwalker
+
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project  title="R">}}obertwwalker.github.io <br></p></h1></marquee>
+
+## BUS 1301: Managing with Data, Analytics, and Artificial Intelligence
+
+- [There is a course website.](https://robertwwalker.github.io/BUS1301-SP26/){target="blank"}
+
+<iframe src="https://robertwwalker.github.io/BUS1301-SP26/" title="ESSSSDA Website" width="900" height="800"></iframe>
+

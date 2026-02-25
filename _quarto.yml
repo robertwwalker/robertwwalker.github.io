@@ -38,6 +38,8 @@ website:
               href: courses/courses-CAF.qmd
             - text: Panel Data
               href: courses/courses-Essex.qmd
+            - text: BUS 1301
+              href: courses/courses-BUS1301.qmd
       - text: Slides
         icon: mortarboard-fill
         menu:

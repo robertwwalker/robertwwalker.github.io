@@ -502,5 +502,19 @@
     "title": "Cleaning my Inbox with Gemini",
     "section": "The Audit Agent: Google Apps Script",
     "text": "The Audit Agent: Google Apps Script\nThis script will compile a list of frequent senders and deliver a neat digest straight to you.\n\nStep 1: Open Google Apps Script\n\nGo to script.google.com.\nClick New Project.\n\n\n\nStep 2: Paste the Audit Script\nReplace the default code with this reporting agent:\nfunction reportFrequentSolicitors() {\n  // 1. Define the search query for common pitch/marketing language in the Inbox\n  var searchQuery = 'in:inbox (\"unsubscribe\" OR \"opt out\" OR \"special offer\" OR \"quick question\" OR \"synergies\")';\n  \n  // Grab up to the last 100 threads matching this query\n  var threads = GmailApp.search(searchQuery, 0, 100); \n  var senderCounts = {};\n  \n  // 2. Iterate through the threads and tally up the senders\n  for (var i = 0; i &lt; threads.length; i++) {\n    var messages = threads[i].getMessages();\n    var sender = messages[0].getFrom(); // Gets the sender of the first email in the thread\n    \n    if (senderCounts[sender]) {\n      senderCounts[sender]++;\n    } else {\n      senderCounts[sender] = 1;\n    }\n  }\n  \n  // 3. Filter for periodic senders (more than 1 email)\n  var reportRows = [];\n  for (var sender in senderCounts) {\n    if (senderCounts[sender] &gt; 1) {\n      reportRows.push({\n        count: senderCounts[sender],\n        address: sender\n      });\n    }\n  }\n  \n  // 4. Sort and format the report, then email it to yourself\n  if (reportRows.length &gt; 0) {\n    // Sort descending by highest email volume\n    reportRows.sort(function(a, b) { return b.count - a.count; });\n    \n    var emailBody = \"Hello,\\n\\nYour Email Audit Agent found the following frequent solicitors currently sitting in your inbox:\\n\\n\";\n    \n    for (var j = 0; j &lt; reportRows.length; j++) {\n      emailBody += \"- \" + reportRows[j].count + \" emails from: \" + reportRows[j].address + \"\\n\";\n    }\n    \n    emailBody += \"\\nYou can now copy these addresses and create manual filters for them in your Gmail settings.\\n\";\n    \n    // Send the digest to your own email address\n    var myEmail = Session.getActiveUser().getEmail();\n    GmailApp.sendEmail(myEmail, \"📊 Frequent Solicitors Report\", emailBody);\n    \n    Logger.log(\"Audit report sent to \" + myEmail);\n  } else {\n    Logger.log(\"No periodic solicitors found to report.\");\n  }\n}\nOne thing that I have learned is that I always end up doing things in R if a simple out of the box in another language doesn’t suffice. I decided to try this in gmailr. I will save that for another post."
+  },
+  {
+    "objectID": "courses/courses-BUS1301.html#bus-1301-managing-with-data-analytics-and-artificial-intelligence",
+    "href": "courses/courses-BUS1301.html#bus-1301-managing-with-data-analytics-and-artificial-intelligence",
+    "title": "Courses: BUS 1301 – Managing with Data, Analytics, and Artificial Intelligence",
+    "section": "BUS 1301: Managing with Data, Analytics, and Artificial Intelligence",
+    "text": "BUS 1301: Managing with Data, Analytics, and Artificial Intelligence\n\nThere is a course website."
+  },
+  {
+    "objectID": "slides/slides-BUS1301.html",
+    "href": "slides/slides-BUS1301.html",
+    "title": "BUS 1301 Slides",
+    "section": "",
+    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nSlides for BUS 1301"
   }
 ]

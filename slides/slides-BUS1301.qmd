@@ -1,0 +1,19 @@
+---
+title: BUS 1301 Slides
+toc: true
+toc-title: BUS 1301 Contents
+toc-location: right
+comments:
+   giscus: 
+     repo: robertwwalker/robertwwalker.github.io
+---
+
+```{r setup, include=FALSE}
+library(distilltools)
+```
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project >}}obertwwalker.github.io <br></p></h1></marquee>
+
+# Slides
+
+- [Slides for BUS 1301](https://robertwwalker.github.io/BUS1301-SP26/slides/)
