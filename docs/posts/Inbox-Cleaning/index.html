@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-02-24">
 
-<title>  – {{&lt; fa brands r-project  title='Robert W. Walker'&gt;}}obertwwalker.github.io</title>
+<title>Cleaning my Inbox with Gemini – obertwwalker.github.io</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,32 +21,85 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2890eba573baac25c3e9f0f9d94fc55f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2890eba573baac25c3e9f0f9d94fc55f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,68 +127,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content=" – obertwwalker.github.io">
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Cleaning my Inbox with Gemini – obertwwalker.github.io">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://robertwwalker.github.io/posts/Inbox-Cleaning/image.png">
 <meta name="twitter:creator" content="@PieRatio">
 <meta name="twitter:image-height" content="539">
@@ -149,11 +146,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./AGSMlogo.jpeg" alt="" class="navbar-logo light-content">
-    <img src="./AGSMlogo.jpeg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../AGSMlogo.jpeg" alt="" class="navbar-logo light-content">
+    <img src="../../AGSMlogo.jpeg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><i class="fa-brands fa-r-project" title="Robert W. Walker" aria-label="r-project"></i>obertwwalker.github.io</span>
     </a>
   </div>
@@ -164,22 +161,22 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-question" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-question" role="img">
 </i> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./where.html"> <i class="bi bi-globe" role="img">
+    <a class="nav-link" href="../../where.html"> <i class="bi bi-globe" role="img">
 </i> 
 <span class="menu-text">Where</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./links.html"> <i class="bi bi-link" role="img">
+    <a class="nav-link" href="../../links.html"> <i class="bi bi-link" role="img">
 </i> 
 <span class="menu-text">Links</span></a>
   </li>  
@@ -191,19 +188,19 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-courses">    
         <li>
-    <a class="dropdown-item" href="./courses/courses-DADM.html">
+    <a class="dropdown-item" href="../../courses/courses-DADM.html">
  <span class="dropdown-text">Data Analysis, Modelling, and Decision-Making</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./courses/courses-CWD.html">
+    <a class="dropdown-item" href="../../courses/courses-CWD.html">
  <span class="dropdown-text">Communicating With Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./courses/courses-CAF.html">
+    <a class="dropdown-item" href="../../courses/courses-CAF.html">
  <span class="dropdown-text">Choice and Forecasting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./courses/courses-Essex.html">
+    <a class="dropdown-item" href="../../courses/courses-Essex.html">
  <span class="dropdown-text">Panel Data</span></a>
   </li>  
     </ul>
@@ -216,19 +213,19 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="./slides/slides-DADM.html">
+    <a class="dropdown-item" href="../../slides/slides-DADM.html">
  <span class="dropdown-text">DADM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./slides/slides-CWD.html">
+    <a class="dropdown-item" href="../../slides/slides-CWD.html">
  <span class="dropdown-text">CWD</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./slides/slides-Essex.html">
+    <a class="dropdown-item" href="../../slides/slides-Essex.html">
  <span class="dropdown-text">Essex</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./slides/slides-CMF.html">
+    <a class="dropdown-item" href="../../slides/slides-CMF.html">
  <span class="dropdown-text">CMF</span></a>
   </li>  
     </ul>
@@ -260,7 +257,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><br></h1>
+<h1 class="title">Cleaning my Inbox with Gemini</h1>
 </div>
 
 
@@ -268,6 +265,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 24, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -284,330 +287,196 @@ window.Quarto = {
 </p>
 </h1>
 <p></p></marquee><p></p>
-<h2 class="anchored">
-<a href="http://robertwwalker.work/" target="_blank">A link to <i class="fa-brands fa-r-project" aria-label="r-project"></i>obert’s academic website</a>
-</h2>
+<section id="my-inbox-is-a-problem" class="level1">
+<h1>My Inbox is a Problem</h1>
+<p>It was time to ask Gemini to help me out. With university email supported by Google, Gemini seemed like an ideal tool.</p>
+<p>Dealing with an inbox full of unsolicited pitches and marketing emails is incredibly frustrating. Building a script or a simple automated “agent” is a highly effective way to reclaim your time and keep your primary inbox clean.</p>
+<p>Since the best approach depends on your email provider, this guide walks you through the most popular and reliable method for Gmail (using Google Apps Script). If you use Outlook or another provider, this can be adapted to a Python or native rules approach.</p>
+<section id="the-serverless-agent-google-apps-script-for-gmail" class="level2">
+<h2 class="anchored" data-anchor-id="the-serverless-agent-google-apps-script-for-gmail">The “Serverless Agent”: Google Apps Script (For Gmail)</h2>
+<p>If you use Gmail, you can create a lightweight, automated agent using Google Apps Script. It runs entirely in the cloud (no need to keep your computer on) and can scan your inbox periodically for specific keywords, automatically moving those emails to a dedicated folder.</p>
+<p>Here is how to set it up:</p>
+<section id="step-1-open-google-apps-script" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-open-google-apps-script">Step 1: Open Google Apps Script</h3>
+<ol type="1">
+<li>Go to <a href="https://script.google.com/">script.google.com</a>.</li>
+<li>Click <strong>New Project</strong>.</li>
+</ol>
+</section>
+<section id="step-2-paste-the-script" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-paste-the-script">Step 2: Paste the Script</h3>
+<p>Replace the default code with this simple filtering agent:</p>
+<pre><code>Suggesting javascript
+function filterSolicitations() {
+  // 1. Define your search parameters. 
+  // This looks for common marketing and cold-pitch keywords currently in your inbox.
+  var searchQuery = 'in:inbox ("unsubscribe" OR "opt out" OR "special offer" OR "quick question" OR "synergies")';
+  
+  // 2. Find matching email threads.
+  var threads = GmailApp.search(searchQuery);
+  
+  // 3. Define the folder (label) where these should go.
+  var labelName = "Solicitations";
+  var label = GmailApp.getUserLabelByName(labelName);
+  
+  // Create the label if it doesn't exist yet.
+  if (!label) {
+    label = GmailApp.createLabel(labelName);
+  }
+  
+  // 4. Move the emails out of the inbox and apply the label.
+  if (threads.length &gt; 0) {
+    for (var i = 0; i &lt; threads.length; i++) {
+      threads[i].addLabel(label);
+      threads[i].moveToArchive(); // Removes it from the Inbox
+    }
+    Logger.log("Moved " + threads.length + " solicitations.");
+  } else {
+    Logger.log("No new solicitations found.");
+  }
+}</code></pre>
+<p>The problem with this approach is that some of these are actually lists and things that I want to keep and not filter in this way. A far better approach is to clean it based on a notion of periodicity.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Prompt:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instead, I want to build a search agent for email to show me those sending periodic solicitations so that I may filter them to a separate folder</p>
+</div>
+</div>
+<p>That is a very smart pivot. Instead of blindly moving emails and risking a false positive (like moving a legitimate newsletter you actually <em>want</em> to read), building an “audit agent” allows you to identify the repeat offenders. Once you know who is spamming you, you can confidently create permanent filters.</p>
+<p>Here is an updated Google Apps Script. Instead of moving emails, this agent acts like an assistant: it scans your inbox for solicitation keywords, tallies up how many times each sender has emailed you, and then <strong>emails you a report</strong> of anyone who has sent multiple messages.</p>
+</section>
+</section>
+<section id="the-audit-agent-google-apps-script" class="level2">
+<h2 class="anchored" data-anchor-id="the-audit-agent-google-apps-script">The Audit Agent: Google Apps Script</h2>
+<p>This script will compile a list of frequent senders and deliver a neat digest straight to you.</p>
+<section id="step-1-open-google-apps-script-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-open-google-apps-script-1">Step 1: Open Google Apps Script</h3>
+<ol type="1">
+<li>Go to <a href="https://script.google.com/">script.google.com</a>.</li>
+<li>Click <strong>New Project</strong>.</li>
+</ol>
+</section>
+<section id="step-2-paste-the-audit-script" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-paste-the-audit-script">Step 2: Paste the Audit Script</h3>
+<p>Replace the default code with this reporting agent:</p>
+<pre><code>function reportFrequentSolicitors() {
+  // 1. Define the search query for common pitch/marketing language in the Inbox
+  var searchQuery = 'in:inbox ("unsubscribe" OR "opt out" OR "special offer" OR "quick question" OR "synergies")';
+  
+  // Grab up to the last 100 threads matching this query
+  var threads = GmailApp.search(searchQuery, 0, 100); 
+  var senderCounts = {};
+  
+  // 2. Iterate through the threads and tally up the senders
+  for (var i = 0; i &lt; threads.length; i++) {
+    var messages = threads[i].getMessages();
+    var sender = messages[0].getFrom(); // Gets the sender of the first email in the thread
+    
+    if (senderCounts[sender]) {
+      senderCounts[sender]++;
+    } else {
+      senderCounts[sender] = 1;
+    }
+  }
+  
+  // 3. Filter for periodic senders (more than 1 email)
+  var reportRows = [];
+  for (var sender in senderCounts) {
+    if (senderCounts[sender] &gt; 1) {
+      reportRows.push({
+        count: senderCounts[sender],
+        address: sender
+      });
+    }
+  }
+  
+  // 4. Sort and format the report, then email it to yourself
+  if (reportRows.length &gt; 0) {
+    // Sort descending by highest email volume
+    reportRows.sort(function(a, b) { return b.count - a.count; });
+    
+    var emailBody = "Hello,\n\nYour Email Audit Agent found the following frequent solicitors currently sitting in your inbox:\n\n";
+    
+    for (var j = 0; j &lt; reportRows.length; j++) {
+      emailBody += "- " + reportRows[j].count + " emails from: " + reportRows[j].address + "\n";
+    }
+    
+    emailBody += "\nYou can now copy these addresses and create manual filters for them in your Gmail settings.\n";
+    
+    // Send the digest to your own email address
+    var myEmail = Session.getActiveUser().getEmail();
+    GmailApp.sendEmail(myEmail, "📊 Frequent Solicitors Report", emailBody);
+    
+    Logger.log("Audit report sent to " + myEmail);
+  } else {
+    Logger.log("No periodic solicitors found to report.");
+  }
+}</code></pre>
+<p>One thing that I have learned is that I always end up doing things in R if a simple out of the box in another language doesn’t suffice. I decided to try this in <code>gmailr</code>. I will save that for another post.</p>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>How’s that done?</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">file=</span><span class="st">"bibliography.bib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1771920000000" data-listing-file-modified-sort="1772041618187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1040">
-<a href="./posts/Inbox-Cleaning/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Inbox-Cleaning/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Cleaning my Inbox with Gemini
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" title="R" aria-label="r-project"></i>obertwwalker.github.io <br>
-
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-geofacet" class="csl-entry" role="listitem">
+Hafen, Ryan. 2020. <em>Geofacet: Ggplot2 Faceting Utilities for Geographical Data</em>. <a href="https://github.com/hafen/geofacet">https://github.com/hafen/geofacet</a>.
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
+<div id="ref-R-tibble" class="csl-entry" role="listitem">
+Müller, Kirill, and Hadley Wickham. 2022. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
 </div>
-<div class="listing-date">
-Feb 24, 2026
+<div id="ref-ggplot22016" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
+<div id="ref-R-stringr" class="csl-entry" role="listitem">
+———. 2022a. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
 </div>
+<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
+———. 2022b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
 </div>
-</div></a>
+<div id="ref-R-forcats" class="csl-entry" role="listitem">
+———. 2023. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1709539200000" data-listing-file-modified-sort="1771996042400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="223">
-<a href="./posts/Trump-Dissent/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Trump-Dissent/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-A Dissent in the Trump 14th Amendment Case?
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
+<div id="ref-tidyverse2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
 </div>
-<div class="listing-date">
-Mar 4, 2024
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
+<div id="ref-R-purrr" class="csl-entry" role="listitem">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
 </div>
+<div id="ref-R-readr" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2022. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
 </div>
-</div></a>
+<div id="ref-R-haven" class="csl-entry" role="listitem">
+Wickham, Hadley, Evan Miller, and Danny Smith. 2022. <em>Haven: Import and Export SPSS, Stata and SAS Files</em>. <a href="https://CRAN.R-project.org/package=haven">https://CRAN.R-project.org/package=haven</a>.
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1699776000000" data-listing-file-modified-sort="1771996042397" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
-<a href="./posts/Rstudio-Github/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Rstudio-Github/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Connecting RStudio and Github
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
+<div id="ref-R-tidyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
-</div>
-<div class="listing-date">
-Nov 12, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1698390000000" data-listing-file-modified-sort="1771996042904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5050">
-<a href="./posts/shinylive/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/shinylive/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-shinylive
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Oct 27, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1698044400000" data-listing-file-modified-sort="1771996042404" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384">
-<a href="./posts/UpdatingR/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/UpdatingR/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Updating R and R Packages
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Oct 23, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1679036400000" data-listing-file-modified-sort="1771996042398" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4227">
-<a href="./posts/Transparency-Shiny/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Transparency-Shiny/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-A Shiny on Corruption Data
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
-</div>
-<div class="listing-date">
-Mar 17, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1677830400000" data-listing-file-modified-sort="1771996042379" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1052">
-<a href="./posts/Docker-Shiny/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Docker-Shiny/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Docker and Shiny
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
-</div>
-<div class="listing-date">
-Mar 3, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1677398400000" data-listing-file-modified-sort="1771996042410" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="60">
-<a href="./posts/parameterized-markdown/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/parameterized-markdown/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Parameterizing Markdown
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
-</div>
-<div class="listing-date">
-Feb 26, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="8" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1771996042392" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1270">
-<a href="./posts/InteractiveVisualization/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/InteractiveVisualization/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Interactive Visualizations
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Robert W. Walker
-</div>
-<div class="listing-date">
-Feb 20, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="9" data-listing-date-sort="1676275200000" data-listing-file-modified-sort="1771996042385" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="806">
-<a href="./posts/HumanRightsTable/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/HumanRightsTable/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Human Rights Protections–Tables
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Feb 13, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="10" data-listing-date-sort="1672732800000" data-listing-file-modified-sort="1771996042393" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="409">
-<a href="./posts/Pigeons-Pallettes/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/Pigeons-Pallettes/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Pigeons and Palettes
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jan 3, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="11" data-listing-date-sort="1672646400000" data-listing-file-modified-sort="1771996042377" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="513">
-<a href="./posts/A Data Visualization/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/A Data Visualization/image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-geoFacets of Credit Quality
-</h5>
-<div class="card-text listing-description delink">
-
-<i class="fa-brands fa-r-project" aria-label="r-project"></i>obertwwalker.github.io <br>
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jan 2, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1008,6 +877,35 @@ Jan 2, 2023
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "robertwwalker/robertwwalker.github.io";
+    script.dataset.repoId = "R_kgDOI3tndg";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOI3tnds4CUImk";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

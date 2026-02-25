@@ -1,0 +1,156 @@
+---
+title: Cleaning my Inbox with Gemini
+date: 2026-02-24
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+title-block-banner: false 
+image: "image.png"
+comments:
+   giscus: 
+      repo: robertwwalker/robertwwalker.github.io
+---
+
+<marquee scrollamount="10"><h1><p style="color:purple;">{{< fa brands r-project  title="R">}}obertwwalker.github.io <br></p></h1></marquee>
+
+# My Inbox is a Problem
+
+It was time to ask Gemini to help me out.  With university email supported by Google, Gemini seemed like an ideal tool.
+
+
+Dealing with an inbox full of unsolicited pitches and marketing emails is incredibly frustrating. Building a script or a simple automated "agent" is a highly effective way to reclaim your time and keep your primary inbox clean.
+
+Since the best approach depends on your email provider, this guide walks you through the most popular and reliable method for Gmail (using Google Apps Script). If you use Outlook or another provider, this can be adapted to a Python or native rules approach.
+
+## The "Serverless Agent": Google Apps Script (For Gmail)
+
+If you use Gmail, you can create a lightweight, automated agent using Google Apps Script. It runs entirely in the cloud (no need to keep your computer on) and can scan your inbox periodically for specific keywords, automatically moving those emails to a dedicated folder.
+
+Here is how to set it up:
+
+### Step 1: Open Google Apps Script
+1. Go to [script.google.com](https://script.google.com/).
+2. Click **New Project**.
+
+### Step 2: Paste the Script
+Replace the default code with this simple filtering agent:
+
+```
+Suggesting javascript
+function filterSolicitations() {
+  // 1. Define your search parameters. 
+  // This looks for common marketing and cold-pitch keywords currently in your inbox.
+  var searchQuery = 'in:inbox ("unsubscribe" OR "opt out" OR "special offer" OR "quick question" OR "synergies")';
+  
+  // 2. Find matching email threads.
+  var threads = GmailApp.search(searchQuery);
+  
+  // 3. Define the folder (label) where these should go.
+  var labelName = "Solicitations";
+  var label = GmailApp.getUserLabelByName(labelName);
+  
+  // Create the label if it doesn't exist yet.
+  if (!label) {
+    label = GmailApp.createLabel(labelName);
+  }
+  
+  // 4. Move the emails out of the inbox and apply the label.
+  if (threads.length > 0) {
+    for (var i = 0; i < threads.length; i++) {
+      threads[i].addLabel(label);
+      threads[i].moveToArchive(); // Removes it from the Inbox
+    }
+    Logger.log("Moved " + threads.length + " solicitations.");
+  } else {
+    Logger.log("No new solicitations found.");
+  }
+}
+```
+
+The problem with this approach is that some of these are actually lists and things that I want to keep and not filter in this way.  A far better approach is to clean it based on a notion of periodicity.
+
+:::{.callout-tip}
+## Prompt: 
+
+Instead, I want to build a search agent for email to show me those sending periodic solicitations so that I may filter them to a separate folder
+:::
+
+That is a very smart pivot. Instead of blindly moving emails and risking a false positive (like moving a legitimate newsletter you actually *want* to read), building an "audit agent" allows you to identify the repeat offenders. Once you know who is spamming you, you can confidently create permanent filters.
+
+Here is an updated Google Apps Script. Instead of moving emails, this agent acts like an assistant: it scans your inbox for solicitation keywords, tallies up how many times each sender has emailed you, and then **emails you a report** of anyone who has sent multiple messages. 
+
+## The Audit Agent: Google Apps Script
+
+This script will compile a list of frequent senders and deliver a neat digest straight to you.
+
+### Step 1: Open Google Apps Script
+1. Go to [script.google.com](https://script.google.com/).
+2. Click **New Project**.
+
+### Step 2: Paste the Audit Script
+Replace the default code with this reporting agent:
+
+```
+function reportFrequentSolicitors() {
+  // 1. Define the search query for common pitch/marketing language in the Inbox
+  var searchQuery = 'in:inbox ("unsubscribe" OR "opt out" OR "special offer" OR "quick question" OR "synergies")';
+  
+  // Grab up to the last 100 threads matching this query
+  var threads = GmailApp.search(searchQuery, 0, 100); 
+  var senderCounts = {};
+  
+  // 2. Iterate through the threads and tally up the senders
+  for (var i = 0; i < threads.length; i++) {
+    var messages = threads[i].getMessages();
+    var sender = messages[0].getFrom(); // Gets the sender of the first email in the thread
+    
+    if (senderCounts[sender]) {
+      senderCounts[sender]++;
+    } else {
+      senderCounts[sender] = 1;
+    }
+  }
+  
+  // 3. Filter for periodic senders (more than 1 email)
+  var reportRows = [];
+  for (var sender in senderCounts) {
+    if (senderCounts[sender] > 1) {
+      reportRows.push({
+        count: senderCounts[sender],
+        address: sender
+      });
+    }
+  }
+  
+  // 4. Sort and format the report, then email it to yourself
+  if (reportRows.length > 0) {
+    // Sort descending by highest email volume
+    reportRows.sort(function(a, b) { return b.count - a.count; });
+    
+    var emailBody = "Hello,\n\nYour Email Audit Agent found the following frequent solicitors currently sitting in your inbox:\n\n";
+    
+    for (var j = 0; j < reportRows.length; j++) {
+      emailBody += "- " + reportRows[j].count + " emails from: " + reportRows[j].address + "\n";
+    }
+    
+    emailBody += "\nYou can now copy these addresses and create manual filters for them in your Gmail settings.\n";
+    
+    // Send the digest to your own email address
+    var myEmail = Session.getActiveUser().getEmail();
+    GmailApp.sendEmail(myEmail, "📊 Frequent Solicitors Report", emailBody);
+    
+    Logger.log("Audit report sent to " + myEmail);
+  } else {
+    Logger.log("No periodic solicitors found to report.");
+  }
+}
+```
+
+One thing that I have learned is that I always end up doing things in R if a simple out of the box in another language doesn't suffice.  I decided to try this in `gmailr`.  I will save that for another post.
+
+# References
+
+```{r}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
+
