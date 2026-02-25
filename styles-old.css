@@ -1,49 +1,10 @@
 /* css styles */
 
-/* 1. Subdirectory Title & Links */
-.listing-title {
-  color: #AF98E6 !important; /* Soft Lavender */
-  font-weight: 700;
-}
-
-.listing-title:hover {
-  color: #DA99E6 !important; /* Shifts to Orchid on hover */
-}
-
-/* 2. Grid Card Customization */
-.quarto-grid-item {
-  background-color: #fdfdfd; 
-  border: 2px solid #E5DD97 !important; /* Champagne Gold border */
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
-
-.quarto-grid-item:hover {
-  border-color: #9CA6E3 !important; /* Periwinkle border on hover */
-  background-color: #f9f7ff;
-  transform: scale(1.02);
-}
-
-/* 3. Category Badges (The Rose Pink) */
-.listing-categories .listing-category {
-  background-color: #DD92C5 !important;
-  color: white !important;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 4px 12px;
-}
-
-/* 4. Reading Time or Metadata */
-.listing-reading-time, .metadata {
-  color: #9CA6E3;
-  font-style: italic;
-}
-
 body, html {
   /* The image used */
   background-image: url("banner.jpeg");
-  background-color: #d5e0ed;
-/*  background-color: #e5dd97; */
+/*  background-color: #d5e0ed; */
+  background-color: #e5dd97;
 
 
   /* Full height */
@@ -120,10 +81,6 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Inconsolata:wght@0,100
 
   /* Scale the background image to be as large as possible */
   background-size: cover;
-}
-
-.quarto-grid-item:hover {
-  box-shadow: 0 0 15px rgba(175, 152, 230, 0.4); /* Glow using #AF98E6 */
 }
 
 /*-- scss:rules --*/

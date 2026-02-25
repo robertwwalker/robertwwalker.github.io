@@ -42,32 +42,39 @@
     "text": "Footnotes\n\n\nDanielle Navarro has an excellent guide for data science folks trying to navigate the fediverse.↩︎"
   },
   {
-    "objectID": "courses/courses-DADM.html",
-    "href": "courses/courses-DADM.html",
-    "title": "Courses: Data Analysis, Modeling, and Decision-Making",
-    "section": "",
-    "text": "obertwwalker.github.io \n\n\n\nDADM 622/5103 is the core/required statistics and data course in the Atkinson Graduate School of Management. While most of the materials are available via the learning management system, I am increasingly migrating to something I have more control over because learning management systems change.\n\nThe Fall 2025 Professionals in Salem website\nThe Fall 2025 Professionals in Portland website\nThere is a set of occasionally and frequently asked questions for this course.\n\n\n\n\nThe slides for Spring 2023"
+    "objectID": "courses/courses-CAF.html#models-of-choice-and-forecasting",
+    "href": "courses/courses-CAF.html#models-of-choice-and-forecasting",
+    "title": "Courses: Choice and Forecasting",
+    "section": "Models of Choice and Forecasting",
+    "text": "Models of Choice and Forecasting\n\nThere is a website for the course."
   },
   {
-    "objectID": "courses/courses-CWD.html#communicating-with-data",
-    "href": "courses/courses-CWD.html#communicating-with-data",
-    "title": "Courses: Communicating With Data",
-    "section": "Communicating With Data",
-    "text": "Communicating With Data\nCommunicating with Data is a cross-listed course in the graduate school of Management and the Data Science program. In the course, we explore communication tools, e.g. tables and interactive tables, figures and interactive figures, shiny apps, websites, parameterized markdown, and, quite generically, the provision of tools for end users of data science tooling for insights.\n\nThere is a course website.\n\n\n\n\nThe slides for Spring 2023"
+    "objectID": "courses/courses-Essex.html#panel-data-at-essex",
+    "href": "courses/courses-Essex.html#panel-data-at-essex",
+    "title": "Courses: Panel Data at Essex",
+    "section": "Panel Data at Essex",
+    "text": "Panel Data at Essex\n\nThere is a course website."
   },
   {
-    "objectID": "slides/slides-DADM.html",
-    "href": "slides/slides-DADM.html",
-    "title": "Slides: Data Analysis, Modelling, and Decision-Making",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\nSlides for DADM 622/5103"
+    "text": "obertwwalker.github.io \n\n\n\n\nRobert W. Walker, Ph. D.\n\n\n\n\n\nRobert W. Walker is an Associate Professor of Quantitative Methods in the Atkinson Graduate School of Management at Willamette University\nHe earned a Ph. D. in political science from the University of Rochester in 2005 and has previously held teaching positions at Dartmouth College, Rice University, Texas A&M University, and Washington University in Saint Louis. His current research develops and applies semi-Markov processes to time-series, cross-section data in international relations and international/comparative political economy. He teaches courses in quantitative methods/applied statistics and microeconomic strategy and previously taught four iterations in the U. S. National Science Foundation funded Empirical Implications of Theoretical Models sequence at Washington University in Saint Louis. His work with Curt Signorino and Muhammet Bas was awarded the Miller Prize for the best article in Political Analysis in 2009.\nHis web presence is robertwwalker.work and his github is https://github.com/robertwwalker. He is on sabbatical leave for the 2023-24 academic year.\n\n\nRobert’s Erdos-Bacon Number is 8.\n\n\n\n\n\nErdos Table\n\n\n\n\n\n\n\nBacon Table"
   },
   {
-    "objectID": "slides/slides-CWD.html",
-    "href": "slides/slides-CWD.html",
-    "title": "Slides: Communicating with Data",
+    "objectID": "slides/slides-Essex.html",
+    "href": "slides/slides-Essex.html",
+    "title": "Panel Data Slides",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\nSlides for Communicating with Data"
+    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nPanel Data Slides"
+  },
+  {
+    "objectID": "slides/slides-CMF.html",
+    "href": "slides/slides-CMF.html",
+    "title": "Models of Choice and Forecasting Slides",
+    "section": "",
+    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nModels of Choice and Forecasting Slides"
   },
   {
     "objectID": "index.html",
@@ -222,6 +229,20 @@
     "title": "Docker and Shiny",
     "section": "One that Uses .Rmd FlexDashboard",
     "text": "One that Uses .Rmd FlexDashboard\nDeploying this container is tricky because of the overall size of the project. I have to limit the number of instances and kick up the amount of usable RAM to make it work. The margins of this page do not render this super well. It is better seen at the host site for that repository."
+  },
+  {
+    "objectID": "posts/Inbox-Cleaning/index.html#the-serverless-agent-google-apps-script-for-gmail",
+    "href": "posts/Inbox-Cleaning/index.html#the-serverless-agent-google-apps-script-for-gmail",
+    "title": "Cleaning my Inbox with Gemini",
+    "section": "The “Serverless Agent”: Google Apps Script (For Gmail)",
+    "text": "The “Serverless Agent”: Google Apps Script (For Gmail)\nIf you use Gmail, you can create a lightweight, automated agent using Google Apps Script. It runs entirely in the cloud (no need to keep your computer on) and can scan your inbox periodically for specific keywords, automatically moving those emails to a dedicated folder.\nHere is how to set it up:\n\nStep 1: Open Google Apps Script\n\nGo to script.google.com.\nClick New Project.\n\n\n\nStep 2: Paste the Script\nReplace the default code with this simple filtering agent:\nSuggesting javascript\nfunction filterSolicitations() {\n  // 1. Define your search parameters. \n  // This looks for common marketing and cold-pitch keywords currently in your inbox.\n  var searchQuery = 'in:inbox (\"unsubscribe\" OR \"opt out\" OR \"special offer\" OR \"quick question\" OR \"synergies\")';\n  \n  // 2. Find matching email threads.\n  var threads = GmailApp.search(searchQuery);\n  \n  // 3. Define the folder (label) where these should go.\n  var labelName = \"Solicitations\";\n  var label = GmailApp.getUserLabelByName(labelName);\n  \n  // Create the label if it doesn't exist yet.\n  if (!label) {\n    label = GmailApp.createLabel(labelName);\n  }\n  \n  // 4. Move the emails out of the inbox and apply the label.\n  if (threads.length &gt; 0) {\n    for (var i = 0; i &lt; threads.length; i++) {\n      threads[i].addLabel(label);\n      threads[i].moveToArchive(); // Removes it from the Inbox\n    }\n    Logger.log(\"Moved \" + threads.length + \" solicitations.\");\n  } else {\n    Logger.log(\"No new solicitations found.\");\n  }\n}\nThe problem with this approach is that some of these are actually lists and things that I want to keep and not filter in this way. A far better approach is to clean it based on a notion of periodicity.\n\n\n\n\n\n\nTipPrompt:\n\n\n\nInstead, I want to build a search agent for email to show me those sending periodic solicitations so that I may filter them to a separate folder\n\n\nThat is a very smart pivot. Instead of blindly moving emails and risking a false positive (like moving a legitimate newsletter you actually want to read), building an “audit agent” allows you to identify the repeat offenders. Once you know who is spamming you, you can confidently create permanent filters.\nHere is an updated Google Apps Script. Instead of moving emails, this agent acts like an assistant: it scans your inbox for solicitation keywords, tallies up how many times each sender has emailed you, and then emails you a report of anyone who has sent multiple messages."
+  },
+  {
+    "objectID": "posts/Inbox-Cleaning/index.html#the-audit-agent-google-apps-script",
+    "href": "posts/Inbox-Cleaning/index.html#the-audit-agent-google-apps-script",
+    "title": "Cleaning my Inbox with Gemini",
+    "section": "The Audit Agent: Google Apps Script",
+    "text": "The Audit Agent: Google Apps Script\nThis script will compile a list of frequent senders and deliver a neat digest straight to you.\n\nStep 1: Open Google Apps Script\n\nGo to script.google.com.\nClick New Project.\n\n\n\nStep 2: Paste the Audit Script\nReplace the default code with this reporting agent:\nfunction reportFrequentSolicitors() {\n  // 1. Define the search query for common pitch/marketing language in the Inbox\n  var searchQuery = 'in:inbox (\"unsubscribe\" OR \"opt out\" OR \"special offer\" OR \"quick question\" OR \"synergies\")';\n  \n  // Grab up to the last 100 threads matching this query\n  var threads = GmailApp.search(searchQuery, 0, 100); \n  var senderCounts = {};\n  \n  // 2. Iterate through the threads and tally up the senders\n  for (var i = 0; i &lt; threads.length; i++) {\n    var messages = threads[i].getMessages();\n    var sender = messages[0].getFrom(); // Gets the sender of the first email in the thread\n    \n    if (senderCounts[sender]) {\n      senderCounts[sender]++;\n    } else {\n      senderCounts[sender] = 1;\n    }\n  }\n  \n  // 3. Filter for periodic senders (more than 1 email)\n  var reportRows = [];\n  for (var sender in senderCounts) {\n    if (senderCounts[sender] &gt; 1) {\n      reportRows.push({\n        count: senderCounts[sender],\n        address: sender\n      });\n    }\n  }\n  \n  // 4. Sort and format the report, then email it to yourself\n  if (reportRows.length &gt; 0) {\n    // Sort descending by highest email volume\n    reportRows.sort(function(a, b) { return b.count - a.count; });\n    \n    var emailBody = \"Hello,\\n\\nYour Email Audit Agent found the following frequent solicitors currently sitting in your inbox:\\n\\n\";\n    \n    for (var j = 0; j &lt; reportRows.length; j++) {\n      emailBody += \"- \" + reportRows[j].count + \" emails from: \" + reportRows[j].address + \"\\n\";\n    }\n    \n    emailBody += \"\\nYou can now copy these addresses and create manual filters for them in your Gmail settings.\\n\";\n    \n    // Send the digest to your own email address\n    var myEmail = Session.getActiveUser().getEmail();\n    GmailApp.sendEmail(myEmail, \"📊 Frequent Solicitors Report\", emailBody);\n    \n    Logger.log(\"Audit report sent to \" + myEmail);\n  } else {\n    Logger.log(\"No periodic solicitors found to report.\");\n  }\n}\nOne thing that I have learned is that I always end up doing things in R if a simple out of the box in another language doesn’t suffice. I decided to try this in gmailr. I will save that for another post."
   },
   {
     "objectID": "where.html",
@@ -455,53 +476,39 @@
     "text": "Connecting RStudio and Github\nThere are a number of useful references for doing this. I merely document this here for my own reference as the process of updating OS’s and moving drives has necessitated that I do this a few times over the last few days. Here are the steps.\nThe key thing is a personal access token (PAT). You can use keys and such, though this way is the easiest. We will generate the PAT via Github and then make the system aware of it. Here is the process; the first step can be done in either of two ways. Before starting, there are two packages we may need. We also need to have git installed and RStudio needs to know our Github account in the abstract.\n# install the necessary packages\ninstall.packages(c(\"usethis\",\"credentials\"))\n# Let our R session know about our github account\nusethis::use_git_config(user.name = \"YourName\", user.email = \"your@mail.com\")\n\nGenerate the PAT using\n\neither usethis::create_github_token()\nor on the Github website, Settings &gt; Developer Settings &gt; Personal Access Tokens and clicking Generate new token\n\n\n\n\nGithub PAT\n\n\n\nIn either case, this will create a token that can allow RStudio and Github to communicate. In either case, a collection of letters and numbers will emerge and it should be copied to the clipboard.\n\nWe now need to make RStudio aware of the token.\n\ncredentials::set_github_pat(\"YourPAT\")\nTo make future R sessions aware of the token, we need to make it a part of our environment.\nusethis::edit_r_environ()\nwill need a line [without quotes or whatever]\nGITHUB_PAT=YourPAT\nNext time R starts, this linkage to Github is known. Or should be.\n\n\nHow’s that done?\nknitr::write_bib(names(sessionInfo()$otherPkgs), file=\"bibliography.bib\")"
   },
   {
-    "objectID": "slides/slides-CMF.html",
-    "href": "slides/slides-CMF.html",
-    "title": "Models of Choice and Forecasting Slides",
+    "objectID": "slides/slides-BUS1301.html",
+    "href": "slides/slides-BUS1301.html",
+    "title": "BUS 1301 Slides",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nModels of Choice and Forecasting Slides"
+    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nSlides for BUS 1301"
   },
   {
-    "objectID": "slides/slides-Essex.html",
-    "href": "slides/slides-Essex.html",
-    "title": "Panel Data Slides",
+    "objectID": "slides/slides-CWD.html",
+    "href": "slides/slides-CWD.html",
+    "title": "Slides: Communicating with Data",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nPanel Data Slides"
+    "text": "obertwwalker.github.io \n\n\n\nSlides for Communicating with Data"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "slides/slides-DADM.html",
+    "href": "slides/slides-DADM.html",
+    "title": "Slides: Data Analysis, Modelling, and Decision-Making",
     "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nRobert W. Walker, Ph. D.\n\n\n\n\n\nRobert W. Walker is an Associate Professor of Quantitative Methods in the Atkinson Graduate School of Management at Willamette University\nHe earned a Ph. D. in political science from the University of Rochester in 2005 and has previously held teaching positions at Dartmouth College, Rice University, Texas A&M University, and Washington University in Saint Louis. His current research develops and applies semi-Markov processes to time-series, cross-section data in international relations and international/comparative political economy. He teaches courses in quantitative methods/applied statistics and microeconomic strategy and previously taught four iterations in the U. S. National Science Foundation funded Empirical Implications of Theoretical Models sequence at Washington University in Saint Louis. His work with Curt Signorino and Muhammet Bas was awarded the Miller Prize for the best article in Political Analysis in 2009.\nHis web presence is robertwwalker.work and his github is https://github.com/robertwwalker. He is on sabbatical leave for the 2023-24 academic year.\n\n\nRobert’s Erdos-Bacon Number is 8.\n\n\n\n\n\nErdos Table\n\n\n\n\n\n\n\nBacon Table"
+    "text": "obertwwalker.github.io \n\n\n\nSlides for DADM 622/5103"
   },
   {
-    "objectID": "courses/courses-Essex.html#panel-data-at-essex",
-    "href": "courses/courses-Essex.html#panel-data-at-essex",
-    "title": "Courses: Panel Data at Essex",
-    "section": "Panel Data at Essex",
-    "text": "Panel Data at Essex\n\nThere is a course website."
+    "objectID": "courses/courses-CWD.html#communicating-with-data",
+    "href": "courses/courses-CWD.html#communicating-with-data",
+    "title": "Courses: Communicating With Data",
+    "section": "Communicating With Data",
+    "text": "Communicating With Data\nCommunicating with Data is a cross-listed course in the graduate school of Management and the Data Science program. In the course, we explore communication tools, e.g. tables and interactive tables, figures and interactive figures, shiny apps, websites, parameterized markdown, and, quite generically, the provision of tools for end users of data science tooling for insights.\n\nThere is a course website.\n\n\n\n\nThe slides for Spring 2023"
   },
   {
-    "objectID": "courses/courses-CAF.html#models-of-choice-and-forecasting",
-    "href": "courses/courses-CAF.html#models-of-choice-and-forecasting",
-    "title": "Courses: Choice and Forecasting",
-    "section": "Models of Choice and Forecasting",
-    "text": "Models of Choice and Forecasting\n\nThere is a website for the course."
-  },
-  {
-    "objectID": "posts/Inbox-Cleaning/index.html#the-serverless-agent-google-apps-script-for-gmail",
-    "href": "posts/Inbox-Cleaning/index.html#the-serverless-agent-google-apps-script-for-gmail",
-    "title": "Cleaning my Inbox with Gemini",
-    "section": "The “Serverless Agent”: Google Apps Script (For Gmail)",
-    "text": "The “Serverless Agent”: Google Apps Script (For Gmail)\nIf you use Gmail, you can create a lightweight, automated agent using Google Apps Script. It runs entirely in the cloud (no need to keep your computer on) and can scan your inbox periodically for specific keywords, automatically moving those emails to a dedicated folder.\nHere is how to set it up:\n\nStep 1: Open Google Apps Script\n\nGo to script.google.com.\nClick New Project.\n\n\n\nStep 2: Paste the Script\nReplace the default code with this simple filtering agent:\nSuggesting javascript\nfunction filterSolicitations() {\n  // 1. Define your search parameters. \n  // This looks for common marketing and cold-pitch keywords currently in your inbox.\n  var searchQuery = 'in:inbox (\"unsubscribe\" OR \"opt out\" OR \"special offer\" OR \"quick question\" OR \"synergies\")';\n  \n  // 2. Find matching email threads.\n  var threads = GmailApp.search(searchQuery);\n  \n  // 3. Define the folder (label) where these should go.\n  var labelName = \"Solicitations\";\n  var label = GmailApp.getUserLabelByName(labelName);\n  \n  // Create the label if it doesn't exist yet.\n  if (!label) {\n    label = GmailApp.createLabel(labelName);\n  }\n  \n  // 4. Move the emails out of the inbox and apply the label.\n  if (threads.length &gt; 0) {\n    for (var i = 0; i &lt; threads.length; i++) {\n      threads[i].addLabel(label);\n      threads[i].moveToArchive(); // Removes it from the Inbox\n    }\n    Logger.log(\"Moved \" + threads.length + \" solicitations.\");\n  } else {\n    Logger.log(\"No new solicitations found.\");\n  }\n}\nThe problem with this approach is that some of these are actually lists and things that I want to keep and not filter in this way. A far better approach is to clean it based on a notion of periodicity.\n\n\n\n\n\n\nTipPrompt:\n\n\n\nInstead, I want to build a search agent for email to show me those sending periodic solicitations so that I may filter them to a separate folder\n\n\nThat is a very smart pivot. Instead of blindly moving emails and risking a false positive (like moving a legitimate newsletter you actually want to read), building an “audit agent” allows you to identify the repeat offenders. Once you know who is spamming you, you can confidently create permanent filters.\nHere is an updated Google Apps Script. Instead of moving emails, this agent acts like an assistant: it scans your inbox for solicitation keywords, tallies up how many times each sender has emailed you, and then emails you a report of anyone who has sent multiple messages."
-  },
-  {
-    "objectID": "posts/Inbox-Cleaning/index.html#the-audit-agent-google-apps-script",
-    "href": "posts/Inbox-Cleaning/index.html#the-audit-agent-google-apps-script",
-    "title": "Cleaning my Inbox with Gemini",
-    "section": "The Audit Agent: Google Apps Script",
-    "text": "The Audit Agent: Google Apps Script\nThis script will compile a list of frequent senders and deliver a neat digest straight to you.\n\nStep 1: Open Google Apps Script\n\nGo to script.google.com.\nClick New Project.\n\n\n\nStep 2: Paste the Audit Script\nReplace the default code with this reporting agent:\nfunction reportFrequentSolicitors() {\n  // 1. Define the search query for common pitch/marketing language in the Inbox\n  var searchQuery = 'in:inbox (\"unsubscribe\" OR \"opt out\" OR \"special offer\" OR \"quick question\" OR \"synergies\")';\n  \n  // Grab up to the last 100 threads matching this query\n  var threads = GmailApp.search(searchQuery, 0, 100); \n  var senderCounts = {};\n  \n  // 2. Iterate through the threads and tally up the senders\n  for (var i = 0; i &lt; threads.length; i++) {\n    var messages = threads[i].getMessages();\n    var sender = messages[0].getFrom(); // Gets the sender of the first email in the thread\n    \n    if (senderCounts[sender]) {\n      senderCounts[sender]++;\n    } else {\n      senderCounts[sender] = 1;\n    }\n  }\n  \n  // 3. Filter for periodic senders (more than 1 email)\n  var reportRows = [];\n  for (var sender in senderCounts) {\n    if (senderCounts[sender] &gt; 1) {\n      reportRows.push({\n        count: senderCounts[sender],\n        address: sender\n      });\n    }\n  }\n  \n  // 4. Sort and format the report, then email it to yourself\n  if (reportRows.length &gt; 0) {\n    // Sort descending by highest email volume\n    reportRows.sort(function(a, b) { return b.count - a.count; });\n    \n    var emailBody = \"Hello,\\n\\nYour Email Audit Agent found the following frequent solicitors currently sitting in your inbox:\\n\\n\";\n    \n    for (var j = 0; j &lt; reportRows.length; j++) {\n      emailBody += \"- \" + reportRows[j].count + \" emails from: \" + reportRows[j].address + \"\\n\";\n    }\n    \n    emailBody += \"\\nYou can now copy these addresses and create manual filters for them in your Gmail settings.\\n\";\n    \n    // Send the digest to your own email address\n    var myEmail = Session.getActiveUser().getEmail();\n    GmailApp.sendEmail(myEmail, \"📊 Frequent Solicitors Report\", emailBody);\n    \n    Logger.log(\"Audit report sent to \" + myEmail);\n  } else {\n    Logger.log(\"No periodic solicitors found to report.\");\n  }\n}\nOne thing that I have learned is that I always end up doing things in R if a simple out of the box in another language doesn’t suffice. I decided to try this in gmailr. I will save that for another post."
+    "objectID": "courses/courses-DADM.html",
+    "href": "courses/courses-DADM.html",
+    "title": "Courses: Data Analysis, Modeling, and Decision-Making",
+    "section": "",
+    "text": "obertwwalker.github.io \n\n\n\nDADM 622/5103 is the core/required statistics and data course in the Atkinson Graduate School of Management. While most of the materials are available via the learning management system, I am increasingly migrating to something I have more control over because learning management systems change.\n\nThe Fall 2025 Professionals in Salem website\nThe Fall 2025 Professionals in Portland website\nThere is a set of occasionally and frequently asked questions for this course.\n\n\n\n\nThe slides for Spring 2023"
   },
   {
     "objectID": "courses/courses-BUS1301.html#bus-1301-managing-with-data-analytics-and-artificial-intelligence",
@@ -509,12 +516,5 @@
     "title": "Courses: BUS 1301 – Managing with Data, Analytics, and Artificial Intelligence",
     "section": "BUS 1301: Managing with Data, Analytics, and Artificial Intelligence",
     "text": "BUS 1301: Managing with Data, Analytics, and Artificial Intelligence\n\nThere is a course website."
-  },
-  {
-    "objectID": "slides/slides-BUS1301.html",
-    "href": "slides/slides-BUS1301.html",
-    "title": "BUS 1301 Slides",
-    "section": "",
-    "text": "obertwwalker.github.io \n\n\n\n\nSlides\n\nSlides for BUS 1301"
   }
 ]

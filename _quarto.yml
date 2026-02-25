@@ -51,6 +51,8 @@ website:
               href: slides/slides-Essex.qmd
             - text: CMF
               href: slides/slides-CMF.qmd
+            - text: "BUS 1301"
+              href: slides/slides-BUS1301.qmd
       - icon: github
         href: https://github.com/robertwwalker
       - icon: twitter
